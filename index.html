@@ -1,0 +1,429 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Checkboxes con contenido dinámico</title>
+    <style>
+        /* Oculta los divs de contenido por defecto */
+        .content {
+            display: none;
+            margin-top: 10px;
+            padding: 10px;
+            border: 1px solid #ccc;
+            background-color: rgba(79, 79, 79, 0.6);
+            color: white;
+            margin-left: 20px;
+        }
+        body {
+            background-color: black;
+            color: white; /* Para que el texto sea visible */
+        }
+        h2 {
+            margin-left: 0px !important;
+        }
+        input[type="checkbox"] {
+            width: 20px; /* Ajusta el ancho */
+            height: 20px; /* Ajusta la altura */
+        }
+        label {
+            font-size: 18px; /* Cambia el tamaño del texto */
+        }
+
+        .cronometro {
+            font-size: 3em;
+            font-weight: bold;
+            margin-top: 20px;
+        }
+
+        .botones button {
+            font-size: 18px;
+            padding: 10px 20px;
+            margin: 5px;
+            cursor: pointer;
+            border: none;
+            border-radius: 5px;
+        }
+
+        #toggle {
+            background-color: gray;
+            color: white;
+        }
+
+        #reset {
+            background-color: red;
+            color: white;
+            display: none; /* Solo se muestra si está detenido */
+        }
+
+
+        .checkbox-container label {
+            margin-left: 5px;
+        }
+
+        
+        /* Muestra el div correspondiente cuando el checkbox con su ID está marcado */
+        #checkAndroide:checked ~ #contentAndroide,
+        #checkHacker:checked ~ #contentHacker,
+        #checkCrononauta:checked ~ #contentCrononauta,
+        #checkClon:checked ~ #contentClon,
+        #checkEnlazador:checked ~ #contentEnlazador,
+        #checkAlien:checked ~ #contentAlien,
+        #checkAlienVigia:checked ~ #contentAlienVigia,
+        #checkAlienAlfa:checked ~ #contentAlienAlfa,
+        #checkAlienCiego:checked ~ #contentAlienCiego,
+        #checkAlienSuicida:checked ~ #contentAlienSuicida,
+        #checkHuevo:checked ~ #contentHuevo,
+        #checkNina:checked ~ #contentNina,
+        #checkLarva:checked ~ #contentLarva,
+        #checkCientifica:checked ~ #contentCientifica,
+        #checkHolograma:checked ~ #contentHolograma,
+        #checkAndroideX:checked ~ #contentAndroideX,
+        #checkAsesino:checked ~ #contentAsesino,
+        #checkAgente:checked ~ #contentAgente,
+        #checkRadiactivo:checked ~ #contentRadiactivo,
+        #checkVigia:checked ~ #contentVigia,
+        #checkMango:checked ~ #contentMango,
+        #checkIngeniero:checked ~ #contentIngeniero,
+        #checkLadron:checked ~ #contentLadron,
+        #checkTravieso:checked ~ #contentTravieso,
+        #checkQuimico:checked ~ #contentQuimico,
+        #checkRevelador:checked ~ #contentRevelador,
+        #checkViejo:checked ~ #contentViejo,
+        #checkIA:checked ~ #contentIA
+
+
+        {
+            display: block;
+        }
+
+
+        
+        
+    </style>
+</head>
+<body>
+    <h2>Instrucciones:</h2>
+
+    <div> aqui irian las instrucciones del juego.</div>
+
+    <h2>Roles:</h2>
+    
+
+    <input type="checkbox" id="checkAgente">
+    <label for="checkAgente">Agente</label>
+    <br>
+    <input type="checkbox" id="checkAlien">
+    <label for="checkAlien">Alien</label>
+    <br>
+    <input type="checkbox" id="checkAlienAlfa">
+    <label for="checkAlienAlfa">Alien Alfa</label>
+    <br>
+    <input type="checkbox" id="checkAlienCiego">
+    <label for="checkAlienCiego">Alien Ciego</label>
+    <br>
+    <input type="checkbox" id="checkAlienSuicida">
+    <label for="checkAlienSuicida">Alien Suicida</label>
+    <br>
+    <input type="checkbox" id="checkAlienVigia">
+    <label for="checkAlienVigia">Alien Vigía</label>
+    <br>
+    <input type="checkbox" id="checkAndroide">
+    <label for="checkAndroide">Androide</label>
+    <br>
+    <input type="checkbox" id="checkAndroideX">
+    <label for="checkAndroideX">Androide X</label>
+    <br>
+    <input type="checkbox" id="checkAsesino">
+    <label for="checkAsesino">Asesino</label>
+    <br>
+    <input type="checkbox" id="checkCazador">
+    <label for="checkCazador">Cazador</label>
+    <br>
+    <input type="checkbox" id="checkCientifica">
+    <label for="checkCientifica">Científica</label>
+    <br>
+    <input type="checkbox" id="checkClon">
+    <label for="checkClon">Clon</label>
+    <br>
+    <input type="checkbox" id="checkCrononauta">
+    <label for="checkCrononauta">Crononauta</label>
+    <br>
+    <input type="checkbox" id="checkEnlazador">
+    <label for="checkEnlazador">Enlazador</label>
+    <br>
+    <input type="checkbox" id="checkHacker">
+    <label for="checkHacker">Hacker</label>
+    <br>
+    <input type="checkbox" id="checkHolograma">
+    <label for="checkHolograma">Holograma</label>
+    <br>
+    <input type="checkbox" id="checkHuevo">
+    <label for="checkHuevo">Huevo</label>
+    <br>
+    <input type="checkbox" id="checkIA">
+    <label for="checkIA">IA</label>
+    <br>
+    <input type="checkbox" id="checkIngeniero">
+    <label for="checkIngeniero">Ingeniero</label>
+    <br>
+    <input type="checkbox" id="checkLadron">
+    <label for="checkLadron">Ladrón</label>
+    <br>
+    <input type="checkbox" id="checkLarva">
+    <label for="checkLarva">Larva</label>
+    <br>
+    <input type="checkbox" id="checkMango">
+    <label for="checkMango">Mango</label>
+    <br>
+    <input type="checkbox" id="checkNina">
+    <label for="checkNina">Niña</label>
+    <br>
+    <input type="checkbox" id="checkQuimico">
+    <label for="checkQuimico">Químico</label>
+    <br>
+    <input type="checkbox" id="checkRadiactivo">
+    <label for="checkRadiactivo">Radiactivo</label>
+    <br>
+    <input type="checkbox" id="checkRevelador">
+    <label for="checkRevelador">Revelador</label>
+    <br>
+    <input type="checkbox" id="checkSuicida">
+    <label for="checkSuicida">Suicida</label>
+    <br>
+    <input type="checkbox" id="checkTravieso">
+    <label for="checkTravieso">Travieso</label>
+    <br>
+    <input type="checkbox" id="checkTripulante">
+    <label for="checkTripulante">Tripulante</label>
+    <br>
+    <input type="checkbox" id="checkVigia">
+    <label for="checkVigia">Vigía</label>
+    <br>
+    <input type="checkbox" id="checkViejo">
+    <label for="checkViejo">Viejo</label>
+    <br>
+    
+    
+
+    <div class="content" id="contentAlienAlfa">Colocar una carta extra de Alien en el centro.</div>
+    <div class="content" id="contentCientifica">Si juega la científica, también debe jugar el huevo.</div>
+    <div class="content" id="contentIA">La IA no puede estar entre las 3 cartas del medio, y quien la tenga debe colocar su carta boca arriba.</div>
+
+    <h2>Eventos:</h2>
+
+    <h2>Criosueño:</h2>
+
+
+    
+    <h2 class="content" id="contentHacker">HACKER</h2>
+    <div class="content" id="contentHacker">"Abra los ojos el hacker"</div>
+    <div class="content" id="contentHacker">*Mostrarle 3 cartas que no están en juego*</div>
+    <div class="content" id="contentHacker">"Hacker, elija una de las cartas y haga su acción."</div>
+    <div class="content" id="contentHacker">*Ayudar al jugador a hacer la acción*</div>
+
+    <h2 class="content" id="contentCrononauta">CRONONAUTA</h2>
+    <div class="content" id="contentCrononauta">"Abra los ojos el crononauta."</div>
+    <div class="content" id="contentCrononauta">"Crononauta, señale a 2 jugadores para cambiar sus cartas"</div>
+    <div class="content" id="contentCrononauta">*Cambiar las cartas de lugar*</div>
+    <div class="content" id="contentCrononauta">"Cierre los ojos el crononauta."</div>
+
+    <h2 class="content" id="contentClon">CLON</h2>
+    <div class="content" id="contentClon">"Abra los ojos el clon."</div>
+    <div class="content" id="contentClon">"Clon, señale a otro jugador para clonar su carta."</div>
+    <div class="content" id="contentClon">*Mostrarle al clon la carta*</div>
+    <div class="content" id="contentClon">"Clon, haga la acción de la carta clonada."</div>
+    <div class="content" id="contentClon">*Hacer la acción*</div>
+    <div class="content" id="contentClon">"Cierre los ojos el clon."</div>
+
+    <h2 class="content" id="contentHolograma">HOLOGRAMA</h2>
+    <div class="content" id="contentHolograma">"Abra los ojos el Holograma."</div>
+    <div class="content" id="contentHolograma">"Señale una carta del medio para verla. De ahora en más, haga lo que esa carta haría."</div>
+    <div class="content" id="contentHolograma">*Ayudarlo a ver la carta*</div>
+    <div class="content" id="contentHolograma">"Cierre los ojos el Holograma."</div>
+
+    <h2 class="content" id="contentEnlazador">ENLAZADOR</h2>
+    <div class="content" id="contentEnlazador">"Abra los ojos el enlazador."</div>
+    <div class="content" id="contentEnlazador">"Enlazador, señale a dos jugadores para enlazarlos."</div>
+    <div class="content" id="contentEnlazador">*Tocar las cabezas de los dos jugadores enlazados*</div>
+    <div class="content" id="contentEnlazador">"Cierre los ojos el enlazador."</div>
+    <div class="content" id="contentEnlazador">"Abran los ojos los jugadores enlazados y muestrense sus cartas."</div>
+    <div class="content" id="contentEnlazador">"Cierren los ojos los jugadores enlazados."</div>
+
+    <h2 class="content" id="contentAlien">ALIEN</h2>
+    <div class="content" id="contentAlien">"Abran los ojos los aliens. Mírense, reconózcanse."</div>
+    <div class="content" id="contentAlienAlfa">(Incluye Alien Alfa)</div>
+    <div class="content" id="contentAlienSuicida">(Incluye Alien Suicida)</div>
+    <div class="content" id="contentAlienVigia">(Incluye Alien Vigía)</div>
+    <div class="content" id="contentAlienCiego">"Levante la mano el Alien ciego"</div>
+    <div class="content" id="contentAlienCiego">"Baje la mano el Alien ciego"</div>
+    <div class="content" id="contentHuevo">"Levante la mano el Huevo"</div>
+    <div class="content" id="contentHuevo">"Baje la mano el Huevo"</div>
+    <div class="content" id="contentNina">"Levante la mano la Niña"</div>
+    <div class="content" id="contentNina">"Baje la mano la Niña"</div>
+    <div class="content" id="contentAlien">"Cierren los ojos los aliens."</div>
+
+    <h2 class="content" id="contentAlienAlfa">ALIEN ALFA</h2>
+    <div class="content" id="contentAlienAlfa">"Abra los ojos el Alien Alfa."</div>
+    <div class="content" id="contentAlienAlfa">"Señale a un jugador para convertirlo en alien."</div>
+    <div class="content" id="contentAlienAlfa">*Intercambiar la carta del jugador seleccionado por la carta de alien en el medio*</div>
+    <div class="content" id="contentAlienAlfa">"Cierre los ojos el Alien Alfa."</div>
+    
+    <h2 class="content" id="contentAlienVigia">ALIEN VIGÍA</h2>
+    <div class="content" id="contentAlienVigia">"Abra los ojos el Alien Vigía."</div>
+    <div class="content" id="contentAlienVigia">"Señale a un jugador para ver su carta."</div>
+    <div class="content" id="contentAlienVigia">*Mostrarle la carta*</div>
+    <div class="content" id="contentAlienVigia">"Cierre los ojos el Alien Vigía."</div>
+
+    <h2 class="content" id="contentLarva">LARVA</h2>
+    <div class="content" id="contentLarva">"Abra los ojos la larva."</div>
+    <div class="content" id="contentLarva">"Levanten la mano los Aliens."</div>
+    <div class="content" id="contentLarva">"Bajen la mano los Aliens."</div>
+    <div class="content" id="contentLarva">"Cierre los ojos la Larva."</div>
+
+    <h2 class="content" id="contentCientifica">CIENTÍFICA</h2>
+    <div class="content" id="contentCientifica">"Abra los ojos la científica."</div>
+    <div class="content" id="contentCientifica">"Levante la mano el Huevo."</div>
+    <div class="content" id="contentCientifica">"Baje la mano el Huevo."</div>
+    <div class="content" id="contentCientifica">"Cierre los ojos la científica."</div>
+
+    <h2 class="content" id="contentAsesino">ASESINO</h2>
+    <div class="content" id="contentAsesino">"Abra los ojos el Asesino"</div>
+    <div class="content" id="contentAsesino">"Señale una víctima y vea su carta."</div>
+    <div class="content" id="contentAsesino">*Mostrarle la carta*</div>
+    <div class="content" id="contentAsesino">"Cierre los ojos el Asesino"</div>
+
+    <h2 class="content" id="contentAgente">AGENTE</h2>
+    <div class="content" id="contentAgente">"Abran los ojos los Agentes. Mírense, reconózcanse."</div>
+    <div class="content" id="contentAgente">"Cierren los ojos los Agentes. "</div>
+
+    <h2 class="content" id="contentRadiactivo">RADIACTIVO</h2>
+    <div class="content" id="contentRadiactivo">"Abra los ojos el radiactivo."</div>
+    <div class="content" id="contentRadiactivo">"Señale a un jugador para mostrarle su carta."</div>
+    <div class="content" id="contentRadiactivo">*Tocarle la cabeza al jugador*</div>
+    <div class="content" id="contentRadiactivo">"Abra los ojos el jugador al que le toqué la cabeza"</div>
+    <div class="content" id="contentRadiactivo">"Muestre su carta el radiactivo"</div>
+    <div class="content" id="contentRadiactivo">"Cierre los ojos el jugador al que le toqué la cabeza"</div>
+    <div class="content" id="contentRadiactivo">"Cierre los ojos el radiactivo."</div>
+    
+    <h2 class="content" id="contentVigia">VIGÍA</h2>
+    <div class="content" id="contentVigia">"Abra los ojos el Vigía."</div>
+    <div class="content" id="contentVigia">"Señale o bien la carta de otro jugador, o bien dos de las tres cartas del medio para ver"</div>
+    <div class="content" id="contentVigia">*Mostrarle las cartas al Vigía*</div>
+    <div class="content" id="contentVigia">"Cierre los ojos el Vigía."</div>
+
+    <h2 class="content" id="contentMango">MANGO</h2>
+    <div class="content" id="contentMango">"Abra los ojos Mango."</div>
+    <div class="content" id="contentMango">"Señale la carta del medio que desea ver, o niegue con la cabeza si no quiere verla."</div>
+    <div class="content" id="contentMango">*Mostrar la carta*</div>
+    <div class="content" id="contentMango">*Si es un Alien, rotar la carta de Mango 90 grados*</div>
+    <div class="content" id="contentMango">"Cierre los ojos Mango."</div>
+
+    <h2 class="content" id="contentIngeniero">INGENIERO</h2>
+    <div class="content" id="contentIngeniero">"Abra los ojos el Ingeniero."</div>
+    <div class="content" id="contentIngeniero">"Señale las cartas que desea ver, hasta un máximo de 3."</div>
+    <div class="content" id="contentIngeniero">*Mostrarle las cartas al Ingeniero*</div>
+    <div class="content" id="contentIngeniero">"Cierre los ojos el Ingeniero."</div>
+
+    <h2 class="content" id="contentLadron">LADRÓN</h2>
+    <div class="content" id="contentLadron">"Abra los ojos el Ladrón."</div>
+    <div class="content" id="contentLadron">"Señale a un jugador para intercambiar su carta."</div>
+    <div class="content" id="contentLadron">*Intercambiar las cartas*</div>
+    <div class="content" id="contentLadron">"Vea su nueva carta"</div>
+    <div class="content" id="contentLadron">"Cierre los ojos el Ladrón."</div>
+
+    <h2 class="content" id="contentTravieso">TRAVIESO</h2>
+    <div class="content" id="contentTravieso">"Abra los ojos el Travieso."</div>
+    <div class="content" id="contentTravieso">"Señale a 2 jugadores para intercambiar sus cartas."</div>
+    <div class="content" id="contentTravieso">*Intercambiar las cartas*</div>
+    <div class="content" id="contentTravieso">"Cierre los ojos el Travieso."</div>
+
+    <h2 class="content" id="contentQuimico">QUÍMICO</h2>
+    <div class="content" id="contentQuimico">"Abra los ojos el Químico."</div>
+    <div class="content" id="contentQuimico">"Señale una carta del medio para intercambiarla por la suya."</div>
+    <div class="content" id="contentQuimico">*Intercambiar las cartas*</div>
+    <div class="content" id="contentQuimico">"Cierre los ojos el Químico."</div>
+
+    <h2 class="content" id="contentRevelador">REVELADOR</h2>
+    <div class="content" id="contentRevelador">"Abra los ojos el Revelador."</div>
+    <div class="content" id="contentRevelador">"Señale un jugador para revelar su carta."</div>
+    <div class="content" id="contentRevelador">*Poner boca arriba la carta para que el Revelador la vea. Si no es azul, ponerla boca abajo nuevamente*</div>
+    <div class="content" id="contentRevelador">"Cierre los ojos el Revelador."</div>
+    
+    <h2 class="content" id="contentCrononauta">CRONONAUTA</h2>
+    <div class="content" id="contentCrononauta">"Abra los ojos el crononauta."</div>
+    <div class="content" id="contentCrononauta">"Crononauta, señale a los mismos 2 jugadores cuyas cartas cambió antes"</div>
+    <div class="content" id="contentCrononauta">*Cambiar las cartas de lugar*</div>
+    <div class="content" id="contentCrononauta">"Cierre los ojos el crononauta."</div>
+
+    <h2 class="content" id="contentViejo">VIEJO</h2>
+    <div class="content" id="contentViejo">"Abra los ojos el Viejo."</div>
+    <div class="content" id="contentViejo">"Vea su propia carta."</div>
+    <div class="content" id="contentViejo">"Cierre los ojos el Viejo."</div>  
+
+    <h2 class="content" id="contentMango">MANGO</h2>
+    <div class="content" id="contentMango">*Avisar si Mango murió o no, y decir quién es. Esa persona no participa de la discusión ni votación.*</div>
+
+    <h2>Cronómetro</h2>
+    <div class="cronometro" id="cronometro">00:00:00</div>
+
+    <div class="botones">
+        <button id="toggle">Iniciar</button>
+        <button id="reset">Reiniciar</button>
+    </div>
+
+    <script>
+        let minutos = 0, segundos = 0, milisegundos = 0, interval;
+        const cronometro = document.getElementById("cronometro");
+        const toggleBtn = document.getElementById("toggle");
+        const resetBtn = document.getElementById("reset");
+
+        function actualizarCronometro() {
+            milisegundos += 10;
+            if (milisegundos === 1000) {
+                milisegundos = 0;
+                segundos++;
+            }
+            if (segundos === 60) {
+                segundos = 0;
+                minutos++;
+            }
+
+            let msDisplay = Math.floor(milisegundos / 10);
+
+            cronometro.textContent = 
+                (minutos < 10 ? "0" : "") + minutos + ":" +
+                (segundos < 10 ? "0" : "") + segundos + ":" +
+                (msDisplay < 10 ? "0" : "") + msDisplay;
+        }
+
+        toggleBtn.addEventListener("click", () => {
+            if (!interval) {
+                // Iniciar cronómetro
+                interval = setInterval(actualizarCronometro, 10);
+                toggleBtn.textContent = "Detener";
+                toggleBtn.style.backgroundColor = "gray";
+                resetBtn.style.display = "none"; // Ocultar reset mientras está en marcha
+            } else {
+                // Detener cronómetro
+                clearInterval(interval);
+                interval = null;
+                toggleBtn.textContent = "Iniciar";
+                toggleBtn.style.backgroundColor = "gray";
+                resetBtn.style.display = "inline-block"; // Mostrar botón de reinicio
+            }
+        });
+
+        resetBtn.addEventListener("click", () => {
+            if (!interval) { // Solo permite reiniciar si está detenido
+                minutos = 0;
+                segundos = 0;
+                milisegundos = 0;
+                cronometro.textContent = "00:00:00";
+                resetBtn.style.display = "none"; // Ocultar botón de reset después de usarlo
+            }
+        });
+    </script>
+
+</body>
+</html>
