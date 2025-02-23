@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Secciones Desplegables</title>
+    <title>Outsiders</title>
     <style>
         body {
             font-family: Arial, sans-serif;
@@ -121,25 +121,7 @@
         .switch input {
             display: none;
         }
-        .slider {
-            position: relative;
-            width: 50px;
-            height: 24px;
-            border-radius: 12px;
-            cursor: pointer;
-            transition: background-color 0.3s;
-        }
-        .slider:before {
-            content: "";
-            position: absolute;
-            width: 20px;
-            height: 20px;
-            left: 2px;
-            bottom: 2px;
-            background-color: white;
-            border-radius: 50%;
-            transition: transform 0.3s;
-        }
+        
         input:checked + .slider:before {
             transform: translateX(26px);
         }
@@ -158,11 +140,78 @@
         .sub-title.expanded .arrow {
             transform: rotate(180deg);
         }
+            .navbar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            background-color: black;
+            color: white;
+            text-align: center;
+            padding: 15px;
+            font-size: 20px;
+            font-weight: bold;
+            z-index: 1000;
+        }
+            .menu-button {
+            position: fixed;
+            top: 10px;
+            left: 10px;
+            font-size: 24px;
+            background: none;
+            color: white;
+            cursor: pointer;
+            z-index: 1100;
+        }
+        
+        .menu {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            background-color: rgba(0, 0, 0, 0.9);
+            text-align: center;
+            padding: 20px 0;
+            transform: translateY(-100%);
+            transition: transform 0.3s ease-in-out;
+            z-index: 1099;
+        }
+        
+        .menu ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+        
+        .menu ul li {
+            padding: 10px 0;
+        }
+        
+        .menu ul li a {
+            color: white;
+            text-decoration: none;
+            font-size: 18px;
+        }
+        
+        .menu.show {
+            transform: translateY(0);
+        }
     </style>
 </head>
 <body>
+    <div class="menu-button" onclick="toggleMenu()">☰</div>
+    <div id="menu" class="menu">
+        <ul list-style: none; padding: 0;>
+            <li id="eventosToggle" onclick="toggleEventosText()">Eventos deshabilitados</li>
+            <li>Roles avanzados</li>
+            <li>Tarjetas de acceso</li>
+            <li>Invasión pirata</li>
+        </ul>
+    </div>
+    <div style="height: 60px;"></div>
+    <div class="navbar">Outsiders</div>
     <div class="section">
-        <div class="title" onclick="toggleSection(this)">Instrucciones <span class="arrow">▼</span>
+        <div class="title" onclick="toggleSection(this)">¿Cómo se juega? <span class="arrow">▼</span>
         </div>
         <div class="content">
             <p>Un grupo de astronautas se embarca en una misión importante, y se criogenizan hasta llegar a destino.</p>
@@ -181,27 +230,46 @@
         </div>
     </div>
     <div class="section">
-        <div class="title" onclick="toggleSection(this)">Roles <span class="arrow">▼</span>
+        <div class="title" onclick="toggleSection(this)">Selección de roles <span class="arrow">▼</span>
         </div>
         <div class="content">
-            <ul id="roles-list" style="list-style: none; padding: 0;">
-                <li><label class="switch"><input type="checkbox" onclick="updateRoles()" id="Agentes"><span class="slider"></span> Agentes</label></li>
-                <li><label class="switch"><input type="checkbox" onclick="updateRoles()" id="Aliens"><span class="slider"></span> Aliens</label></li>
-                <li><label class="switch"><input type="checkbox" onclick="updateRoles()" id="AlienCiego"><span class="slider"></span> Alien ciego</label></li>
-                <li><label class="switch"><input type="checkbox" onclick="updateRoles()" id="AlienMadre"><span class="slider"></span> Alien madre</label></li>
-                <li><label class="switch"><input type="checkbox" onclick="updateRoles()" id="AlienSuicida"><span class="slider"></span> Alien suicida</label></li>
-                <li><label class="switch"><input type="checkbox" onclick="updateRoles()" id="AlienVisor"><span class="slider"></span> Alien visor</label></li>
-                <li><label class="switch"><input type="checkbox" onclick="updateRoles()" id="Analista"><span class="slider"></span> Analista</label></li>
-                <li><label class="switch"><input type="checkbox" onclick="updateRoles()" id="Asesino"><span class="slider"></span> Asesino</label></li>
+            <ul id="roles-list" style="list-style: none; padding: 0; margin: 0;">
+                <li onmousedown="handleTouchStart('Agentes')" onmouseup="handleTouchEnd()" onmouseleave="handleTouchEnd()" ontouchstart="handleTouchStart('Agentes')" ontouchend="handleTouchEnd()">
+                    <label class="switch"><input type="checkbox" onclick="updateRoles()" id="Agentes"><span class="slider"></span> Agentes</label>
+                </li>
+                <li onmousedown="handleTouchStart('Aliens')" onmouseup="handleTouchEnd()" onmouseleave="handleTouchEnd()" ontouchstart="handleTouchStart('Aliens')" ontouchend="handleTouchEnd()">
+                    <label class="switch"><input type="checkbox" onclick="updateRoles()" id="Aliens"><span class="slider"></span> Aliens</label>
+                </li>
+                <li onmousedown="handleTouchStart('AlienCiego')" onmouseup="handleTouchEnd()" onmouseleave="handleTouchEnd()" ontouchstart="handleTouchStart('AlienCiego')" ontouchend="handleTouchEnd()">
+                    <label class="switch"><input type="checkbox" onclick="updateRoles()" id="AlienCiego"><span class="slider"></span> Alien ciego</label>
+                </li>
+                <li onmousedown="handleTouchStart('AlienMadre')" onmouseup="handleTouchEnd()" onmouseleave="handleTouchEnd()" ontouchstart="handleTouchStart('AlienMadre')" ontouchend="handleTouchEnd()">
+                    <label class="switch"><input type="checkbox" onclick="updateRoles()" id="AlienMadre"><span class="slider"></span> Alien madre</label>
+                </li>
+                <li onmousedown="handleTouchStart('AlienSuicida')" onmouseup="handleTouchEnd()" onmouseleave="handleTouchEnd()" ontouchstart="handleTouchStart('AlienSuicida')" ontouchend="handleTouchEnd()">
+                    <label class="switch"><input type="checkbox" onclick="updateRoles()" id="AlienSuicida"><span class="slider"></span> Alien suicida</label>
+                </li>
+                <li onmousedown="handleTouchStart('AlienVisor')" onmouseup="handleTouchEnd()" onmouseleave="handleTouchEnd()" ontouchstart="handleTouchStart('AlienVisor')" ontouchend="handleTouchEnd()">
+                    <label class="switch"><input type="checkbox" onclick="updateRoles()" id="AlienVisor"><span class="slider"></span> Alien visor</label>
+                </li>
+                <li onmousedown="handleTouchStart('Analista')" onmouseup="handleTouchEnd()" onmouseleave="handleTouchEnd()" ontouchstart="handleTouchStart('Analista')" ontouchend="handleTouchEnd()">
+                    <label class="switch"><input type="checkbox" onclick="updateRoles()" id="Analista"><span class="slider"></span> Analista</label>
+                </li>
+                <li onmousedown="handleTouchStart('Asesino')" onmouseup="handleTouchEnd()" onmouseleave="handleTouchEnd()" ontouchstart="handleTouchStart('Asesino')" ontouchend="handleTouchEnd()">
+                    <label class="switch"><input type="checkbox" onclick="updateRoles()" id="Asesino"><span class="slider"></span> Asesino</label>
+                </li>
+
             </ul>
         </div>
         </div>
-    <div class="section">
-        <div class="title" onclick="toggleSection(this)">Eventos <span class="arrow">▼</span>
+    <div class="section" style = "display: none;">
+        <div class="title" onclick="toggleSection(this)">Selección de eventos <span class="arrow">▼</span>
         </div>
         <div class="content">
             <ul id="events-list" style="list-style: none; padding: 0;">
-                <li><label class="switch"><input type="checkbox" onclick="updateEvents()" id="Marte"><span class="slider"></span> Marte</label></li>
+                <li onmousedown="handleTouchStart('Marte')" onmouseup="handleTouchEnd()" onmouseleave="handleTouchEnd()" ontouchstart="handleTouchStart('Marte')" ontouchend="handleTouchEnd()">
+                    <label class="switch"><input type="checkbox" onclick="updateRoles()" id="Marte"><span class="slider"></span> Marte</label>
+                </li>
             </ul>
         </div>
     </div>
@@ -328,7 +396,7 @@
         }
     
         function updateRoles() {
-            let roleIds = ["Aliens", "Agentes", "AlienCiego", "AlienMadre", "AlienMadre2","AlienSuicida","AlienVisor", "AlienVisor2","Analista","Asesino"];
+            let roleIds = ["Aliens", "Agentes", "AlienCiego", "AlienMadre", "AlienMadre2","AlienSuicida","AlienVisor", "AlienVisor2","Analista","Asesino","Marte"];
             roleIds.forEach(role => {
                 let checkbox = document.getElementById(role);
                 let messageBox = document.getElementById(role + "-message");
@@ -345,16 +413,108 @@
                 }
             });
            }
-    
-        function updateEvents() {
-            let eventIds = ["Marte"];
-            eventIds.forEach(event => {
-                let checkbox = document.getElementById(event);
-                let messageBox = document.getElementById(event + "-message");
-                if (checkbox && messageBox) {
-                    messageBox.style.display = checkbox.checked ? "block" : "none";
+        
+        let holdTimeout;
+        function handleTouchStart(role) {
+            holdTimeout = setTimeout(() => {
+                showRoleInfo(role);
+            }, 500); // 500ms to trigger long press
+        }
+        
+        function handleTouchEnd() {
+            clearTimeout(holdTimeout);
+        }
+        
+        function showRoleInfo(role) {
+            let overlay = document.createElement("div");
+            overlay.id = "overlay";
+            overlay.style.position = "fixed";
+            overlay.style.top = "0";
+            overlay.style.left = "0";
+            overlay.style.width = "100vw";
+            overlay.style.height = "100vh";
+            overlay.style.background = "rgba(0, 0, 0, 0.5)";
+            overlay.style.zIndex = "999";
+            document.body.appendChild(overlay);
+            let infoBox = document.createElement("div");
+            infoBox.id = "role-info-box";
+            infoBox.style.position = "fixed";
+            infoBox.style.top = "50%";
+            infoBox.style.left = "50%";
+            infoBox.style.transform = "translate(-50%, -50%)";
+            infoBox.style.background = "rgba(255, 255, 255, 0.9)";
+            infoBox.style.color = "black";
+            infoBox.style.padding = "20px";
+            infoBox.style.width = "300px";
+            infoBox.style.borderRadius = "10px";
+            infoBox.style.boxShadow = "0 4px 8px rgba(0, 0, 0, 0.2)";
+            infoBox.style.zIndex = "1000";
+            
+            let message = "Descripción no disponible";
+            switch(role) {
+                case "Agentes":
+                    message = "<p style='color: blue; font-weight: bold;'>Agentes</p><p style='color: blue;'>Los agentes abren los ojos a la vez y se reconocen.</p><p style='color: gray; font-style: italic;'>Trabajaron juntos en una misión hace varios años. La misión involucraba un cráter, tres meteoritos y una banana espacial. No preguntes.</p>";
+                    break;
+                case "Aliens":
+                    message = "<p style='color: red; font-weight: bold;'>Aliens</p><p style='color: red;'>Los aliens ganan si ninguno de ellos muere. Los aliens abren los ojos a la vez y se reconocen.</p><p style='color: gray; font-style: italic;'>Si no usaran cadáveres humanos para alimentar a sus crías, los invitaría a casa a tomar unos mates.</p>";
+                    break;
+                case "AlienCiego":
+                    message = "<p style='color: red; font-weight: bold;'>Alien ciego</p><p style='color: red;'>El alien ciego levanta la mano cuando los aliens abren los ojos.</p><p style='color: gray; font-style: italic;'>-'Al no poder ver, el resto de sus sentidos se intensifican. En particular su sentido asesino.</p>";
+                break;
+                case "AlienMadre":
+                    message = "<p style='color: red; font-weight: bold;'>Alien madre</p><p style='color: red;'>Al inicio se coloca una carta de alien adicional en el medio. Alien madre intercambia la carta de cualquier jugador por esa carta.</p><p style='color: gray; font-style: italic;'>En la nave le decimos Mami Alien. No parece gustarle.</p>";
+                break;
+                case "AlienSuicida":
+                    message = "<p style='color: green; font-weight: bold;'>Alien suicida</p><p style='color: green;'>Su objetivo es morir. Abre los ojos con los aliens. Si el alien suicida muere, la tripulación no puede ganar.</p><p style='color: gray; font-style: italic;'>¿No te dan ganas de abrazarlo? A mi tampoco. Por eso se quiere suicidar.</p>";
+                break;
+                case "AlienVisor":
+                    message = "<p style='color: red; font-weight: bold;'>Alien visor</p><p style='color: red;'>Puede ver cualquier carta.</p><p style='color: gray; font-style: italic;'>Ve bastante más que el alien ciego.</p>";
+                break;
+                case "Analista":
+                    message = "<p style='color: blue; font-weight: bold;'>Analista</p><p style='color: blue;'>Señala a otros dos jugadores. El director le confirma si ambos pertenecen o no del mismo equipo.</p><p style='color: gray; font-style: italic;'>Solía jugar al ajedrez, creyendo que su habilidad le permitiría hallar piezas infiltradas entre sus tropas. Su habilidad no le sirvió (porque todas sus piezas eran piezas espías).</p>";
+                break;
+                case "Asesino":
+                    message = "<p style='color: green; font-weight: bold;'>Asesino</p><p style='color: green;'>Elige una víctima, y ve su carta. Gana si el jugador que tiene esa carta muere.</p><p style='color: gray; font-style: italic;'>Es un bombón (asesino).</p>";
+                break;
+
+
+                case "Marte":
+                    message = "<p style='color: red; font-weight: bold;'>Marte</p><p style='color: red;'>Los aliens eligen a un jugador. A los 3 minutos de discusión, ese jugador muere.</p>";
+                break;
+                
+            }
+            
+            infoBox.innerHTML = message;
+            document.body.appendChild(infoBox);
+            overlay.appendChild(infoBox);
+            
+            
+
+            overlay.addEventListener("click", function closeInfoBox(event) {
+                if (overlay) document.body.removeChild(overlay);
+                if (infoBox && !infoBox.contains(event.target)) {
+                    document.body.removeChild(infoBox);
+                    document.removeEventListener("click", closeInfoBox);
                 }
             });
+        }
+    
+        function toggleMenu() {
+            let menu = document.getElementById("menu");
+            menu.classList.toggle("show");
+        }
+    
+        function toggleEventosText() {
+            let eventosSection = Array.from(document.querySelectorAll('.section')).find(section => section.querySelector('.title')?.textContent.includes('Selección de eventos'));
+            if (!eventosSection) return;
+            let eventosToggle = document.getElementById("eventosToggle");
+            if (eventosToggle.innerText === "Eventos habilitados") {
+                eventosSection.style.display = "none";
+                eventosToggle.innerText = "Eventos deshabilitados";
+            } else {
+                eventosSection.style.display = "block";
+                eventosToggle.innerText = "Eventos habilitados";
+            }
         }
     </script>
 </body>
