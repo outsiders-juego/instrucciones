@@ -94,9 +94,17 @@
             border-radius: 50%;
             transition: transform 0.3s;
         }
-        input:checked + .slider {
-            background-color: #28a745;
-        }
+        input#Agentes:checked + .slider { background-color: blue; }
+        input#Aliens:checked + .slider { background-color: red; }
+        input#AlienCiego:checked + .slider { background-color: red; }
+        input#AlienMadre:checked + .slider { background-color: red; }
+        input#AlienSuicida:checked + .slider { background-color: green; }
+        input#AlienVisor:checked + .slider { background-color: red; }
+        input#Analista:checked + .slider { background-color: blue; }
+        input#Asesino:checked + .slider { background-color: green; }
+        
+        input#Marte:checked + .slider { background-color: red; }
+
         input:checked + .slider:before {
             transform: translateX(26px);
         }
@@ -135,21 +143,7 @@
         input:checked + .slider:before {
             transform: translateX(26px);
         }
-        input[value="Rol1"]:checked + .slider { background-color: blue; }
-        input[value="Rol2"]:checked + .slider { background-color: red; }
-        input[value="Rol3"]:checked + .slider { background-color: green; }
-        input[value="Rol4"]:checked + .slider { background-color: orange; }
-        input:not([value="Rol1"]):not([value="Rol2"]):not([value="Rol3"]):not([value="Rol4"]):checked + .slider { background-color: blue; }
-            .sub-title {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            cursor: pointer;
-            padding: 10px;
-            background-color: #333;
-            color: white;
-            border-radius: 5px;
-        }
+        
         .sub-title:hover {
             background-color: #444;
         }
@@ -168,17 +162,17 @@
 </head>
 <body>
     <div class="section">
-        <div class="title" onclick="toggleSection(this)">
-            INSTRUCCIONES <span class="arrow">▼</span>
+        <div class="title" onclick="toggleSection(this)">Instrucciones <span class="arrow">▼</span>
         </div>
         <div class="content">
-            <h3 class="sub-title" onclick="toggleSubSection(this)">Contexto <span class="arrow">▼</span></h3>
-            <div class="sub-content">
-                <p>Descripción del contexto del juego.</p>
-            </div>
+            <p>Un grupo de astronautas se embarca en una misión importante, y se criogenizan hasta llegar a destino.</p>
+            <p>Al despertar del criosueño, descubren que no todos en la nave son quienes aparentan ser.</p>
+            <p style="color: #ff6666; font-weight: bold;">Alienígenas mortales se han infiltrado en la tripulación.</p>
+            <p>Eliminarlos es crucial para la supervivencia.</p>
             <h3 class="sub-title" onclick="toggleSubSection(this)">Preparación <span class="arrow">▼</span></h3>
             <div class="sub-content">
-                <p>Instrucciones sobre la preparación del juego.</p>
+                <p>Un jugador tomará el rol de Director, y será quien ordene el juego para el resto de jugadores. Si nadie se ofrece a ser el Director, se coloca una carta de Director en el mazo.</p>
+                <p>Todos los jugadores se sientan en una ronda. Se reparte una carta de rol para cada jugador, y se colocan tres cartas adicionales en el centro de la ronda (se acomoda el mazo para que la carta de Director no pueda quedar en el centro).</p>
             </div>
             <h3 class="sub-title" onclick="toggleSubSection(this)">Desarrollo del juego <span class="arrow">▼</span></h3>
             <div class="sub-content">
@@ -187,35 +181,83 @@
         </div>
     </div>
     <div class="section">
-        <div class="title" onclick="toggleSection(this)">
-            ROLES <span class="arrow">▼</span>
+        <div class="title" onclick="toggleSection(this)">Roles <span class="arrow">▼</span>
         </div>
         <div class="content">
             <ul id="roles-list" style="list-style: none; padding: 0;">
-                <li><label class="switch"><input type="checkbox" onclick="updateRoles()" value="Rol1"><span class="slider"></span> Rol1</label></li>
-                <li><label class="switch"><input type="checkbox" onclick="updateRoles()" value="Rol2"><span class="slider"></span> Rol2</label></li>
-                <li><label class="switch"><input type="checkbox" onclick="updateRoles()" value="Rol3"><span class="slider"></span> Rol3</label></li>
-                <li><label class="switch"><input type="checkbox" onclick="updateRoles()" value="Rol4"><span class="slider"></span> Rol4</label></li>
-                <li><label class="switch"><input type="checkbox" onclick="updateRoles()" value="Rol5"><span class="slider"></span> Rol5</label></li>
-                <li><label class="switch"><input type="checkbox" onclick="updateRoles()" value="Rol6"><span class="slider"></span> Rol6</label></li>
-                <li><label class="switch"><input type="checkbox" onclick="updateRoles()" value="Rol7"><span class="slider"></span> Rol7</label></li>
-                <li><label class="switch"><input type="checkbox" onclick="updateRoles()" value="Rol8"><span class="slider"></span> Rol8</label></li>
-                <li><label class="switch"><input type="checkbox" onclick="updateRoles()" value="Rol9"><span class="slider"></span> Rol9</label></li>
-                <li><label class="switch"><input type="checkbox" onclick="updateRoles()" value="Rol10"><span class="slider"></span> Rol10</label></li>
+                <li><label class="switch"><input type="checkbox" onclick="updateRoles()" id="Agentes"><span class="slider"></span> Agentes</label></li>
+                <li><label class="switch"><input type="checkbox" onclick="updateRoles()" id="Aliens"><span class="slider"></span> Aliens</label></li>
+                <li><label class="switch"><input type="checkbox" onclick="updateRoles()" id="AlienCiego"><span class="slider"></span> Alien ciego</label></li>
+                <li><label class="switch"><input type="checkbox" onclick="updateRoles()" id="AlienMadre"><span class="slider"></span> Alien madre</label></li>
+                <li><label class="switch"><input type="checkbox" onclick="updateRoles()" id="AlienSuicida"><span class="slider"></span> Alien suicida</label></li>
+                <li><label class="switch"><input type="checkbox" onclick="updateRoles()" id="AlienVisor"><span class="slider"></span> Alien visor</label></li>
+                <li><label class="switch"><input type="checkbox" onclick="updateRoles()" id="Analista"><span class="slider"></span> Analista</label></li>
+                <li><label class="switch"><input type="checkbox" onclick="updateRoles()" id="Asesino"><span class="slider"></span> Asesino</label></li>
+            </ul>
+        </div>
+        </div>
+    <div class="section">
+        <div class="title" onclick="toggleSection(this)">Eventos <span class="arrow">▼</span>
+        </div>
+        <div class="content">
+            <ul id="events-list" style="list-style: none; padding: 0;">
+                <li><label class="switch"><input type="checkbox" onclick="updateEvents()" id="Marte"><span class="slider"></span> Marte</label></li>
             </ul>
         </div>
     </div>
     <div class="section">
-        <div class="title" onclick="toggleSection(this)">
-            EVENTOS <span class="arrow">▼</span>
-        </div>
-        <div class="content">Eventos que pueden afectar la partida.</div>
-    </div>
-    <div class="section">
-        <div class="title" onclick="toggleSection(this)">JUGAR <span class="arrow">▼</span>
+        <div class="title" onclick="toggleSection(this)">Jugar <span class="arrow">▼</span>
         </div>
         <div class="content">
             <div id="active-roles"></div>
+            <div id="AlienMadre-message3" style="display: none; border: 2px solid red; border-radius: 10px; padding: 20px; margin-bottom: 15px; background-color: #222;">
+                <p>Se coloca una carta adicional en el centro, perpendicular al resto.</p>
+                <p>Debe ser una carta de alien.</p>
+            </div>
+            <div style="display: block; border: 2px solid white; border-radius: 10px; padding: 20px; margin-bottom: 15px; background-color: #222;">
+                <p>Todos cierran los ojos.</p>
+            </div>
+            <div id="Aliens-message" style="display: none; border: 2px solid red; border-radius: 10px; padding: 20px; margin-bottom: 15px; background-color: #222;">
+                <p>Los aliens abren los ojos.</p>
+                <p id="AlienMadre-message" style="display: none; margin-top: 5px; color: red;">(Alien madre también abre los ojos)</p>
+                <p id="AlienVisor-message" style="display: none; margin-top: 5px; color: red;">(El alien Visor también abre los ojos)</p>
+                <p id="AlienSuicida-message" style="display: none; margin-top: 5px; color: green;">(El alien suicida también abre los ojos)</p>
+                <p>Los aliens se miran entre sí y se reconocen.</p>
+                <p id="AlienCiego-message" style="display: none; margin-top: 5px; color: red;">El alien ciego levanta la mano.</p>
+                <p id="Marte-message" style="display: none; margin-top: 5px; color: red;">Los aliens señalan a un jugador, que morirá a los 3 minutos de discusión.</p>
+                <p>Los aliens cierran los ojos.</p>
+            </div>
+            <div id="AlienMadre-message2" style="display: none; border: 2px solid red; border-radius: 10px; padding: 20px; margin-bottom: 15px; background-color: #222;">
+                <p>Alien madre abre los ojos.</p>
+                <p>Señala un jugador para intercambiar su carta con la carta de alien cientral.</p>
+                <p>Alien madre cierra los ojos.</p>
+            </div>
+            <div id="AlienVisor-message2" style="display: none; border: 2px solid red; border-radius: 10px; padding: 20px; margin-bottom: 15px; background-color: #222;">
+                <p>El alien visor abre los ojos.</p>
+                <p>Señala cualquier carta para verla.</p>
+                <p>El alien visor cierra los ojos.</p>
+            </div>
+            <div id="Analista-message" style="display: none; border: 2px solid blue; border-radius: 10px; padding: 20px; margin-bottom: 15px; background-color: #222;">
+                <p>El analista abre los ojos.</p>
+                <p>El analista señala a dos jugadores.</p>
+                <p>El director ve las cartas de los dos jugadores.</p>
+                <p>Si ambas cartas son del mismo color el director hace un gesto afirmativo. Si no, uno negativo.</p>
+                <p>El analista cierra los ojos.</p>
+            </div>
+            <div id="Asesino-message" style="display: none; border: 2px solid green; border-radius: 10px; padding: 20px; margin-bottom: 15px; background-color: #222;">
+                <p>El asesino abre los ojos.</p>
+                <p>El asesino señala a un jugador y el director le muestra su carta.</p>
+                <p>El asesino gana solo si esa carta muere.</p>
+                <p>El asesino cierra los ojos.</p>
+            </div>
+            <div id="Agentes-message" style="display: none; border: 2px solid blue; border-radius: 10px; padding: 20px; margin-bottom: 15px; background-color: #222;">
+                <p>Los agentes abren los ojos.</p>
+                <p>Los agentes se miran entre sí y se reconocen.</p>
+                <p>Los agentes cierran los ojos.</p>
+            </div>
+            <div style="display: block; border: 2px solid white; border-radius: 10px; padding: 20px; margin-bottom: 15px; background-color: #222;">
+                <p>Todos abren los ojos.</p>
+            </div>
             <div class="timer" id="timer">00:00.00</div>
             <div class="buttons" id="buttons">
                 <button class="button" onclick="startTimer()">▶</button>
@@ -276,25 +318,43 @@
             document.getElementById("timer").textContent = 
                 `${String(minutes).padStart(2, '0')}:${String(seconds).padStart(2, '0')}.${String(hundredths).padStart(2, '0')}`;
         }
-    
-        function updateRoles() {
-            let activeRoles = document.getElementById("active-roles");
-            let checkboxes = document.querySelectorAll("#roles-list input[type='checkbox']");
-            activeRoles.innerHTML = "";
-            checkboxes.forEach(checkbox => {
-                if (checkbox.checked) {
-                    let roleMessage = document.createElement("div");
-                    roleMessage.textContent = `El rol ${checkbox.value} está en juego`;
-                    activeRoles.appendChild(roleMessage);
-                }
-            });
-        }
+
     
         function toggleSubSection(element) {
             let content = element.nextElementSibling;
             let isOpen = content.style.display === "block";
             content.style.display = isOpen ? "none" : "block";
             element.classList.toggle("expanded", !isOpen);
+        }
+    
+        function updateRoles() {
+            let roleIds = ["Aliens", "Agentes", "AlienCiego", "AlienMadre", "AlienMadre2","AlienSuicida","AlienVisor", "AlienVisor2","Analista","Asesino"];
+            roleIds.forEach(role => {
+                let checkbox = document.getElementById(role);
+                let messageBox = document.getElementById(role + "-message");
+                if (checkbox && messageBox) {
+                    messageBox.style.display = checkbox.checked ? "block" : "none";
+                }
+                messageBox = document.getElementById(role + "-message2");
+                if (checkbox && messageBox) {
+                    messageBox.style.display = checkbox.checked ? "block" : "none";
+                }
+                messageBox = document.getElementById(role + "-message3");
+                if (checkbox && messageBox) {
+                    messageBox.style.display = checkbox.checked ? "block" : "none";
+                }
+            });
+           }
+    
+        function updateEvents() {
+            let eventIds = ["Marte"];
+            eventIds.forEach(event => {
+                let checkbox = document.getElementById(event);
+                let messageBox = document.getElementById(event + "-message");
+                if (checkbox && messageBox) {
+                    messageBox.style.display = checkbox.checked ? "block" : "none";
+                }
+            });
         }
     </script>
 </body>
