@@ -102,8 +102,13 @@
         input#AlienVisor:checked + .slider { background-color: red; }
         input#Analista:checked + .slider { background-color: blue; }
         input#Asesino:checked + .slider { background-color: green; }
+        input#Capitan:checked + .slider { background-color: orange; }
+        input#Cautivo:checked + .slider { background-color: green; }
+        input#Cazador:checked + .slider { background-color: blue; }
         
-        input#Marte:checked + .slider { background-color: red; }
+        input#Cometa:checked + .slider { background-color: #64b7c0; }
+        input#Eclipse:checked + .slider { background-color: #f78204; }
+        input#Marte:checked + .slider { background-color: #c62124; }
 
         input:checked + .slider:before {
             transform: translateX(26px);
@@ -202,10 +207,10 @@
     <div class="menu-button" onclick="toggleMenu()">☰</div>
     <div id="menu" class="menu">
         <ul list-style: none; padding: 0;>
-            <li id="eventosToggle" onclick="toggleEventosText()">Eventos deshabilitados</li>
-            <li>Roles avanzados</li>
-            <li>Tarjetas de acceso</li>
-            <li>Invasión pirata</li>
+            <li id="eventosToggle" onclick="toggleEventosText()">Eventos: [No]</li>
+            <li id="rolesAvanzadosToggle" onclick="toggleRolesAvanzadosText()">[Expansión] Roles avanzados: [No]</li>
+            <li id="tarjetasAccesoToggle" onclick="toggleTarjetasAccesoText()">[Expansión] Tarjetas de Acceso: [No]</li>
+            <li id="piratasToggle" onclick="togglePiratasText()">[Expansión] Invasión Pirata: [No]</li>
         </ul>
     </div>
     <div style="height: 60px;"></div>
@@ -243,20 +248,29 @@
                 <li onmousedown="handleTouchStart('AlienCiego')" onmouseup="handleTouchEnd()" onmouseleave="handleTouchEnd()" ontouchstart="handleTouchStart('AlienCiego')" ontouchend="handleTouchEnd()">
                     <label class="switch"><input type="checkbox" onclick="updateRoles()" id="AlienCiego"><span class="slider"></span> Alien ciego</label>
                 </li>
-                <li onmousedown="handleTouchStart('AlienMadre')" onmouseup="handleTouchEnd()" onmouseleave="handleTouchEnd()" ontouchstart="handleTouchStart('AlienMadre')" ontouchend="handleTouchEnd()">
+                <li class="rol-avanzado" style="display: none;" onmousedown="handleTouchStart('AlienMadre')" onmouseup="handleTouchEnd()" onmouseleave="handleTouchEnd()" ontouchstart="handleTouchStart('AlienMadre')" ontouchend="handleTouchEnd()">
                     <label class="switch"><input type="checkbox" onclick="updateRoles()" id="AlienMadre"><span class="slider"></span> Alien madre</label>
                 </li>
                 <li onmousedown="handleTouchStart('AlienSuicida')" onmouseup="handleTouchEnd()" onmouseleave="handleTouchEnd()" ontouchstart="handleTouchStart('AlienSuicida')" ontouchend="handleTouchEnd()">
                     <label class="switch"><input type="checkbox" onclick="updateRoles()" id="AlienSuicida"><span class="slider"></span> Alien suicida</label>
                 </li>
-                <li onmousedown="handleTouchStart('AlienVisor')" onmouseup="handleTouchEnd()" onmouseleave="handleTouchEnd()" ontouchstart="handleTouchStart('AlienVisor')" ontouchend="handleTouchEnd()">
+                <li class="rol-avanzado" style="display: none;" onmousedown="handleTouchStart('AlienVisor')" onmouseup="handleTouchEnd()" onmouseleave="handleTouchEnd()" ontouchstart="handleTouchStart('AlienVisor')" ontouchend="handleTouchEnd()">
                     <label class="switch"><input type="checkbox" onclick="updateRoles()" id="AlienVisor"><span class="slider"></span> Alien visor</label>
                 </li>
                 <li onmousedown="handleTouchStart('Analista')" onmouseup="handleTouchEnd()" onmouseleave="handleTouchEnd()" ontouchstart="handleTouchStart('Analista')" ontouchend="handleTouchEnd()">
                     <label class="switch"><input type="checkbox" onclick="updateRoles()" id="Analista"><span class="slider"></span> Analista</label>
                 </li>
-                <li onmousedown="handleTouchStart('Asesino')" onmouseup="handleTouchEnd()" onmouseleave="handleTouchEnd()" ontouchstart="handleTouchStart('Asesino')" ontouchend="handleTouchEnd()">
+                <li class="rol-avanzado" style="display: none;" onmousedown="handleTouchStart('Asesino')" onmouseup="handleTouchEnd()" onmouseleave="handleTouchEnd()" ontouchstart="handleTouchStart('Asesino')" ontouchend="handleTouchEnd()">
                     <label class="switch"><input type="checkbox" onclick="updateRoles()" id="Asesino"><span class="slider"></span> Asesino</label>
+                </li>
+                <li class="rol-pirata" style="display: none;" onmousedown="handleTouchStart('Capitan')" onmouseup="handleTouchEnd()" onmouseleave="handleTouchEnd()" ontouchstart="handleTouchStart('Capitan')" ontouchend="handleTouchEnd()">
+                    <label class="switch"><input type="checkbox" onclick="updateRoles()" id="Capitan"><span class="slider"></span> Capitán</label>
+                </li>
+                <li class="rol-avanzado" style="display: none;" onmousedown="handleTouchStart('Cautivo')" onmouseup="handleTouchEnd()" onmouseleave="handleTouchEnd()" ontouchstart="handleTouchStart('Cautivo')" ontouchend="handleTouchEnd()">
+                    <label class="switch"><input type="checkbox" onclick="updateRoles()" id="Cautivo"><span class="slider"></span> Cautivo</label>
+                </li>
+                <li onmousedown="handleTouchStart('Cazador')" onmouseup="handleTouchEnd()" onmouseleave="handleTouchEnd()" ontouchstart="handleTouchStart('Cazador')" ontouchend="handleTouchEnd()">
+                    <label class="switch"><input type="checkbox" onclick="updateRoles()" id="Cazador"><span class="slider"></span> Cazador</label>
                 </li>
 
             </ul>
@@ -267,6 +281,12 @@
         </div>
         <div class="content">
             <ul id="events-list" style="list-style: none; padding: 0;">
+                <li onmousedown="handleTouchStart('Cometa')" onmouseup="handleTouchEnd()" onmouseleave="handleTouchEnd()" ontouchstart="handleTouchStart('Cometa')" ontouchend="handleTouchEnd()">
+                    <label class="switch"><input type="checkbox" onclick="updateRoles()" id="Cometa"><span class="slider"></span> Cometa</label>
+                </li>
+                <li class="rol-avanzado" style="display: none;" onmousedown="handleTouchStart('Eclipse')" onmouseup="handleTouchEnd()" onmouseleave="handleTouchEnd()" ontouchstart="handleTouchStart('Eclipse')" ontouchend="handleTouchEnd()">
+                    <label class="switch"><input type="checkbox" onclick="updateRoles()" id="Eclipse"><span class="slider"></span> Eclipse</label>
+                </li>
                 <li onmousedown="handleTouchStart('Marte')" onmouseup="handleTouchEnd()" onmouseleave="handleTouchEnd()" ontouchstart="handleTouchStart('Marte')" ontouchend="handleTouchEnd()">
                     <label class="switch"><input type="checkbox" onclick="updateRoles()" id="Marte"><span class="slider"></span> Marte</label>
                 </li>
@@ -282,6 +302,12 @@
                 <p>Se coloca una carta adicional en el centro, perpendicular al resto.</p>
                 <p>Debe ser una carta de alien.</p>
             </div>
+
+            <div id="Capitan-message2" style="display: none; border: 2px solid orange; border-radius: 10px; padding: 20px; margin-bottom: 15px; background-color: #222;">
+                <p>Se coloca una carta adicional en el centro, perpendicular al resto.</p>
+                <p>Debe ser una carta de pirata.</p>
+            </div>
+
             <div style="display: block; border: 2px solid white; border-radius: 10px; padding: 20px; margin-bottom: 15px; background-color: #222;">
                 <p>Todos cierran los ojos.</p>
             </div>
@@ -292,7 +318,7 @@
                 <p id="AlienSuicida-message" style="display: none; margin-top: 5px; color: green;">(El alien suicida también abre los ojos)</p>
                 <p>Los aliens se miran entre sí y se reconocen.</p>
                 <p id="AlienCiego-message" style="display: none; margin-top: 5px; color: red;">El alien ciego levanta la mano.</p>
-                <p id="Marte-message" style="display: none; margin-top: 5px; color: red;">Los aliens señalan a un jugador, que morirá a los 3 minutos de discusión.</p>
+                <p id="Marte-message" style="display: none; margin-top: 5px; color: #c62124;">Los aliens señalan a un jugador, que morirá a los 3 minutos de discusión.</p>
                 <p>Los aliens cierran los ojos.</p>
             </div>
             <div id="AlienMadre-message2" style="display: none; border: 2px solid red; border-radius: 10px; padding: 20px; margin-bottom: 15px; background-color: #222;">
@@ -304,6 +330,12 @@
                 <p>El alien visor abre los ojos.</p>
                 <p>Señala cualquier carta para verla.</p>
                 <p>El alien visor cierra los ojos.</p>
+            </div>
+            <div id="Cazador-message" style="display: none; border: 2px solid blue; border-radius: 10px; padding: 20px; margin-bottom: 15px; background-color: #222;">
+                <p>El cazador levanta la mano.</p>
+                <p>El director le toca la cabeza al cazador tantas veces como aliens hayan abierto los ojos en el turno de los aliens.</p>
+                <p id="AlienCiego-message2" style="display: none; margin-top: 5px; color: red;">(El alien ciego también cuenta).</p>
+                <p>El cazador baja la mano.</p>
             </div>
             <div id="Analista-message" style="display: none; border: 2px solid blue; border-radius: 10px; padding: 20px; margin-bottom: 15px; background-color: #222;">
                 <p>El analista abre los ojos.</p>
@@ -323,12 +355,37 @@
                 <p>Los agentes se miran entre sí y se reconocen.</p>
                 <p>Los agentes cierran los ojos.</p>
             </div>
+
+            <div id="Capitan-message" style="display: none; border: 2px solid orange; border-radius: 10px; padding: 20px; margin-bottom: 15px; background-color: #222;">
+                <p>El capitán abre los ojos.</p>
+                <p>El capitán señala a un jugador para convertirlo en pirata.</p>
+                <p>El capitán cierra los ojos.</p>
+            </div>
+
+            <div id="Eclipse-message" style="display: none; border: 2px solid #f78204; border-radius: 10px; padding: 20px; margin-bottom: 15px; background-color: #222;">
+                <p>Cuando criosueño termina por primera vez, hay un segundo criosueño.</p>
+            </div>
+
             <div style="display: block; border: 2px solid white; border-radius: 10px; padding: 20px; margin-bottom: 15px; background-color: #222;">
                 <p>Todos abren los ojos.</p>
             </div>
             <div class="timer" id="timer">00:00.00</div>
             <div class="buttons" id="buttons">
                 <button class="button" onclick="startTimer()">▶</button>
+            </div>
+            <br>
+            <div id="Marte-message2" style="display: none; border: 2px solid #c62124; border-radius: 10px; padding: 20px; margin-bottom: 15px; background-color: #222;">
+                <p>A los 3 minutos, muere el jugador que tenga la carta elegida por los aliens.</p>
+            </div>
+            <div id="Cometa-message" style="display: none; border: 2px solid #64b7c0; border-radius: 10px; padding: 20px; margin-bottom: 15px; background-color: #222;">
+                <p>A los 3 minutos, el director intercambia las cartas de dos jugadores elegidos al azar.</p>
+            </div>
+            <div id="Cautivo-message" style="display: none; border: 2px solid green; border-radius: 10px; padding: 20px; margin-bottom: 15px; background-color: #222;">
+                <p>El cautivo puede intercambiar su carta por cualquier jugador que lo haya votado.</p>
+            </div>
+
+            <div id="AlienSuicida-message2" style="display: none; border: 2px solid green; border-radius: 10px; padding: 20px; margin-bottom: 15px; background-color: #222;">
+                <p>Si el alien suicida murió, gana.</p>
             </div>
         </div>
     </div>
@@ -396,7 +453,7 @@
         }
     
         function updateRoles() {
-            let roleIds = ["Aliens", "Agentes", "AlienCiego", "AlienMadre", "AlienMadre2","AlienSuicida","AlienVisor", "AlienVisor2","Analista","Asesino","Marte"];
+            let roleIds = ["Aliens", "Agentes", "AlienCiego", "AlienMadre", "AlienMadre2","AlienSuicida","AlienVisor", "AlienVisor2","Analista","Asesino","Capitan","Cautivo","Cazador"        ,"Cometa","Eclipse","Marte"];
             roleIds.forEach(role => {
                 let checkbox = document.getElementById(role);
                 let messageBox = document.getElementById(role + "-message");
@@ -476,10 +533,27 @@
                 case "Asesino":
                     message = "<p style='color: green; font-weight: bold;'>Asesino</p><p style='color: green;'>Elige una víctima, y ve su carta. Gana si el jugador que tiene esa carta muere.</p><p style='color: gray; font-style: italic;'>Es un bombón (asesino).</p>";
                 break;
+                case "Capitan":
+                    message = "<p style='color: orange; font-weight: bold;'>Capitán</p><p style='color: orange;'>Al inicio se coloca una carta de pirata adicional en el medio. El capitán intercambia la carta de cualquier jugador por esa carta antes de que los piratas abran los ojos.</p><p style='color: gray; font-style: italic;'>Hace años poseía una enorme tripulación de unos 100 piratas espaciales. Hoy en día son 3. Se ve que no es tan buen capitán.</p>";
+                break;
+                case "Cautivo":
+                    message = "<p style='color: green; font-weight: bold;'>Cautivo</p><p style='color: green;'>El cautivo siempre pierde. Luego de la votación todos ponen sus cartas boca arriba. El cautivo puede intercambiar su carta por la carta de cualquier jugador que lo haya votado.</p><p style='color: gray; font-style: italic;'>Fue capturado por la tripulación luego de entrar ilegalmente al sistema de archivos de la nave y reemplazar los planos de navegación por gifs de gatitos.</p>";
+                break;
+                case "Cazador":
+                    message = "<p style='color: blue; font-weight: bold;'>Cazador</p><p style='color: blue;'>El director le toca la cabeza al cazador una vez por cada alien que haya abierto los ojos (o levantado la mano) en el turno de los aliens.</p><p style='color: gray; font-style: italic;'>Es un buen tipo. Sería mejor tipo si no llevara su rifle cuando jugamos paintball.</p>";
+                break;
 
 
+
+
+                case "Cometa":
+                    message = "<p style='color: #64b7c0; font-weight: bold;'>Cometa</p><p style='color: #64b7c0;'>A los 3 minutos de discusión, el director intercambia las cartas de dos jugadores elegidos al azar.</p>";
+                break;
+                case "Eclipse":
+                    message = "<p style='color: #f78204; font-weight: bold;'>Cometa</p><p style='color: #f78204;'>Cuando el criosueño termina por primera vez, hay un segundo criosueño.</p>";
+                break;
                 case "Marte":
-                    message = "<p style='color: red; font-weight: bold;'>Marte</p><p style='color: red;'>Los aliens eligen a un jugador. A los 3 minutos de discusión, ese jugador muere.</p>";
+                    message = "<p style='color: #c62124; font-weight: bold;'>Marte</p><p style='color: #c62124;'>Los aliens eligen a un jugador. A los 3 minutos de discusión, ese jugador muere.</p>";
                 break;
                 
             }
@@ -487,9 +561,7 @@
             infoBox.innerHTML = message;
             document.body.appendChild(infoBox);
             overlay.appendChild(infoBox);
-            
-            
-
+           
             overlay.addEventListener("click", function closeInfoBox(event) {
                 if (overlay) document.body.removeChild(overlay);
                 if (infoBox && !infoBox.contains(event.target)) {
@@ -508,14 +580,51 @@
             let eventosSection = Array.from(document.querySelectorAll('.section')).find(section => section.querySelector('.title')?.textContent.includes('Selección de eventos'));
             if (!eventosSection) return;
             let eventosToggle = document.getElementById("eventosToggle");
-            if (eventosToggle.innerText === "Eventos habilitados") {
+            if (eventosToggle.innerText === "Eventos: [Sí]") {
                 eventosSection.style.display = "none";
-                eventosToggle.innerText = "Eventos deshabilitados";
+                eventosToggle.innerText = "Eventos: [No]";
             } else {
                 eventosSection.style.display = "block";
-                eventosToggle.innerText = "Eventos habilitados";
+                eventosToggle.innerText = "Eventos: [Sí]";
             }
         }
+    
+        function toggleRolesAvanzadosText() {
+            let rolesAvanzadosToggle = document.getElementById("rolesAvanzadosToggle");
+            let advancedRoles = document.querySelectorAll(".rol-avanzado");
+            if (rolesAvanzadosToggle.innerText === "[Expansión] Roles avanzados: [Sí]") {
+                rolesAvanzadosToggle.innerText = "[Expansión] Roles avanzados: [No]";
+                advancedRoles.forEach(role => role.style.display = "none");
+            } else {
+                rolesAvanzadosToggle.innerText = "[Expansión] Roles avanzados: [Sí]";
+                advancedRoles.forEach(role => role.style.display = "block");
+            }
+        }
+
+        function toggleTarjetasAccesoText() {
+            let tarjetasAccesoToggle = document.getElementById("tarjetasAccesoToggle");
+            let rolesTarjeta = document.querySelectorAll(".rol-tarjeta-acceso");
+            if (tarjetasAccesoToggle.innerText === "[Expansión] Tarjetas de Acceso: [Sí]") {
+                tarjetasAccesoToggle.innerText = "[Expansión] Tarjetas de Acceso: [No]";
+                rolesTarjeta.forEach(role => role.style.display = "none");
+            } else {
+                tarjetasAccesoToggle.innerText = "[Expansión] Tarjetas de Acceso: [Sí]";
+                rolesTarjeta.forEach(role => role.style.display = "block");
+            }
+        }
+
+        function togglePiratasText() {
+            let piratasToggle = document.getElementById("piratasToggle");
+            let rolesPirata = document.querySelectorAll(".rol-pirata");
+            if (piratasToggle.innerText === "[Expansión] Invasión Pirata: [Sí]") {
+                piratasToggle.innerText = "[Expansión] Invasión Pirata: [No]";
+                rolesPirata.forEach(role => role.style.display = "none");
+            } else {
+                piratasToggle.innerText = "[Expansión] Invasión Pirata: [Sí]";
+                rolesPirata.forEach(role => role.style.display = "block");
+            }
+        }
+
     </script>
 </body>
 </html>
