@@ -105,10 +105,54 @@
         input#Capitan:checked + .slider { background-color: orange; }
         input#Cautivo:checked + .slider { background-color: green; }
         input#Cazador:checked + .slider { background-color: blue; }
+        input#Cientifica:checked + .slider { background-color: blue; }
+        input#Clon:checked + .slider { background-color: green; }
+        input#Conserje:checked + .slider { background-color: blue; }
+        input#Corsaria:checked + .slider { background-color: orange; }
+        input#Crononauta:checked + .slider { background-color: blue; }
+        input#Director:checked + .slider { background-color: gray; }
+        input#Enlazador:checked + .slider { background-color: blue; }
+        input#Hacker:checked + .slider { background-color: green; }
+        input#Holograma:checked + .slider { background-color: green; }
+        input#Huevo:checked + .slider { background-color: red; }
+        input#IA:checked + .slider { background-color: blue; }
+        input#Iluminada:checked + .slider { background-color: blue; }
+        input#Investigador:checked + .slider { background-color: blue; }
+        input#Ladron:checked + .slider { background-color: blue; }
+        input#Larva:checked + .slider { background-color: red; }
+        input#Mango:checked + .slider { background-color: blue; }
+        input#Mecanico:checked + .slider { background-color: blue; }
+        input#Miyagi:checked + .slider { background-color: blue; }
+        input#Nina:checked + .slider { background-color: blue; }
+        input#Noxis:checked + .slider { background-color: red; }
+        input#Pirata:checked + .slider { background-color: orange; }
+        input#Portero:checked + .slider { background-color: blue; }
+        input#Quimico:checked + .slider { background-color: blue; }
+        input#Radiactivo:checked + .slider { background-color: blue; }
+        input#Recolector:checked + .slider { background-color: blue; }
+        input#Revelador:checked + .slider { background-color: blue; }
+        input#Sirius:checked + .slider { background-color: blue; }
+        input#Suicida:checked + .slider { background-color: green; }
+        input#Travieso:checked + .slider { background-color: blue; }
+        input#Tripulante:checked + .slider { background-color: blue; }
+        input#Viajero:checked + .slider { background-color: blue; }
+        input#Viejo:checked + .slider { background-color: blue; }
+        input#Vigia:checked + .slider { background-color: blue; }
         
         input#Cometa:checked + .slider { background-color: #64b7c0; }
         input#Eclipse:checked + .slider { background-color: #f78204; }
+        input#Gaturno:checked + .slider { background-color: #fe8d3d; }
+        input#Jupiter:checked + .slider { background-color: #df9d4c; }
+        input#Luna:checked + .slider { background-color: #000000; }
         input#Marte:checked + .slider { background-color: #c62124; }
+        input#Mercurio:checked + .slider { background-color: #4d4d4d; }
+        input#Meteorito:checked + .slider { background-color: #f14303; }
+        input#Nebulosa:checked + .slider { background-color: #f751a9; }
+        input#Neptuno:checked + .slider { background-color: #0f84b5; }
+        input#Pluton:checked + .slider { background-color: #b3a377; }
+        input#Universo:checked + .slider { background-color: #c800ff; }
+        input#Urano:checked + .slider { background-color: #4a89ad; }
+        input#Venus:checked + .slider { background-color: #f5a67b; }
 
         input:checked + .slider:before {
             transform: translateX(26px);
@@ -207,10 +251,18 @@
     <div class="menu-button" onclick="toggleMenu()">☰</div>
     <div id="menu" class="menu">
         <ul list-style: none; padding: 0;>
-            <li id="eventosToggle" onclick="toggleEventosText()">Eventos: [No]</li>
-            <li id="rolesAvanzadosToggle" onclick="toggleRolesAvanzadosText()">[Expansión] Roles avanzados: [No]</li>
-            <li id="tarjetasAccesoToggle" onclick="toggleTarjetasAccesoText()">[Expansión] Tarjetas de Acceso: [No]</li>
-            <li id="piratasToggle" onclick="togglePiratasText()">[Expansión] Invasión Pirata: [No]</li>
+            <li style="color: gray; font-weight: bold;">Configuración</li>
+            <li style="color: gray;" id="selectBasicRoles" onclick="selectBasicRoles()">Marcar roles básicos</li>
+            <li style="color: gray;" id="disableAllRoles" onclick="disableAllRoles()">Limpiar</li>
+            <li></li>
+            <li style="color: green; font-weight: bold;">Roles adicionales</li>
+            <li style="color: green;" id="rolesAvanzadosToggle" onclick="toggleRolesAvanzadosText()">Sin roles avanzados</li>
+            <li style="color: green;" id="rolesCaoticosToggle" onclick="toggleRolesCaoticosText()">Sin roles caóticos</li>
+            <li></li>
+            <li style="color: blue; font-weight: bold;">Expansiones</li>
+            <li style="color: blue; "id="eventosToggle" onclick="toggleEventosText()">Eventos deshabilitados</li>
+            <li style="color: blue; "id="tarjetasAccesoToggle" onclick="toggleTarjetasAccesoText()">Tarjetas de Acceso deshabilitadas</li>
+            <li style="color: blue; "id="piratasToggle" onclick="togglePiratasText()">Invasión Pirata deshabilitada</li>
         </ul>
     </div>
     <div style="height: 60px;"></div>
@@ -221,19 +273,81 @@
         <div class="content">
             <p>Un grupo de astronautas se embarca en una misión importante, y se criogenizan hasta llegar a destino.</p>
             <p>Al despertar del criosueño, descubren que no todos en la nave son quienes aparentan ser.</p>
-            <p style="color: #ff6666; font-weight: bold;">Alienígenas mortales se han infiltrado en la tripulación.</p>
+            <p style="color: red; font-weight: bold;">Alienígenas mortales se han infiltrado en la tripulación.</p>
             <p>Eliminarlos es crucial para la supervivencia.</p>
+            <h3 class="sub-title" onclick="toggleSubSection(this)">Objetivo <span class="arrow">▼</span></h3>
+            <div class="sub-content">
+                <p> El objetivo de cada jugador depende de su equipo. El equipo de cada rol está implícito en el color de su carta:</p>
+                <p style="color: red; font-weight: bold;"><br>Aliens</p>
+                <p>El objetivo de los Aliens es permanecer ocultos y evitar morir. Si al menos un alien muere, los aliens pierden.</p>
+                <p style="color: blue; font-weight: bold;"><br>Tripulación</p>
+                <p> El objetivo de la tripulación es descubrir la identidad de los aliens, y lograr que al menos uno de ellos muera.</p>
+                <p style="color: green; font-weight: bold;"><br>Roles independientes</p>
+                <p> Hay algunos roles que son independientes, y tienen sus propios objetivos.</p>
+            </div>
             <h3 class="sub-title" onclick="toggleSubSection(this)">Preparación <span class="arrow">▼</span></h3>
             <div class="sub-content">
                 <p>Un jugador tomará el rol de Director, y será quien ordene el juego para el resto de jugadores. Si nadie se ofrece a ser el Director, se coloca una carta de Director en el mazo.</p>
                 <p>Todos los jugadores se sientan en una ronda. Se reparte una carta de rol para cada jugador, y se colocan tres cartas adicionales en el centro de la ronda (se acomoda el mazo para que la carta de Director no pueda quedar en el centro).</p>
+                <p>Todos los jugadores ven su carta de rol. Luego de eso, no podrán volver a ver su carta hasta el final del juego. El rol que recibe un jugador al inicio de la partida indicará qué acciones puede realizar en el transcurso del juego.</p>
             </div>
             <h3 class="sub-title" onclick="toggleSubSection(this)">Desarrollo del juego <span class="arrow">▼</span></h3>
             <div class="sub-content">
-                <p>Explicación sobre cómo se desarrolla el juego.</p>
+                <p>El juego consta de tres etapas; el criosueño, la discusión y la votación.</p>
+                <p style="color: blue; font-weight: bold"><br>Etapa 1: Criosueño</p>
+                <p>Durante el criosueño todos los jugadores cierran sus ojos. El director indicará a cada rol cuándo debe abrir los ojos, y qué acción deberá hacer.</p>
+                <p style="color: gray; font-style: italic">Ejemplo: Todos cierran sus ojos. El director dice en voz alta "El ladrón abra los ojos, y señale a otro jugador para robar su carta". El jugador que tiene el rol del ladrón abre los ojos, señala a un jugador a su elección, y roba su carta. Luego el ladrón cierra sus ojos y el director dice "El químico, abra sus ojos" ... etc</p>
+                <p>Si no estás seguro qué hace tu carta, simplemente escucha al director, que dirá en voz alta las instrucciones para cada rol cuando llegue su momento de actuar.</p>
+                <p>No todos los roles tienen una acción durante el criosueño.</p>
+                <p>Cuando todos los roles hicieron su acción, el criosueño termina y todos los jugadores abren sus ojos.</p>
+                <p style="color: blue; font-weight: bold"><br>Etapa 2: Discusión</p>
+                <p> Cuando todos abren sus ojos, los tripulantes tienen un tiempo para intentar descubrir quiénes son los aliens. Disponen de tantos minutos como cartas de roles haya sobre la mesa (repartidas y en el centro).</p>
+                <p> Durante la discusión, no hay límite acerca de lo que se puede decir. Está permitido mentir, o decir la verdad, revelar tu rol, o mentir acerca de él.</p>
+                <p style="color: blue; font-weight: bold"></pstyle><br>Etapa 3: Votación</p>
+                <p> Cuando el tiempo haya terminado, o cuando la mayoría de los jugadores desee votar, el tiempo de discusión termina y los jugadores votan.</p>
+                <p> El director cuenta hasta tres, y cada jugador señala al jugador al que desea eliminar. El jugador con más votos (es decir, con más dedos apuntándolo) es eliminado.</p>
+                <p> Un jugador no puede votar por sí mismo. Un jugador puede votar hacia el centro. Si el centro tiene más votos que cualquier jugador, o si hay un empate en los votos, ningún jugador es eliminado.</p>
+                <p> Si un alien es eliminado, entonces gana la tripulación. Si ningún alien es eliminado, entonces ganan los aliens.</p>
+                <p style="color: gray; font-style: italic">Eventualmente podría pasar que todas las cartas de alien queden en el centro. Si eso sucede, la forma de ganar lograr que nadie muera en la votación. Si alguien muere y ningún jugador tiene el rol de alien, la tripulación pierde.</p>
+                
+            
+                <p style="color: blue; font-weight: bold"><br>Recomendaciones</p>      
+                <p style="color: gray; font-weight: bold">No es necesario saber de memoria lo que hacen todos los roles, ni el orden en el que deben realizar sus acciones.</p>   
+                <p style="color: gray; font-weight: bold">En la sección "Selector de roles" de esta página podés ver lo que hace cada rol manteniendo presionado su nombre, y en la sección "Jugar", podés ver qué hace cada rol seleccionado y en qué orden.</p>
+                <p style="color: gray; font-weight: bold">Para jugar, se seleccionan los roles con los que se va a jugar la partida, y el director puede leer en voz alta el orden y las acciones de los roles.</p>
             </div>
         </div>
     </div>
+
+    <div class="section" style = "display: none;">
+        <div class="title" onclick="toggleSection(this)">Expansión: ¡Piratas!<span class="arrow">▼</span>
+        </div>
+        <div class="content">
+            <p style="color: orange; font-weight: bold;">¡Piratas espaciales intentan toamr la nave!</p>
+            <p>En esta ocasión, la tripulación deberá lidiar con dos amenazas simultáneas; aliens mrotales y engañosos piratas.</p>
+            <p>Las reglas del juego son las mismas, pero durante la fase de votación, en lugar de votar a un jugador para eliminarlo, se votará a un jugador para elegirlo como comandante.</p>
+            <p>Luego, el comandante elige a un jugador y lo elimina.</p>
+            <p>Si un pirata es elegido como comandante, los piratas ganan. (La tripulación y los aliens pierden).</p>
+            <p style="color: orange; font-weight: bold;">Esta expansión incluye los roles de Pirata, Corsaria y Capitán.</p>
+        </div>
+    </div>
+</div>
+
+<div class="section" style = "display: none;">
+    <div class="title" onclick="toggleSection(this)">Expansión: ¡Tarjetas de acceso!<span class="arrow">▼</span>
+    </div>
+    <div class="content">
+        <p>Al repartir las cartas, se colocan todas las cartas de Tarjetas de Acceso en una pila, y se las coloca junto a las cartas del centro.</p>
+        <p>Las Tarjetas de Acceso pueden ser obtenidas por los jugadores durante el criosueño.</p>
+        <p>Cuando un jugador tiene una Tarjeta de Acceso, puede usarla durante la discusión para tener acceso a diversos artefactos que le otorgan información adicional.</p>
+        <p>Para usar una tarjeta de acceso, simplemente dices en voz alta que usarás una Tarjeta de Acceso, pero no la muestras. Si nadie duda de tus palabras, entonces, independientemente de qué tarjeta de acceso tengas, podés usar la habilidad de la que dijiste tener.</p>
+        <p>Si alguien duda de tus palabras y decide desafiarte, entonces tu tarjeta se coloca boca arriba. Si tenías la tarjeta que dijiste tener, entonces el jugador que te desafió es eliminado. Si no, vos sos eliminado</p>
+        <p>Si un jugador tiene una Tarjeta de Acceso sin usar, entonces pierde su Tarjeta de Acceso en lugar de ser eliminado.</p>
+        <p style="color: blue; font-weight: bold;">Esta expansión incluye los roles de Portero, Conserje, Mecánico y Recolector.</p>
+            </div>
+        </div>
+    </div>
+
     <div class="section">
         <div class="title" onclick="toggleSection(this)">Selección de roles <span class="arrow">▼</span>
         </div>
@@ -254,10 +368,10 @@
                 <li onmousedown="handleTouchStart('AlienSuicida')" onmouseup="handleTouchEnd()" onmouseleave="handleTouchEnd()" ontouchstart="handleTouchStart('AlienSuicida')" ontouchend="handleTouchEnd()">
                     <label class="switch"><input type="checkbox" onclick="updateRoles()" id="AlienSuicida"><span class="slider"></span> Alien suicida</label>
                 </li>
-                <li class="rol-avanzado" style="display: none;" onmousedown="handleTouchStart('AlienVisor')" onmouseup="handleTouchEnd()" onmouseleave="handleTouchEnd()" ontouchstart="handleTouchStart('AlienVisor')" ontouchend="handleTouchEnd()">
+                <li onmousedown="handleTouchStart('AlienVisor')" onmouseup="handleTouchEnd()" onmouseleave="handleTouchEnd()" ontouchstart="handleTouchStart('AlienVisor')" ontouchend="handleTouchEnd()">
                     <label class="switch"><input type="checkbox" onclick="updateRoles()" id="AlienVisor"><span class="slider"></span> Alien visor</label>
                 </li>
-                <li onmousedown="handleTouchStart('Analista')" onmouseup="handleTouchEnd()" onmouseleave="handleTouchEnd()" ontouchstart="handleTouchStart('Analista')" ontouchend="handleTouchEnd()">
+                <li class="rol-avanzado" style="display: none;" onmousedown="handleTouchStart('Analista')" onmouseup="handleTouchEnd()" onmouseleave="handleTouchEnd()" ontouchstart="handleTouchStart('Analista')" ontouchend="handleTouchEnd()">
                     <label class="switch"><input type="checkbox" onclick="updateRoles()" id="Analista"><span class="slider"></span> Analista</label>
                 </li>
                 <li class="rol-avanzado" style="display: none;" onmousedown="handleTouchStart('Asesino')" onmouseup="handleTouchEnd()" onmouseleave="handleTouchEnd()" ontouchstart="handleTouchStart('Asesino')" ontouchend="handleTouchEnd()">
@@ -266,11 +380,110 @@
                 <li class="rol-pirata" style="display: none;" onmousedown="handleTouchStart('Capitan')" onmouseup="handleTouchEnd()" onmouseleave="handleTouchEnd()" ontouchstart="handleTouchStart('Capitan')" ontouchend="handleTouchEnd()">
                     <label class="switch"><input type="checkbox" onclick="updateRoles()" id="Capitan"><span class="slider"></span> Capitán</label>
                 </li>
-                <li class="rol-avanzado" style="display: none;" onmousedown="handleTouchStart('Cautivo')" onmouseup="handleTouchEnd()" onmouseleave="handleTouchEnd()" ontouchstart="handleTouchStart('Cautivo')" ontouchend="handleTouchEnd()">
+                <li class="rol-caotico" style="display: none;" onmousedown="handleTouchStart('Cautivo')" onmouseup="handleTouchEnd()" onmouseleave="handleTouchEnd()" ontouchstart="handleTouchStart('Cautivo')" ontouchend="handleTouchEnd()">
                     <label class="switch"><input type="checkbox" onclick="updateRoles()" id="Cautivo"><span class="slider"></span> Cautivo</label>
                 </li>
                 <li onmousedown="handleTouchStart('Cazador')" onmouseup="handleTouchEnd()" onmouseleave="handleTouchEnd()" ontouchstart="handleTouchStart('Cazador')" ontouchend="handleTouchEnd()">
                     <label class="switch"><input type="checkbox" onclick="updateRoles()" id="Cazador"><span class="slider"></span> Cazador</label>
+                </li>
+                <li class="rol-avanzado" style="display: none;" onmousedown="handleTouchStart('Cientifica')" onmouseup="handleTouchEnd()" onmouseleave="handleTouchEnd()" ontouchstart="handleTouchStart('Cientifica')" ontouchend="handleTouchEnd()">
+                    <label class="switch"><input type="checkbox" onclick="updateRoles()" id="Cientifica"><span class="slider"></span> Científica</label>
+                </li>
+                <li class="rol-avanzado" style="display: none;" onmousedown="handleTouchStart('Clon')" onmouseup="handleTouchEnd()" onmouseleave="handleTouchEnd()" ontouchstart="handleTouchStart('Clon')" ontouchend="handleTouchEnd()">
+                    <label class="switch"><input type="checkbox" onclick="updateRoles()" id="Clon"><span class="slider"></span> Clon</label>
+                </li>
+                <li class="rol-tarjeta-acceso" style="display: none;" onmousedown="handleTouchStart('Conserje')" onmouseup="handleTouchEnd()" onmouseleave="handleTouchEnd()" ontouchstart="handleTouchStart('Conserje')" ontouchend="handleTouchEnd()">
+                    <label class="switch"><input type="checkbox" onclick="updateRoles()" id="Conserje"><span class="slider"></span> Conserje</label>
+                </li>
+                <li  class="rol-pirata" style="display: none;" onmousedown="handleTouchStart('Corsaria')" onmouseup="handleTouchEnd()" onmouseleave="handleTouchEnd()" ontouchstart="handleTouchStart('Corsaria')" ontouchend="handleTouchEnd()">
+                    <label class="switch"><input type="checkbox" onclick="updateRoles()" id="Corsaria"><span class="slider"></span> Corsaria</label>
+                </li>
+                <li class="rol-caotico" style="display: none;" onmousedown="handleTouchStart('Crononauta')" onmouseup="handleTouchEnd()" onmouseleave="handleTouchEnd()" ontouchstart="handleTouchStart('Crononauta')" ontouchend="handleTouchEnd()">
+                    <label class="switch"><input type="checkbox" onclick="updateRoles()" id="Crononauta"><span class="slider"></span> Crononauta</label>
+                </li>
+                <li onmousedown="handleTouchStart('Director')" onmouseup="handleTouchEnd()" onmouseleave="handleTouchEnd()" ontouchstart="handleTouchStart('Director')" ontouchend="handleTouchEnd()">
+                    <label class="switch"><input type="checkbox" onclick="updateRoles()" id="Director"><span class="slider"></span> Director</label>
+                </li>
+                <li class="rol-caotico" style="display: none;" onmousedown="handleTouchStart('Enlazador')" onmouseup="handleTouchEnd()" onmouseleave="handleTouchEnd()" ontouchstart="handleTouchStart('Enlazador')" ontouchend="handleTouchEnd()">
+                    <label class="switch"><input type="checkbox" onclick="updateRoles()" id="Enlazador"><span class="slider"></span> Enlazador</label>
+                </li>
+                <li class="rol-avanzado" style="display: none;" onmousedown="handleTouchStart('Hacker')" onmouseup="handleTouchEnd()" onmouseleave="handleTouchEnd()" ontouchstart="handleTouchStart('Hacker')" ontouchend="handleTouchEnd()">
+                    <label class="switch"><input type="checkbox" onclick="updateRoles()" id="Hacker"><span class="slider"></span> Hacker</label>
+                </li>
+                <li class="rol-avanzado" style="display: none;" onmousedown="handleTouchStart('Holograma')" onmouseup="handleTouchEnd()" onmouseleave="handleTouchEnd()" ontouchstart="handleTouchStart('Holograma')" ontouchend="handleTouchEnd()">
+                    <label class="switch"><input type="checkbox" onclick="updateRoles()" id="Holograma"><span class="slider"></span> Holograma</label>
+                </li>
+                <li class="rol-avanzado" style="display: none;" onmousedown="handleTouchStart('Huevo')" onmouseup="handleTouchEnd()" onmouseleave="handleTouchEnd()" ontouchstart="handleTouchStart('Huevo')" ontouchend="handleTouchEnd()">
+                    <label class="switch"><input type="checkbox" onclick="updateRoles()" id="Huevo"><span class="slider"></span> Huevo</label>
+                </li>
+                <li class="rol-avanzado" style="display: none;" onmousedown="handleTouchStart('IA')" onmouseup="handleTouchEnd()" onmouseleave="handleTouchEnd()" ontouchstart="handleTouchStart('IA')" ontouchend="handleTouchEnd()">
+                    <label class="switch"><input type="checkbox" onclick="updateRoles()" id="IA"><span class="slider"></span> IA</label>
+                </li>
+                <li class="rol-avanzado" style="display: none;" onmousedown="handleTouchStart('Iluminada')" onmouseup="handleTouchEnd()" onmouseleave="handleTouchEnd()" ontouchstart="handleTouchStart('Iluminada')" ontouchend="handleTouchEnd()">
+                    <label class="switch"><input type="checkbox" onclick="updateRoles()" id="Iluminada"><span class="slider"></span> Iluminada</label>
+                </li>
+                <li onmousedown="handleTouchStart('Investigador')" onmouseup="handleTouchEnd()" onmouseleave="handleTouchEnd()" ontouchstart="handleTouchStart('Investigador')" ontouchend="handleTouchEnd()">
+                    <label class="switch"><input type="checkbox" onclick="updateRoles()" id="Investigador"><span class="slider"></span> Investigador</label>
+                </li>
+                <li onmousedown="handleTouchStart('Ladron')" onmouseup="handleTouchEnd()" onmouseleave="handleTouchEnd()" ontouchstart="handleTouchStart('Ladron')" ontouchend="handleTouchEnd()">
+                    <label class="switch"><input type="checkbox" onclick="updateRoles()" id="Ladron"><span class="slider"></span> Ladrón</label>
+                </li>
+                <li onmousedown="handleTouchStart('Larva')" onmouseup="handleTouchEnd()" onmouseleave="handleTouchEnd()" ontouchstart="handleTouchStart('Larva')" ontouchend="handleTouchEnd()">
+                    <label class="switch"><input type="checkbox" onclick="updateRoles()" id="Larva"><span class="slider"></span> Larva</label>
+                </li>
+                <li onmousedown="handleTouchStart('Mango')" onmouseup="handleTouchEnd()" onmouseleave="handleTouchEnd()" ontouchstart="handleTouchStart('Mango')" ontouchend="handleTouchEnd()">
+                    <label class="switch"><input type="checkbox" onclick="updateRoles()" id="Mango"><span class="slider"></span> Mango</label>
+                </li>
+                <li class="rol-tarjeta-acceso" style="display: none;" onmousedown="handleTouchStart('Mecanico')" onmouseup="handleTouchEnd()" onmouseleave="handleTouchEnd()" ontouchstart="handleTouchStart('Mecanico')" ontouchend="handleTouchEnd()">
+                    <label class="switch"><input type="checkbox" onclick="updateRoles()" id="Mecanico"><span class="slider"></span> Mecánico</label>
+                </li>
+                <li onmousedown="handleTouchStart('Miyagi')" onmouseup="handleTouchEnd()" onmouseleave="handleTouchEnd()" ontouchstart="handleTouchStart('Miyagi')" ontouchend="handleTouchEnd()">
+                    <label class="switch"><input type="checkbox" onclick="updateRoles()" id="Miyagi"><span class="slider"></span> Miyagi</label>
+                </li>
+                <li class="rol-avanzado" style="display: none;" onmousedown="handleTouchStart('Nina')" onmouseup="handleTouchEnd()" onmouseleave="handleTouchEnd()" ontouchstart="handleTouchStart('Nina')" ontouchend="handleTouchEnd()">
+                    <label class="switch"><input type="checkbox" onclick="updateRoles()" id="Nina"><span class="slider"></span> Niña</label>
+                </li>
+                <li class="rol-avanzado" style="display: none;" onmousedown="handleTouchStart('Noxis')" onmouseup="handleTouchEnd()" onmouseleave="handleTouchEnd()" ontouchstart="handleTouchStart('Noxis')" ontouchend="handleTouchEnd()">
+                    <label class="switch"><input type="checkbox" onclick="updateRoles()" id="Noxis"><span class="slider"></span> N.O.X.I.S.</label>
+                </li>
+                <li class="rol-pirata" style="display: none;" onmousedown="handleTouchStart('Pirata')" onmouseup="handleTouchEnd()" onmouseleave="handleTouchEnd()" ontouchstart="handleTouchStart('Pirata')" ontouchend="handleTouchEnd()">
+                    <label class="switch"><input type="checkbox" onclick="updateRoles()" id="Pirata"><span class="slider"></span> Pirata</label>
+                </li>
+                <li class="rol-tarjeta-acceso" style="display: none;" onmousedown="handleTouchStart('Portero')" onmouseup="handleTouchEnd()" onmouseleave="handleTouchEnd()" ontouchstart="handleTouchStart('Portero')" ontouchend="handleTouchEnd()">
+                    <label class="switch"><input type="checkbox" onclick="updateRoles()" id="Portero"><span class="slider"></span> Portero</label>
+                </li>
+                <li onmousedown="handleTouchStart('Quimico')" onmouseup="handleTouchEnd()" onmouseleave="handleTouchEnd()" ontouchstart="handleTouchStart('Quimico')" ontouchend="handleTouchEnd()">
+                    <label class="switch"><input type="checkbox" onclick="updateRoles()" id="Quimico"><span class="slider"></span> Químico</label>
+                </li>
+                <li onmousedown="handleTouchStart('Radiactivo')" onmouseup="handleTouchEnd()" onmouseleave="handleTouchEnd()" ontouchstart="handleTouchStart('Radiactivo')" ontouchend="handleTouchEnd()">
+                    <label class="switch"><input type="checkbox" onclick="updateRoles()" id="Radiactivo"><span class="slider"></span> Radiactivo</label>
+                </li>
+                <li class="rol-tarjeta-acceso" style="display: none;" onmousedown="handleTouchStart('Recolector')" onmouseup="handleTouchEnd()" onmouseleave="handleTouchEnd()" ontouchstart="handleTouchStart('Recolector')" ontouchend="handleTouchEnd()">
+                    <label class="switch"><input type="checkbox" onclick="updateRoles()" id="Recolector"><span class="slider"></span> Recolector</label>
+                </li>
+                <li onmousedown="handleTouchStart('Revelador')" onmouseup="handleTouchEnd()" onmouseleave="handleTouchEnd()" ontouchstart="handleTouchStart('Revelador')" ontouchend="handleTouchEnd()">
+                    <label class="switch"><input type="checkbox" onclick="updateRoles()" id="Revelador"><span class="slider"></span> Revelador</label>
+                </li>
+                <li class="rol-caotico" style="display: none;" onmousedown="handleTouchStart('Sirius')" onmouseup="handleTouchEnd()" onmouseleave="handleTouchEnd()" ontouchstart="handleTouchStart('Sirius')" ontouchend="handleTouchEnd()">
+                    <label class="switch"><input type="checkbox" onclick="updateRoles()" id="Sirius"><span class="slider"></span> S.I.R.I.U.S.</label>
+                </li>
+                <li onmousedown="handleTouchStart('Suicida')" onmouseup="handleTouchEnd()" onmouseleave="handleTouchEnd()" ontouchstart="handleTouchStart('Suicida')" ontouchend="handleTouchEnd()">
+                    <label class="switch"><input type="checkbox" onclick="updateRoles()" id="Suicida"><span class="slider"></span> Suicida</label>
+                </li>
+                <li onmousedown="handleTouchStart('Travieso')" onmouseup="handleTouchEnd()" onmouseleave="handleTouchEnd()" ontouchstart="handleTouchStart('Travieso')" ontouchend="handleTouchEnd()">
+                    <label class="switch"><input type="checkbox" onclick="updateRoles()" id="Travieso"><span class="slider"></span> Travieso</label>
+                </li>
+                <li onmousedown="handleTouchStart('Tripulante')" onmouseup="handleTouchEnd()" onmouseleave="handleTouchEnd()" ontouchstart="handleTouchStart('Tripulante')" ontouchend="handleTouchEnd()">
+                    <label class="switch"><input type="checkbox" onclick="updateRoles()" id="Tripulante"><span class="slider"></span> Tripulante</label>
+                </li>
+                <li class="rol-caotico" style="display: none;" onmousedown="handleTouchStart('Viajero')" onmouseup="handleTouchEnd()" onmouseleave="handleTouchEnd()" ontouchstart="handleTouchStart('Viajero')" ontouchend="handleTouchEnd()">
+                    <label class="switch"><input type="checkbox" onclick="updateRoles()" id="Viajero"><span class="slider"></span> Viajero</label>
+                </li>
+                <li onmousedown="handleTouchStart('Viejo')" onmouseup="handleTouchEnd()" onmouseleave="handleTouchEnd()" ontouchstart="handleTouchStart('Viejo')" ontouchend="handleTouchEnd()">
+                    <label class="switch"><input type="checkbox" onclick="updateRoles()" id="Viejo"><span class="slider"></span> Viejo</label>
+                </li>
+                <li onmousedown="handleTouchStart('Vigia')" onmouseup="handleTouchEnd()" onmouseleave="handleTouchEnd()" ontouchstart="handleTouchStart('Vigia')" ontouchend="handleTouchEnd()">
+                    <label class="switch"><input type="checkbox" onclick="updateRoles()" id="Vigia"><span class="slider"></span> Vigía</label>
                 </li>
 
             </ul>
@@ -281,23 +494,74 @@
         </div>
         <div class="content">
             <ul id="events-list" style="list-style: none; padding: 0;">
-                <li onmousedown="handleTouchStart('Cometa')" onmouseup="handleTouchEnd()" onmouseleave="handleTouchEnd()" ontouchstart="handleTouchStart('Cometa')" ontouchend="handleTouchEnd()">
+                <li class="evento" onmousedown="handleTouchStart('Cometa')" onmouseup="handleTouchEnd()" onmouseleave="handleTouchEnd()" ontouchstart="handleTouchStart('Cometa')" ontouchend="handleTouchEnd()">
                     <label class="switch"><input type="checkbox" onclick="updateRoles()" id="Cometa"><span class="slider"></span> Cometa</label>
                 </li>
-                <li class="rol-avanzado" style="display: none;" onmousedown="handleTouchStart('Eclipse')" onmouseup="handleTouchEnd()" onmouseleave="handleTouchEnd()" ontouchstart="handleTouchStart('Eclipse')" ontouchend="handleTouchEnd()">
+                <li class="rol-avanzado evento" style="display: none;" onmousedown="handleTouchStart('Eclipse')" onmouseup="handleTouchEnd()" onmouseleave="handleTouchEnd()" ontouchstart="handleTouchStart('Eclipse')" ontouchend="handleTouchEnd()">
                     <label class="switch"><input type="checkbox" onclick="updateRoles()" id="Eclipse"><span class="slider"></span> Eclipse</label>
                 </li>
-                <li onmousedown="handleTouchStart('Marte')" onmouseup="handleTouchEnd()" onmouseleave="handleTouchEnd()" ontouchstart="handleTouchStart('Marte')" ontouchend="handleTouchEnd()">
+                <li class="rol-avanzado evento" style="display: none;" onmousedown="handleTouchStart('Gaturno')" onmouseup="handleTouchEnd()" onmouseleave="handleTouchEnd()" ontouchstart="handleTouchStart('Gaturno')" ontouchend="handleTouchEnd()">
+                    <label class="switch"><input type="checkbox" onclick="updateRoles()" id="Gaturno"><span class="slider"></span> Gaturno</label>
+                </li>
+                <li class="evento" onmousedown="handleTouchStart('Jupiter')" onmouseup="handleTouchEnd()" onmouseleave="handleTouchEnd()" ontouchstart="handleTouchStart('Jupiter')" ontouchend="handleTouchEnd()">
+                    <label class="switch"><input type="checkbox" onclick="updateRoles()" id="Jupiter"><span class="slider"></span> Júpiter</label>
+                </li>
+                <li class="evento" onmousedown="handleTouchStart('Luna')" onmouseup="handleTouchEnd()" onmouseleave="handleTouchEnd()" ontouchstart="handleTouchStart('Luna')" ontouchend="handleTouchEnd()">
+                    <label class="switch"><input type="checkbox" onclick="updateRoles()" id="Luna"><span class="slider"></span> Luna</label>
+                </li>
+                <li class="evento" onmousedown="handleTouchStart('Marte')" onmouseup="handleTouchEnd()" onmouseleave="handleTouchEnd()" ontouchstart="handleTouchStart('Marte')" ontouchend="handleTouchEnd()">
                     <label class="switch"><input type="checkbox" onclick="updateRoles()" id="Marte"><span class="slider"></span> Marte</label>
+                </li>
+                <li class="evento" onmousedown="handleTouchStart('Mercurio')" onmouseup="handleTouchEnd()" onmouseleave="handleTouchEnd()" ontouchstart="handleTouchStart('Mercurio')" ontouchend="handleTouchEnd()">
+                    <label class="switch"><input type="checkbox" onclick="updateRoles()" id="Mercurio"><span class="slider"></span> Mercurio</label>
+                </li>
+                <li class="evento" onmousedown="handleTouchStart('Meteorito')" onmouseup="handleTouchEnd()" onmouseleave="handleTouchEnd()" ontouchstart="handleTouchStart('Meteorito')" ontouchend="handleTouchEnd()">
+                    <label class="switch"><input type="checkbox" onclick="updateRoles()" id="Meteorito"><span class="slider"></span> Meteorito</label>
+                </li>
+                <li class="evento" onmousedown="handleTouchStart('Nebulosa')" onmouseup="handleTouchEnd()" onmouseleave="handleTouchEnd()" ontouchstart="handleTouchStart('Nebulosa')" ontouchend="handleTouchEnd()">
+                    <label class="switch"><input type="checkbox" onclick="updateRoles()" id="Nebulosa"><span class="slider"></span> Nebulosa</label>
+                </li>
+                <li class="evento" onmousedown="handleTouchStart('Neptuno')" onmouseup="handleTouchEnd()" onmouseleave="handleTouchEnd()" ontouchstart="handleTouchStart('Neptuno')" ontouchend="handleTouchEnd()">
+                    <label class="switch"><input type="checkbox" onclick="updateRoles()" id="Neptuno"><span class="slider"></span> Neptuno</label>
+                </li>
+                <li class="evento" onmousedown="handleTouchStart('Pluton')" onmouseup="handleTouchEnd()" onmouseleave="handleTouchEnd()" ontouchstart="handleTouchStart('Pluton')" ontouchend="handleTouchEnd()">
+                    <label class="switch"><input type="checkbox" onclick="updateRoles()" id="Pluton"><span class="slider"></span> Plutón</label>
+                </li>
+                <li class="evento" onmousedown="handleTouchStart('Universo')" onmouseup="handleTouchEnd()" onmouseleave="handleTouchEnd()" ontouchstart="handleTouchStart('Universo')" ontouchend="handleTouchEnd()">
+                    <label class="switch"><input type="checkbox" onclick="updateRoles()" id="Universo"><span class="slider"></span> Universo</label>
+                </li>
+                <li class="evento" onmousedown="handleTouchStart('Urano')" onmouseup="handleTouchEnd()" onmouseleave="handleTouchEnd()" ontouchstart="handleTouchStart('Urano')" ontouchend="handleTouchEnd()">
+                    <label class="switch"><input type="checkbox" onclick="updateRoles()" id="Urano"><span class="slider"></span> Urano</label>
+                </li>
+                <li class="evento" onmousedown="handleTouchStart('Venus')" onmouseup="handleTouchEnd()" onmouseleave="handleTouchEnd()" ontouchstart="handleTouchStart('Venus')" ontouchend="handleTouchEnd()">
+                    <label class="switch"><input type="checkbox" onclick="updateRoles()" id="Venus"><span class="slider"></span> Venus</label>
                 </li>
             </ul>
         </div>
     </div>
     <div class="section">
-        <div class="title" onclick="toggleSection(this)">Jugar <span class="arrow">▼</span>
+        <div class="title" onclick="toggleSection(this)">Jugar<span class="arrow">▼</span>
         </div>
         <div class="content">
             <div id="active-roles"></div>
+
+            <div id="Mercurio-message" style="display: none; border: 2px solid #4d4d4d; border-radius: 10px; padding: 20px; margin-bottom: 15px; background-color: #222;">
+                <p>Se coloca una carta en el centro en lugar de tres.</p>
+            </div>
+            <div id="Venus-message" style="display: none; border: 2px solid #f5a67b; border-radius: 10px; padding: 20px; margin-bottom: 15px; background-color: #222;">
+                <p>Se coloca cinco cartas en el centro en lugar de tres.</p>
+            </div>
+            <div id="Universo-message" style="display: none; border: 2px solid #c800ff; border-radius: 10px; padding: 20px; margin-bottom: 15px; background-color: #222;">
+                <p>El director puede jugar todas las cartas de evento que quiera, cuando quiera.</p>
+            </div>
+            <div id="Director-message" style="display: none; border: 2px solid white; border-radius: 10px; padding: 20px; margin-bottom: 15px; background-color: #222;">
+                <p>Quien tenga el rol del director muestra su carta y se prepara para dirigir el juego.</p>
+            </div>
+            <div id="IA-message" style="display: none; border: 2px solid blue; border-radius: 10px; padding: 20px; margin-bottom: 15px; background-color: #222;">
+                <p>La carta de rol de la IA no puede quedar en el centro. </p>
+                <p>Quien tenga el rol de la IA coloca su carta boca arriba. Nadie puede interactuar con la carta de la IA durante la noche. </p>
+            </div>
+
             <div id="AlienMadre-message3" style="display: none; border: 2px solid red; border-radius: 10px; padding: 20px; margin-bottom: 15px; background-color: #222;">
                 <p>Se coloca una carta adicional en el centro, perpendicular al resto.</p>
                 <p>Debe ser una carta de alien.</p>
@@ -308,8 +572,55 @@
                 <p>Debe ser una carta de pirata.</p>
             </div>
 
+
             <div style="display: block; border: 2px solid white; border-radius: 10px; padding: 20px; margin-bottom: 15px; background-color: #222;">
                 <p>Todos cierran los ojos.</p>
+            </div>
+
+
+            <div id="Nebulosa-message" style="display: none; border: 2px solid #f751a9; border-radius: 10px; padding: 20px; margin-bottom: 15px; background-color: #222;">
+                <p>El director intercambia las cartas de dos jugadores al azar.</p>
+            </div>
+            <div id="Hacker-message" style="display: none; border: 2px solid green; border-radius: 10px; padding: 20px; margin-bottom: 15px; background-color: #222;">
+                <p>El hacker abre los ojos.</p>
+                <p>El director le da a elegir al hacker entre 3 cartas que no estaban en el mazo original de juego, y que no tengan acciones durante el criosueño.</p>
+                <p>El hacker elige una de ellas y la intercambia por su propia carta.</p>
+                <p>El hacker cierra los ojos.</p>
+            </div>
+            <div id="Iluminada-message" style="display: none; border: 2px solid blue; border-radius: 10px; padding: 20px; margin-bottom: 15px; background-color: #222;">
+                <p>La iluminada levanta la mano.</p>
+                <p>La iluminada baja la mano.</p>
+            </div>
+            <div id="Clon-message" style="display: none; border: 2px solid green; border-radius: 10px; padding: 20px; margin-bottom: 15px; background-color: #222;">
+                <p>El clon abre los ojos.</p>
+                <p>Señala un jugador para copiar su carta.</p>
+                <p>El director le muestra la carta al clon.</p>
+                <p>El clon realiza la acción de la carta que vio. En caso que su acción no se pueda realizar en este momento, la realiza en el momento que corresponda.</p>
+                <p>El clon cierra los ojos.</p>
+            </div>
+            <div id="Holograma-message" style="display: none; border: 2px solid green; border-radius: 10px; padding: 20px; margin-bottom: 15px; background-color: #222;">
+                <p>El holograma abre los ojos.</p>
+                <p>Señala una de las cartas del centro, y el director se la muestra.</p>
+                <p>El holograma asume ese rol.</p>
+                <p>El holograma cierra los ojos.</p>
+            </div>
+            <div id="Crononauta-message" style="display: none; border: 2px solid blue; border-radius: 10px; padding: 20px; margin-bottom: 15px; background-color: #222;">
+                <p>El crononauta abre los ojos.</p>
+                <p>Señala dos jugadores para cambiar sus cartas de lugar.</p>
+                <p>El director realiza el cambio.</p>
+                <p>El crononauta cierra los ojos.</p>
+            </div>
+            <div id="Viajero-message" style="display: none; border: 2px solid blue; border-radius: 10px; padding: 20px; margin-bottom: 15px; background-color: #222;">
+                <p>El viajero abre los ojos.</p>
+                <p>Señala una carta del centro y la intercambia por la suya, sin verla.</p>
+                <p>El viajero cierra los ojos.</p>
+            </div>
+            <div id="Enlazador-message" style="display: none; border: 2px solid blue; border-radius: 10px; padding: 20px; margin-bottom: 15px; background-color: #222;">
+                <p>El enlazador abre los ojos.</p>
+                <p>El enlazador señala a dos jugadores para enlazarlos.</p>
+                <p>El director le toca la cabeza a los jugadores enlazados.</p>
+                <p>El enlazador cierra los ojos.</p>
+                <p>Los jugadores enlazados abren los ojos y se muestran su carta (ellos no ven su propia carta).</p>
             </div>
             <div id="Aliens-message" style="display: none; border: 2px solid red; border-radius: 10px; padding: 20px; margin-bottom: 15px; background-color: #222;">
                 <p>Los aliens abren los ojos.</p>
@@ -317,15 +628,24 @@
                 <p id="AlienVisor-message" style="display: none; margin-top: 5px; color: red;">(El alien Visor también abre los ojos)</p>
                 <p id="AlienSuicida-message" style="display: none; margin-top: 5px; color: green;">(El alien suicida también abre los ojos)</p>
                 <p>Los aliens se miran entre sí y se reconocen.</p>
-                <p id="AlienCiego-message" style="display: none; margin-top: 5px; color: red;">El alien ciego levanta la mano.</p>
+                <p id="AlienCiego-message" style="display: none; margin-top: 5px; color: red;">El alien ciego levanta la mano.<br>El alien ciego baja la mano.</p>
+                <p id="Huevo-message" style="display: none; margin-top: 5px; color: red;">El huevo levanta la mano. <br>El huevo baja la mano.</p>
                 <p id="Marte-message" style="display: none; margin-top: 5px; color: #c62124;">Los aliens señalan a un jugador, que morirá a los 3 minutos de discusión.</p>
+                <p id="Jupiter-message" style="display: none; margin-top: 5px; color: #df9d4c;">Cada alien ve la carta de un jugador a su izquierda o derecha.</p>
                 <p>Los aliens cierran los ojos.</p>
+                <p id="Larva-message" style="display: none; margin-top: 5px; color: red;">La larva abre los ojos.</p>
+                <p id="Nina-message" style="display: none; margin-top: 5px; color: blue;">La niña abre los ojos.</p>
+                <p id="Larva-message2" style="display: none; margin-top: 5px; color: red;">Los aliens levantan la mano. <br> Los aliens bajan la mano.</p>
+                <p id="Nina-message2" style="display: none; margin-top: 5px; color: red;">Los aliens levantan la mano. <br> Los aliens bajan la mano.</p>
+                <p id="Larva-message3" style="display: none; margin-top: 5px; color: red;">La larva cierra los ojos.</p>
+                <p id="Nina-message3" style="display: none; margin-top: 5px; color: blue;">La niña cierra los ojos.</p>
             </div>
             <div id="AlienMadre-message2" style="display: none; border: 2px solid red; border-radius: 10px; padding: 20px; margin-bottom: 15px; background-color: #222;">
                 <p>Alien madre abre los ojos.</p>
                 <p>Señala un jugador para intercambiar su carta con la carta de alien cientral.</p>
                 <p>Alien madre cierra los ojos.</p>
             </div>
+            
             <div id="AlienVisor-message2" style="display: none; border: 2px solid red; border-radius: 10px; padding: 20px; margin-bottom: 15px; background-color: #222;">
                 <p>El alien visor abre los ojos.</p>
                 <p>Señala cualquier carta para verla.</p>
@@ -336,6 +656,11 @@
                 <p>El director le toca la cabeza al cazador tantas veces como aliens hayan abierto los ojos en el turno de los aliens.</p>
                 <p id="AlienCiego-message2" style="display: none; margin-top: 5px; color: red;">(El alien ciego también cuenta).</p>
                 <p>El cazador baja la mano.</p>
+            </div>
+            <div id="Cientifica-message" style="display: none; border: 2px solid blue; border-radius: 10px; padding: 20px; margin-bottom: 15px; background-color: #222;">
+                <p>La científica abre los ojos.</p>
+                <p id="Huevo-message2" style="display: none; margin-top: 5px; color: red;">El huevo levanta la mano. <br>El huevo baja la mano.</p>
+                <p>La científica cierra los ojos.</p>
             </div>
             <div id="Analista-message" style="display: none; border: 2px solid blue; border-radius: 10px; padding: 20px; margin-bottom: 15px; background-color: #222;">
                 <p>El analista abre los ojos.</p>
@@ -356,36 +681,172 @@
                 <p>Los agentes cierran los ojos.</p>
             </div>
 
+            <div id="Vigia-message" style="display: none; border: 2px solid blue; border-radius: 10px; padding: 20px; margin-bottom: 15px; background-color: #222;">
+                <p>El vigía abre los ojos.</p>
+                <p>El vigía ve dos cartas del centro.</p>
+                <p>El vigía cierra los ojos.</p>
+            </div>
+            <div id="Mango-message" style="display: none; border: 2px solid blue; border-radius: 10px; padding: 20px; margin-bottom: 15px; background-color: #222;">
+                <p>Mango abre los ojos.</p>
+                <p>Mango señala la carta de un jugador para verla.</p>
+                <p>Si la carta es un alien, mango no puede hablar ni emitir sonidos durante la discusión. Puede hacer gestos.</p>
+                <p>Mango cierra los ojos.</p>
+            </div>
+            <div id="Radiactivo-message" style="display: none; border: 2px solid blue; border-radius: 10px; padding: 20px; margin-bottom: 15px; background-color: #222;">
+                <p>El radiactivo abre los ojos.</p>
+                <p>El radiactivo señala a un jugador para mostrarle su carta.</p>
+                <p>El director le toca la cabeza al jugador, y el jugador abre los ojos.</p>
+                <p>El radiactivo le muestra su carta.</p>
+                <p>El radiactivo cierra los ojos.</p>
+            </div>
+            <div id="Ladron-message" style="display: none; border: 2px solid blue; border-radius: 10px; padding: 20px; margin-bottom: 15px; background-color: #222;">
+                <p>El ladrón abre los ojos.</p>
+                <p>El ladrón señala a otro jugador para robar su carta.</p>
+                <p>El ladrón ve la carta y la intercambia por la suya.</p>
+                <p>El ladrón cierra los ojos.</p>
+            </div>
+            <div id="Travieso-message" style="display: none; border: 2px solid blue; border-radius: 10px; padding: 20px; margin-bottom: 15px; background-color: #222;">
+                <p>El travieso abre los ojos.</p>
+                <p>El travieso señala a dos jugadores para intercambiar sus cartas, sin verlas.</p>
+                <p>Se realiza el cambio de cartas.</p>
+                <p>El travieso cierra los ojos.</p>
+            </div>
+            <div id="Quimico-message" style="display: none; border: 2px solid blue; border-radius: 10px; padding: 20px; margin-bottom: 15px; background-color: #222;">
+                <p>El químico abre los ojos.</p>
+                <p>El químico intercambia su carta por una de las cartas del centro sin verla.</p>
+                <p>El químico cierra los ojos.</p>
+            </div>
+            <div id="Investigador-message" style="display: none; border: 2px solid blue; border-radius: 10px; padding: 20px; margin-bottom: 15px; background-color: #222;">
+                <p>El investigador abre los ojos.</p>
+                <p>Todos los jugadores que hayan abierto los ojos en lo que va del criosueño levantan la mano.</p>
+                <p>Todos los jugadores bajan la mano.</p>
+                <p>El investigador cierra los ojos.</p>
+            </div>
+            <div id="Portero-message" style="display: none; border: 2px solid blue; border-radius: 10px; padding: 20px; margin-bottom: 15px; background-color: #222;">
+                <p>El portero abre los ojos.</p>
+                <p>El portero señala a otro jugador para darle una carta de acceso.</p>
+                <p>El portero cierra los ojos.</p>
+            </div>
+            <div id="Conserje-message" style="display: none; border: 2px solid blue; border-radius: 10px; padding: 20px; margin-bottom: 15px; background-color: #222;">
+                <p>El conserje abre los ojos.</p>
+                <p>El conserje toma una carta de acceso.</p>
+                <p>El conserje cierra los ojos.</p>
+            </div>
+            <div id="Mecanico-message" style="display: none; border: 2px solid blue; border-radius: 10px; padding: 20px; margin-bottom: 15px; background-color: #222;">
+                <p>El mecánico abre los ojos.</p>
+                <p>El mecánico toma tres carta de acceso, las mira, y las vuelve a dejar.</p>
+                <p>El mecánico cierra los ojos.</p>
+            </div>
+            <div id="Recolector-message" style="display: none; border: 2px solid blue; border-radius: 10px; padding: 20px; margin-bottom: 15px; background-color: #222;">
+                <p>El recolector abre los ojos.</p>
+                <p>El recolector ve la carta de acceso de cualquier jugador. Si el jugador está inmediatamente a su izquierda o derecha en la ronda, el recolector se queda con su tarjeta de acceso.</p>
+                <p>El recolector cierra los ojos.</p>
+            </div>
+
             <div id="Capitan-message" style="display: none; border: 2px solid orange; border-radius: 10px; padding: 20px; margin-bottom: 15px; background-color: #222;">
                 <p>El capitán abre los ojos.</p>
                 <p>El capitán señala a un jugador para convertirlo en pirata.</p>
                 <p>El capitán cierra los ojos.</p>
             </div>
+            <div id="Pirata-message" style="display: none; border: 2px solid orange; border-radius: 10px; padding: 20px; margin-bottom: 15px; background-color: #222;">
+                <p>Los piratas abren los ojos.</p>
+                <p id="Capitan-message2" style="display: none; margin-top: 5px; color: orange;">(El capitán también).</p>
+                <p id="Corsaria-message2" style="display: none; margin-top: 5px; color: orange;">(La corsaria también).</p>
+                <p>Los piratas cierran los ojos.</p>
+            </div>
 
+            <div id="Corsaria-message" style="display: none; border: 2px solid orange; border-radius: 10px; padding: 20px; margin-bottom: 15px; background-color: #222;">
+                <p>La corsaria abre los ojos.</p>
+                <p>La corsaria hace su acción.</p>
+                <p>La corsaria cierra los ojos.</p>
+            </div>
+
+            <div id="Revelador-message" style="display: none; border: 2px solid blue; border-radius: 10px; padding: 20px; margin-bottom: 15px; background-color: #222;">
+                <p>El revelador abre los ojos.</p>
+                <p>El revelador señala la carta de un jugador, y la coloca boca arriba. Si la carta no es azul, vuelve a colocarla boca abajo.</p>
+                <p>El revelador cierra los ojos.</p>
+            </div>
+
+            <div id="Viajero-message2" style="display: none; border: 2px solid blue; border-radius: 10px; padding: 20px; margin-bottom: 15px; background-color: #222;">
+                <p>El viajero abre los ojos.</p>
+                <p>Señala a la misma carta del centro y vuelve a cambiarla por su carta, sin verla.</p>
+                <p>El viajero cierra los ojos.</p>
+            </div>
+            <div id="Crononauta-message2" style="display: none; border: 2px solid blue; border-radius: 10px; padding: 20px; margin-bottom: 15px; background-color: #222;">
+                <p>El crononauta abre los ojos.</p>
+                <p>Señala a los mismos dos jugadores para volver a cambiar sus cartas de lugar.</p>
+                <p>El director realiza el cambio.</p>
+                <p>El crononauta cierra los ojos.</p>
+            </div>
+
+            <div id="Viejo-message" style="display: none; border: 2px solid blue; border-radius: 10px; padding: 20px; margin-bottom: 15px; background-color: #222;">
+                <p>El viejo abre los ojos.</p>
+                <p>El viejo ve su propia carta.</p>
+                <p>El viejo cierra los ojos.</p>
+            </div>
+            
             <div id="Eclipse-message" style="display: none; border: 2px solid #f78204; border-radius: 10px; padding: 20px; margin-bottom: 15px; background-color: #222;">
                 <p>Cuando criosueño termina por primera vez, hay un segundo criosueño.</p>
             </div>
 
+
             <div style="display: block; border: 2px solid white; border-radius: 10px; padding: 20px; margin-bottom: 15px; background-color: #222;">
                 <p>Todos abren los ojos.</p>
             </div>
+
+
             <div class="timer" id="timer">00:00.00</div>
             <div class="buttons" id="buttons">
                 <button class="button" onclick="startTimer()">▶</button>
             </div>
             <br>
+            <div id="Luna-message" style="display: none; border: 2px solid black; border-radius: 10px; padding: 20px; margin-bottom: 15px; background-color: #222;">
+                <p>Hay 2 minutos de discusión adicionales.</p>
+            </div>
+            <div id="Urano-message" style="display: none; border: 2px solid #4a89ad; border-radius: 10px; padding: 20px; margin-bottom: 15px; background-color: #222;">
+                <p>Hay 3 minutos menos de discusión.</p>
+            </div>
             <div id="Marte-message2" style="display: none; border: 2px solid #c62124; border-radius: 10px; padding: 20px; margin-bottom: 15px; background-color: #222;">
                 <p>A los 3 minutos, muere el jugador que tenga la carta elegida por los aliens.</p>
+            </div>
+            <div id="Neptuno-message" style="display: none; border: 2px solid #0f84b5; border-radius: 10px; padding: 20px; margin-bottom: 15px; background-color: #222;">
+                <p>A los 3 minutos, nadie puede hablar ni emitir ningún sonido.</p>
             </div>
             <div id="Cometa-message" style="display: none; border: 2px solid #64b7c0; border-radius: 10px; padding: 20px; margin-bottom: 15px; background-color: #222;">
                 <p>A los 3 minutos, el director intercambia las cartas de dos jugadores elegidos al azar.</p>
             </div>
+            <div id="Meteorito-message" style="display: none; border: 2px solid #f14303; border-radius: 10px; padding: 20px; margin-bottom: 15px; background-color: #222;">
+                <p>A los 3 minutos, un jugador al azar muere. Otro jugador puede morir en su lugar si ambos están de acuerdo</p>
+            </div>
+            <div id="IA-message2" style="display: none; border: 2px solid blue; border-radius: 10px; padding: 20px; margin-bottom: 15px; background-color: #222;">
+                <p>La IA decide a quién votar.</p>
+            </div>
+            <div id="Pluton-message" style="display: none; border: 2px solid #b3a377; border-radius: 10px; padding: 20px; margin-bottom: 15px; background-color: #222;">
+                <p>Todo jugador con al menos 1 voto muere.</p>
+            </div>
+            <div id="Miyagi-message" style="display: none; border: 2px solid blue; border-radius: 10px; padding: 20px; margin-bottom: 15px; background-color: #222;">
+                <p>Si algún alien señaló a Miagi, muere.</p>
+            </div>
+
+            <div id="Noxis-message" style="display: none; border: 2px solid red; border-radius: 10px; padding: 20px; margin-bottom: 15px; background-color: #222;">
+                <p>El jugador por quien N.O.X.I.S. haya votado no puede morir. En su lugar muere el siguiente jugador con más votos.</p>
+            </div>
+            <div id="Sirius-message" style="display: none; border: 2px solid blue; border-radius: 10px; padding: 20px; margin-bottom: 15px; background-color: #222;">
+                <p>El jugador por quien S.I.R.I.U.S. haya votado no puede morir. En su lugar muere el siguiente jugador con más votos.</p>
+            </div>
+
             <div id="Cautivo-message" style="display: none; border: 2px solid green; border-radius: 10px; padding: 20px; margin-bottom: 15px; background-color: #222;">
                 <p>El cautivo puede intercambiar su carta por cualquier jugador que lo haya votado.</p>
             </div>
 
             <div id="AlienSuicida-message2" style="display: none; border: 2px solid green; border-radius: 10px; padding: 20px; margin-bottom: 15px; background-color: #222;">
                 <p>Si el alien suicida murió, gana.</p>
+            </div>
+            <div id="Suicida-message2" style="display: none; border: 2px solid green; border-radius: 10px; padding: 20px; margin-bottom: 15px; background-color: #222;">
+                <p>Si el suicida murió, gana.</p>
+            </div>
+            <div id="Gaturno-message" style="display: none; border: 2px solid #fe8d3d; border-radius: 10px; padding: 20px; margin-bottom: 15px; background-color: #222;">
+                <p>Si Mango murió, todos pierden.</p>
             </div>
         </div>
     </div>
@@ -453,7 +914,7 @@
         }
     
         function updateRoles() {
-            let roleIds = ["Aliens", "Agentes", "AlienCiego", "AlienMadre", "AlienMadre2","AlienSuicida","AlienVisor", "AlienVisor2","Analista","Asesino","Capitan","Cautivo","Cazador"        ,"Cometa","Eclipse","Marte"];
+            let roleIds = ["Aliens", "Agentes", "AlienCiego", "AlienMadre", "AlienMadre2","AlienSuicida","AlienVisor", "AlienVisor2","Analista","Asesino","Capitan","Cautivo","Cazador","Cientifica","Clon","Conserje","Corsaria","Crononauta","Director","Enlazador","Hacker","Holograma","Huevo","IA","Iluminada","Investigador","Ladron","Larva","Mango","Mecanico","Miyagi","Nina","Noxis","Pirata","Portero","Quimico","Radiactivo","Recolector","Revelador","Sirius","Suicida","Travieso","Tripulante","Viajero","Viejo","Vigia"        ,"Cometa","Eclipse","Gaturno","Jupiter","Luna","Marte","Mercurio","Meteorito","Nebulosa","Neptuno","Pluton","Universo","Urano","Venus"];
             roleIds.forEach(role => {
                 let checkbox = document.getElementById(role);
                 let messageBox = document.getElementById(role + "-message");
@@ -516,10 +977,10 @@
                     message = "<p style='color: red; font-weight: bold;'>Aliens</p><p style='color: red;'>Los aliens ganan si ninguno de ellos muere. Los aliens abren los ojos a la vez y se reconocen.</p><p style='color: gray; font-style: italic;'>Si no usaran cadáveres humanos para alimentar a sus crías, los invitaría a casa a tomar unos mates.</p>";
                     break;
                 case "AlienCiego":
-                    message = "<p style='color: red; font-weight: bold;'>Alien ciego</p><p style='color: red;'>El alien ciego levanta la mano cuando los aliens abren los ojos.</p><p style='color: gray; font-style: italic;'>-'Al no poder ver, el resto de sus sentidos se intensifican. En particular su sentido asesino.</p>";
+                    message = "<p style='color: red; font-weight: bold;'>Alien ciego</p><p style='color: red;'>El alien ciego levanta la mano cuando los aliens abren los ojos.</p><p style='color: gray; font-style: italic;'>Al no poder ver, el resto de sus sentidos se intensifican. En particular su sentido asesino.</p>";
                 break;
                 case "AlienMadre":
-                    message = "<p style='color: red; font-weight: bold;'>Alien madre</p><p style='color: red;'>Al inicio se coloca una carta de alien adicional en el medio. Alien madre intercambia la carta de cualquier jugador por esa carta.</p><p style='color: gray; font-style: italic;'>En la nave le decimos Mami Alien. No parece gustarle.</p>";
+                    message = "<p style='color: red; font-weight: bold;'>Alien madre</p><p style='color: red;'>Al inicio se coloca una carta de alien adicional en el centro. Alien madre intercambia la carta de cualquier jugador por esa carta.</p><p style='color: gray; font-style: italic;'>En la nave le decimos Mami Alien. No parece gustarle.</p>";
                 break;
                 case "AlienSuicida":
                     message = "<p style='color: green; font-weight: bold;'>Alien suicida</p><p style='color: green;'>Su objetivo es morir. Abre los ojos con los aliens. Si el alien suicida muere, la tripulación no puede ganar.</p><p style='color: gray; font-style: italic;'>¿No te dan ganas de abrazarlo? A mi tampoco. Por eso se quiere suicidar.</p>";
@@ -528,13 +989,13 @@
                     message = "<p style='color: red; font-weight: bold;'>Alien visor</p><p style='color: red;'>Puede ver cualquier carta.</p><p style='color: gray; font-style: italic;'>Ve bastante más que el alien ciego.</p>";
                 break;
                 case "Analista":
-                    message = "<p style='color: blue; font-weight: bold;'>Analista</p><p style='color: blue;'>Señala a otros dos jugadores. El director le confirma si ambos pertenecen o no del mismo equipo.</p><p style='color: gray; font-style: italic;'>Solía jugar al ajedrez, creyendo que su habilidad le permitiría hallar piezas infiltradas entre sus tropas. Su habilidad no le sirvió (porque todas sus piezas eran piezas espías).</p>";
+                    message = "<p style='color: blue; font-weight: bold;'>Analista</p><p style='color: blue;'>Señala a otros dos jugadores. El director le confirma si ambos pertenecen o no del mismo equipo.</p><p style='color: gray; font-style: italic;'>Solía jugar al ajedrez, creyendo que su habilidad le permitiría hallar piezas infiltradas entre sus tropas. Su habilidad no le sirvió (porque todas sus piezas eran piezas infiltradas).</p>";
                 break;
                 case "Asesino":
                     message = "<p style='color: green; font-weight: bold;'>Asesino</p><p style='color: green;'>Elige una víctima, y ve su carta. Gana si el jugador que tiene esa carta muere.</p><p style='color: gray; font-style: italic;'>Es un bombón (asesino).</p>";
                 break;
                 case "Capitan":
-                    message = "<p style='color: orange; font-weight: bold;'>Capitán</p><p style='color: orange;'>Al inicio se coloca una carta de pirata adicional en el medio. El capitán intercambia la carta de cualquier jugador por esa carta antes de que los piratas abran los ojos.</p><p style='color: gray; font-style: italic;'>Hace años poseía una enorme tripulación de unos 100 piratas espaciales. Hoy en día son 3. Se ve que no es tan buen capitán.</p>";
+                    message = "<p style='color: orange; font-weight: bold;'>Capitán</p><p style='color: orange;'>Al inicio se coloca una carta de pirata adicional en el centro. El capitán intercambia la carta de cualquier jugador por esa carta antes de que los piratas abran los ojos.</p><p style='color: gray; font-style: italic;'>Hace años poseía una enorme tripulación de unos 100 piratas espaciales. Hoy en día son 3. Se ve que no es tan buen capitán.</p>";
                 break;
                 case "Cautivo":
                     message = "<p style='color: green; font-weight: bold;'>Cautivo</p><p style='color: green;'>El cautivo siempre pierde. Luego de la votación todos ponen sus cartas boca arriba. El cautivo puede intercambiar su carta por la carta de cualquier jugador que lo haya votado.</p><p style='color: gray; font-style: italic;'>Fue capturado por la tripulación luego de entrar ilegalmente al sistema de archivos de la nave y reemplazar los planos de navegación por gifs de gatitos.</p>";
@@ -542,8 +1003,105 @@
                 case "Cazador":
                     message = "<p style='color: blue; font-weight: bold;'>Cazador</p><p style='color: blue;'>El director le toca la cabeza al cazador una vez por cada alien que haya abierto los ojos (o levantado la mano) en el turno de los aliens.</p><p style='color: gray; font-style: italic;'>Es un buen tipo. Sería mejor tipo si no llevara su rifle cuando jugamos paintball.</p>";
                 break;
-
-
+                case "Cientifica":
+                    message = "<p style='color: blue; font-weight: bold;'>Científica</p><p style='color: blue;'>Cuando la científica abre los ojos, el huevo levanta la mano. (Siempre que se juega la científica, se juega el huevo).</p><p style='color: gray; font-style: italic;'>Su tesis tuvo 3.450 páginas. Nadie la leyó.</p>";
+                break;
+                case "Clon":
+                    message = "<p style='color: green; font-weight: bold;'>Clon</p><p style='color: green;'>Ve la carta de un jugador y copia su acción.</p><p style='color: gray; font-style: italic;'>Si alguna vez me ves haciendo algo extraño no soy yo, es el clon ... ¡Lo juro!</p>";
+                break;
+                case "Conserje":
+                    message = "<p style='color: blue; font-weight: bold;'>Conserje</p><p style='color: blue;'>En su turno, toma una carta de acceso. Si otro rol ve la carta del conserje durante la noche, toma una carta de acceso.</p><p style='color: gray; font-style: italic;'>Sabe la contraseña de todas las máquinas expendedoras. ¡Retruco!</p>";
+                break;
+                case "Corsaria":
+                    message = "<p style='color: orange; font-weight: bold;'>Corsaria</p><p style='color: orange;'>Si alguno de los jugadores a su izquierda o derecha es elegido como comandante, la corsaria la toma .</p><p style='color: gray; font-style: italic;'>Muchos han intentado acercase acerca de forma romántica. Ninguno ha sobrevivido</p>";
+                break;
+                case "Crononauta":
+                    message = "<p style='color: blue; font-weight: bold;'>Crononauta</p><p style='color: blue;'>Al inicio del criosueño intercambia las cartas de otros dos jugadores. Al final, vuelve a intercambiarlas.</p><p style='color: gray; font-style: italic;'>Viene del futuro. Siempre cuenta el final de los chistes.</p>";
+                break;
+                case "Director":
+                    message = "<p style='color: gray; font-weight: bold;'>Director</p><p style='color: gray;'>Dirige el juego.</p><p style='color: gray; font-style: italic;'>El creador del juego inventó este rol para no tener que dirigir todas las partidas (es cansador).</p>";
+                break;
+                case "Enlazador":
+                    message = "<p style='color: blue; font-weight: bold;'>Enlazador</p><p style='color: blue;'>Enlaza a dos jugadores, que se muestran sus cartas mutuamente. Si uno de ellos muere, el otro también.</p><p style='color: gray; font-style: italic;'>Una vez enlazó a nuestro mayor inversor con un alfajor. Era muy rico.</p>";
+                break;
+                case "Hacker":
+                    message = "<p style='color: green; font-weight: bold;'>Hacker</p><p style='color: green;'>El director le da a elegir al hacker entre 3 cartas que no estaban en el mazo original de juego, y que no tengan acciones durante el criosueño. El hacker intercambia su carta por una de ellas.</p><p style='color: gray; font-style: italic;'>Nunca vio un archivo .pas.</p>";
+                break;
+                case "Holograma":
+                    message = "<p style='color: green; font-weight: bold;'>Holograma</p><p style='color: green;'>Ve una de las tres cartas del centro. Sin intercambiar su carta, asume ese rol, e imita su acción y su condición de victoria.</p><p style='color: gray; font-style: italic;'>Nadie sabe a ciencia cierta si tiene la mente de un humano, o si es completamente artificial.</p>";
+                break;
+                case "Huevo":
+                    message = "<p style='color: red; font-weight: bold;'>Huevo</p><p style='color: red;'>Si alguien que no es un alien vota por el huevo, el voto de los aliens vale doble. Si el huevo muere, los aliens pierden.</p><p style='color: gray; font-style: italic;'>Escuché que tiene cientos de años. ¡Incluso una vez escuché que tiene siglos!</p>";
+                break;
+                case "IA":
+                    message = "<p style='color: blue; font-weight: bold;'>IA</p><p style='color: blue;'>Coloca su carta boca arriba. Durante la fase de votación, el voto de quien tenga la IA es el único voto que cuenta. Recomendado para grupos de muchos jugadores.</p><p style='color: gray; font-style: italic;'>En realidad son 3.417 IFs anidados.</p>";
+                break;
+                case "Iluminada":
+                    message = "<p style='color: blue; font-weight: bold;'>Iluminada</p><p style='color: blue;'>Al comienzo del criosueño, la Iluminada levanta la mano. Cada vez que un rol interactúe con la carta de la iluminada, y luego de que ese rol cierre los ojos, el director le toca la cabeza al jugador que inicialmente tenía la carta de la iluminada.</p><p style='color: gray; font-style: italic;'>Es una chica bastante introspectiva. Ella siempre dice que 'quien se conoce a sí mismo, es porque sabe quién es'. Yo no lo entiendo.</p>";
+                break;
+                case "Investigador":
+                    message = "<p style='color: blue; font-weight: bold;'>Investigador</p><p style='color: blue;'>Abre los ojos durante el criosueño, y todos los jugadores que hayan abierto los ojos hasta ese momento deben levantar la mano.</p><p style='color: gray; font-style: italic;'>Suele llevar su linterna a todos lados por precaución. Eso hace que le vaya bastante bien encontrando pruebas, pero bastante mal jugando a las escondidas.</p>";
+                break;
+                case "Ladron":
+                    message = "<p style='color: blue; font-weight: bold;'>Ladrón</p><p style='color: blue;'>Ve la carta de otro jugador y la intercambia por la suya.</p><p style='color: gray; font-style: italic;'>¿Por qué lo dejaron subir en primer lugar?</p>";
+                break;
+                case "Larva":
+                    message = "<p style='color: red; font-weight: bold;'>Larva</p><p style='color: red;'>Cuando la larva abre los ojos, los aliens levantan la mano.</p><p style='color: gray; font-style: italic;'>Es asquerosa. ¿Qué? ¿Esperabas que dijera algo lindo de ella? No. Es asquerosa.</p>";
+                break;
+                case "Mango":
+                    message = "<p style='color: blue; font-weight: bold;'>Mango</p><p style='color: blue;'>Ve la carta de otro jugador. Si ve la carta de un alien, no puede hablar ni emitir sonidos. Sí puede hacer gestos.</p><p style='color: gray; font-style: italic;'>¡Todos lo aman!</p>";
+                break;
+                case "Mecanico":
+                    message = "<p style='color: blue; font-weight: bold;'>Mecánico</p><p style='color: blue;'>Al final del criosueño, puede ver 3 cartas de la pila de tarjetas de acceso.</p><p style='color: gray; font-style: italic;'>Se encarga del mantenimiento y funcionamiento de gran parte de la nave. Todos los almuerzos juega al truco con el conseje (y pierde).</p>";
+                break;
+                case "Miyagi":
+                    message = "<p style='color: blue; font-weight: bold;'>Miyagi</p><p style='color: blue;'>Si algún alien lo vota, muere.</p><p style='color: gray; font-style: italic;'>Tiene un cinturón negro, pero el azul le parece más estético.</p>";
+                break;
+                case "Nina":
+                    message = "<p style='color: blue; font-weight: bold;'>Niña</p><p style='color: blue;'>Cuando abre los ojos, los aliens levantan la mano. Si todos los aliens votan a la niña.</p><p style='color: gray; font-style: italic;'>Es la mejor amiga de mango.</p>";
+                break;
+                case "Noxis":
+                    message = "<p style='color: red; font-weight: bold;'>N.O.X.I.S.</p><p style='color: red;'>El jugador por quien N.O.X.I.S. haya votado no puede morir. En su lugar muere el siguiente jugador con más votos.</p><p style='color: gray; font-style: italic;'>Solía ser un S.I.R.I.U.S. diseñado para proteger a la tripulación, pero durante su entrenamiento perdió una partida de truco contra el conserje y juró destruir la raza humana.</p>";
+                break;
+                case "Pirata":
+                    message = "<p style='color: orange; font-weight: bold;'>Pirata</p><p style='color: orange;'>Los piratas ganan si son elegidos como comandantes.</p><p style='color: gray; font-style: italic;'>Sus ojos están sanos, pero igual usa un parche porque 'se ve cool'. No sabe que su casco es vidrio oscuro.</p>";
+                break;
+                case "Portero":
+                    message = "<p style='color: blue; font-weight: bold;'>Portero</p><p style='color: blue;'>El portero le da a otro jugador una tarjeta de acceso.</p><p style='color: gray; font-style: italic;'>A veces se aburre de estar todo el día sentado. Después de todo, en centro del espacio no suelen venir muchos invitados.</p>";
+                break;
+                case "Quimico":
+                    message = "<p style='color: blue; font-weight: bold;'>Químico</p><p style='color: blue;'>Intercambia su carta por una de las cartas del centro sin verla.</p><p style='color: gray; font-style: italic;'>Lo echaron de su anterior empleo por vender agua hexagonal.</p>";
+                break;
+                case "Radiactivo":
+                    message = "<p style='color: blue; font-weight: bold;'>Radiactivo</p><p style='color: blue;'>Le muestra su carta a otro jugador.</p><p style='color: gray; font-style: italic;'>Consumió 300 gr de plutonio. Su expectativa de vida es de 2 días, pero brilla en la oscuridad. Valió la pena.</p>";
+                break;
+                case "Recolector":
+                    message = "<p style='color: blue; font-weight: bold;'>Recolector</p><p style='color: blue;'>El recolector ve la carta de acceso de cualquier jugador. Si el jugador está inmediatamente a su izquierda o derecha en la ronda, el recolector se queda con su tarjeta de acceso.</p><p style='color: gray; font-style: italic;'>El mecánico lo alimenta con aceite y chatarra espacial.</p>";
+                break;
+                case "Revelador":
+                    message = "<p style='color: blue; font-weight: bold;'>Revelador</p><p style='color: blue;'>El revelador señala la carta de un jugador, y la coloca boca arriba. Si la carta no es azul, vuelve a colocarla boca abajo.</p><p style='color: gray; font-style: italic;'>Ha visto cosas que te dejarían helado; litros y litros de agua en estado sólido.</p>";
+                break;
+                case "Sirius":
+                    message = "<p style='color: blue; font-weight: bold;'>S.I.R.I.U.S.</p><p style='color: blue;'>El jugador por quien S.I.R.I.U.S. haya votado no puede morir. En su lugar muere el siguiente jugador con más votos.</p><p style='color: gray; font-style: italic;'>Hablar con él se siente muy frío. Tal vez sea porque no es humano. O porque estamos en una cámara criogénica.</p>";
+                break;
+                case "Suicida":
+                    message = "<p style='color: green; font-weight: bold;'>Suicida</p><p style='color: green;'>Su objetivo es morir.</p><p style='color: gray; font-style: italic;'>Se dedica a limpiar los baños de la nave. Si yo hubiese estudiado 15 años de física nucelear para eso, también querría morirme.</p>";
+                break;
+                case "Travieso":
+                    message = "<p style='color: blue; font-weight: bold;'>Travieso</p><p style='color: blue;'>Cambia las cartas de dos jugadores, sin verlas.</p><p style='color: gray; font-style: italic;'>¿Qué tomó el capitán para dejarlo entrar a la nave?</p>";
+                break;
+                case "Tripulante":
+                    message = "<p style='color: blue; font-weight: bold;'>Tripulante</p><p style='color: blue;'>Su objetivo es descubrir a al menos uno de los aliens, y eliminarlo.</p><p style='color: gray; font-style: italic;'>Muchos preguntan cómo logró participar en una misión tan importante. Él se pregunta la mismo.</p>";
+                break;
+                case "Viajero":
+                    message = "<p style='color: blue; font-weight: bold;'>Viajero</p><p style='color: blue;'>Al comienzo del criosueño, intercambia su carta por una carta del centro. Al final, vuelve a realizar el cambio.</p><p style='color: gray; font-style: italic;'>Está de vacaciones más de lo que trabaja. La gran pregunta es a dónde se va de vacaciones en centro del espacio.</p>";
+                break;
+                case "Viejo":
+                    message = "<p style='color: blue; font-weight: bold;'>Viejo</p><p style='color: blue;'>Al final del criosueño, ve su propia carta.</p><p style='color: gray; font-style: italic;'>No logró quedarse dormido durante el criosueño. Contó 788.425.804 ovejas.</p>";
+                break;
+                case "Vigia":
+                    message = "<p style='color: blue; font-weight: bold;'>Vigía</p><p style='color: blue;'>Puede ver dos cartas del centro.</p><p style='color: gray; font-style: italic;'>Él todo lo ve, todo lo oye, y todo lo huele.</p>";
+                break;
 
 
                 case "Cometa":
@@ -552,8 +1110,41 @@
                 case "Eclipse":
                     message = "<p style='color: #f78204; font-weight: bold;'>Cometa</p><p style='color: #f78204;'>Cuando el criosueño termina por primera vez, hay un segundo criosueño.</p>";
                 break;
+                case "Gaturno":
+                    message = "<p style='color: #fe8d3d; font-weight: bold;'>Gaturno</p><p style='color: #fe8d3d;'>Si Mango muere, todos pierden.</p>";
+                break;
+                case "Jupiter":
+                    message = "<p style='color: #df9d4c; font-weight: bold;'>Júpiter</p><p style='color: #df9d4c;'>Cada alien ve la carta de un jugador a su izquierda o derecha.</p>";
+                break;
+                case "Luna":
+                    message = "<p style='color: black; font-weight: bold;'>Luna</p><p style='color: black;'>Hay 2 minutos adicionales de discusión.</p>";
+                break;
                 case "Marte":
                     message = "<p style='color: #c62124; font-weight: bold;'>Marte</p><p style='color: #c62124;'>Los aliens eligen a un jugador. A los 3 minutos de discusión, ese jugador muere.</p>";
+                break;
+                case "Mercurio":
+                    message = "<p style='color: #4d4d4d; font-weight: bold;'>Mercurio</p><p style='color: #4d4d4d;'>Hay una carta en el centro en lugar de tres.</p>";
+                break;
+                case "Meteorito":
+                    message = "<p style='color: #f14303; font-weight: bold;'>Meteorito</p><p style='color: #f14303;'>A los 3 minutos, un jugador al azar muere. Otro jugador puede morir en su lugar si ambos están de acuerdo.</p>";
+                break;
+                case "Nebulosa":
+                    message = "<p style='color: #f751a9; font-weight: bold;'>Nebulosa</p><p style='color: #f751a9;'>Al comienzo del criosueño, el director intercambia las cartas de dos jugadores al azar.</p>";
+                break;
+                case "Neptuno":
+                    message = "<p style='color: #0f84b5; font-weight: bold;'>Neptuno</p><p style='color: #0f84b5;'>A los 3 minutos, nadie puede hablar ni emitir ningún sonido.</p>";
+                break;
+                case "Pluton":
+                    message = "<p style='color: #b3a377; font-weight: bold;'>Plutón</p><p style='color: #b3a377;'>Todo jugador con al menos 1 voto muere.</p>";
+                break;
+                case "Universo":
+                    message = "<p style='color: #c800ff; font-weight: bold;'>Universo</p><p style='color: #c800ff;'>El director puede jugar todas las cartas de evento que quiera, cuando quiera.</p>";
+                break;
+                case "Urano":
+                    message = "<p style='color: #4a89ad; font-weight: bold;'>Urano</p><p style='color: #4a89ad;'>Hay dos minutos menos de discusión.</p>";
+                break;
+                case "Venus":
+                    message = "<p style='color: #f5a67b; font-weight: bold;'>Venus</p><p style='color: #f5a67b;'>Hay cinco cartas en el centro, en lugar de tres.</p>";
                 break;
                 
             }
@@ -580,49 +1171,100 @@
             let eventosSection = Array.from(document.querySelectorAll('.section')).find(section => section.querySelector('.title')?.textContent.includes('Selección de eventos'));
             if (!eventosSection) return;
             let eventosToggle = document.getElementById("eventosToggle");
-            if (eventosToggle.innerText === "Eventos: [Sí]") {
+            if (eventosToggle.innerText === "Eventos habilitados") {
                 eventosSection.style.display = "none";
-                eventosToggle.innerText = "Eventos: [No]";
+                eventosToggle.innerText = "Eventos deshabilitados";
+                let checkboxes = document.querySelectorAll(".evento input[type='checkbox']");
+                checkboxes.forEach(checkbox => checkbox.checked = false);
+                updateRoles();
             } else {
                 eventosSection.style.display = "block";
-                eventosToggle.innerText = "Eventos: [Sí]";
+                eventosToggle.innerText = "Eventos habilitados";
             }
         }
     
         function toggleRolesAvanzadosText() {
             let rolesAvanzadosToggle = document.getElementById("rolesAvanzadosToggle");
             let advancedRoles = document.querySelectorAll(".rol-avanzado");
-            if (rolesAvanzadosToggle.innerText === "[Expansión] Roles avanzados: [Sí]") {
-                rolesAvanzadosToggle.innerText = "[Expansión] Roles avanzados: [No]";
+            if (rolesAvanzadosToggle.innerText === "Con roles avanzados") {
+                rolesAvanzadosToggle.innerText = "Sin roles avanzados";
                 advancedRoles.forEach(role => role.style.display = "none");
+                let checkboxes = document.querySelectorAll(".rol-avanzado input[type='checkbox']");
+                checkboxes.forEach(checkbox => checkbox.checked = false);
+                updateRoles();
             } else {
-                rolesAvanzadosToggle.innerText = "[Expansión] Roles avanzados: [Sí]";
+                rolesAvanzadosToggle.innerText = "Con roles avanzados";
                 advancedRoles.forEach(role => role.style.display = "block");
             }
         }
+        function toggleRolesCaoticosText() {
+            let rolesCaoticosToggle = document.getElementById("rolesCaoticosToggle");
+            let rolesCaoticos = document.querySelectorAll(".rol-caotico");
+            if (rolesCaoticosToggle.innerText === "Con roles caóticos") {
+                rolesCaoticosToggle.innerText = "Sin roles caóticos";
+                rolesCaoticos.forEach(role => role.style.display = "none");
+                let checkboxes = document.querySelectorAll(".rol-avanzado input[type='checkbox']");
+                checkboxes.forEach(checkbox => checkbox.checked = false);
+                updateRoles();
+            } else {
+                rolesCaoticosToggle.innerText = "Con roles caóticos";
+                rolesCaoticos.forEach(role => role.style.display = "block");
+            }
+        }
+       
 
         function toggleTarjetasAccesoText() {
+            let accesosSection = Array.from(document.querySelectorAll('.section')).find(section => section.querySelector('.title')?.textContent.includes('Expansión: ¡Tarjetas de acceso!'));
             let tarjetasAccesoToggle = document.getElementById("tarjetasAccesoToggle");
             let rolesTarjeta = document.querySelectorAll(".rol-tarjeta-acceso");
-            if (tarjetasAccesoToggle.innerText === "[Expansión] Tarjetas de Acceso: [Sí]") {
-                tarjetasAccesoToggle.innerText = "[Expansión] Tarjetas de Acceso: [No]";
+            if (tarjetasAccesoToggle.innerText === "Tarjetas de Acceso habilitadas") {
+                tarjetasAccesoToggle.innerText = "Tarjetas de Acceso deshabilitadas";
                 rolesTarjeta.forEach(role => role.style.display = "none");
+                accesosSection.style.display = "none";
+                let checkboxes = document.querySelectorAll(".rol-tarjeta-acceso input[type='checkbox']");
+                checkboxes.forEach(checkbox => checkbox.checked = false);
+                updateRoles();
             } else {
-                tarjetasAccesoToggle.innerText = "[Expansión] Tarjetas de Acceso: [Sí]";
+                tarjetasAccesoToggle.innerText = "Tarjetas de Acceso habilitadas";
                 rolesTarjeta.forEach(role => role.style.display = "block");
+                accesosSection.style.display = "block";
             }
         }
 
         function togglePiratasText() {
             let piratasToggle = document.getElementById("piratasToggle");
+            let piratasSection = Array.from(document.querySelectorAll('.section')).find(section => section.querySelector('.title')?.textContent.includes('Expansión: ¡Piratas!'));
+          
             let rolesPirata = document.querySelectorAll(".rol-pirata");
-            if (piratasToggle.innerText === "[Expansión] Invasión Pirata: [Sí]") {
-                piratasToggle.innerText = "[Expansión] Invasión Pirata: [No]";
+            if (piratasToggle.innerText === "Invasión Pirata habilitada") {
+                piratasToggle.innerText = "Invasión Pirata deshabilitada";
                 rolesPirata.forEach(role => role.style.display = "none");
+                piratasSection.style.display = "none";
+                let checkboxes = document.querySelectorAll(".rol-pirata input[type='checkbox']");
+                checkboxes.forEach(checkbox => checkbox.checked = false);
+                updateRoles();
             } else {
-                piratasToggle.innerText = "[Expansión] Invasión Pirata: [Sí]";
+                piratasSection.style.display = "block";
+                piratasToggle.innerText = "Invasión Pirata habilitada";
                 rolesPirata.forEach(role => role.style.display = "block");
             }
+        }
+
+        function disableAllRoles() {
+            let checkboxes = document.querySelectorAll("#roles-list input[type='checkbox']");
+            checkboxes.forEach(checkbox => checkbox.checked = false);
+            updateRoles();
+        }
+
+        function selectBasicRoles() {
+            let roleIds = ["Aliens", "Ladron", "Travieso","Tripulante","Vigia","Viejo","Suicida","Quimico"];
+            let allRoles = document.querySelectorAll("#roles-list input[type='checkbox']");
+            
+            allRoles.forEach(checkbox => {
+                checkbox.checked = roleIds.includes(checkbox.id);
+            });
+            
+            updateRoles();
         }
 
     </script>
