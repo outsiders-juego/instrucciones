@@ -153,6 +153,11 @@
         input#Universo:checked + .slider { background-color: #c800ff; }
         input#Urano:checked + .slider { background-color: #4a89ad; }
         input#Venus:checked + .slider { background-color: #f5a67b; }
+        
+        input#MostrarRolesAvanzados:checked + .slider { background-color: lime; }
+        input#MostrarRolesCaoticos:checked + .slider { background-color: magenta; }
+        input#MostrarPiratas:checked + .slider { background-color: orange; }
+        input#MostrarAccesos:checked + .slider { background-color: blue; }
 
         input:checked + .slider:before {
             transform: translateX(26px);
@@ -200,7 +205,7 @@
             padding: 15px;
             font-size: 20px;
             font-weight: bold;
-            z-index: 1000;
+            z-index: 90;
         }
             .menu-button {
             position: fixed;
@@ -210,7 +215,7 @@
             background: none;
             color: white;
             cursor: pointer;
-            z-index: 1100;
+            z-index: 100;
         }
         
         .menu {
@@ -222,8 +227,8 @@
             text-align: center;
             padding: 20px 0;
             transform: translateY(-100%);
-            transition: transform 0.3s ease-in-out;
-            z-index: 1099;
+            transition: transform 0.4s ease-in-out;
+            z-index: 99;
         }
         
         .menu ul {
@@ -233,7 +238,7 @@
         }
         
         .menu ul li {
-            padding: 10px 0;
+            padding: 0px 0;
         }
         
         .menu ul li a {
@@ -245,26 +250,113 @@
         .menu.show {
             transform: translateY(0);
         }
+
+        .menu-button-option {
+            width: 100%;
+            padding: 10px;
+            margin: 5px 0;
+            background-color: #444;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            font-size: 1.2em;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        .menu-button-option:hover {
+            background-color: #666;
+        }
+
     </style>
 </head>
 <body>
+    
     <div class="menu-button" onclick="toggleMenu()">☰</div>
     <div id="menu" class="menu">
-        <ul list-style: none; padding: 0;>
+        Ayuda
+        <div class="section" >
+            <ul id="events-list" style="list-style: none; padding: 0;">
+                <li>
+                    <button class="menu-button-option" onclick="handleTouchStart('PartidaBasica');selectBasicRoles()" ></span> Partida básica recomendada</label>
+                </li>
+                <li>
+                    <button class="menu-button-option" onclick="handleTouchStart('LimpiarTodo');disableAllRoles()"></span> Limpiar todo</label>
+                </li>
+                
+            </ul>
+        </div>
+        Expansiones
+        <div class="section" >
+            <ul id="events-list" style="list-style: none; padding: 0;">
+                <li onmousedown="handleTouchStart('MostrarRolesAvanzados')" onmouseup="handleTouchEnd()" onmouseleave="handleTouchEnd()" ontouchstart="handleTouchStart('MostrarRolesAvanzados')" ontouchend="handleTouchEnd()">
+                    <label class="switch"><input type="checkbox" onclick="toggleRolesAvanzadosText()" id="MostrarRolesAvanzados"><span class="slider"></span> Roles avanzados</label>
+                </li>
+                <li onmousedown="handleTouchStart('MostrarRolesCaoticos')" onmouseup="handleTouchEnd()" onmouseleave="handleTouchEnd()" ontouchstart="handleTouchStart('MostrarRolesCaoticos')" ontouchend="handleTouchEnd()">
+                    <label class="switch"><input type="checkbox" onclick="toggleRolesCaoticosText()" id="MostrarRolesCaoticos"><span class="slider"></span> Roles caóticos</label>
+                </li>
+                <li onmousedown="handleTouchStart('MostrarPiratas')" onmouseup="handleTouchEnd()" onmouseleave="handleTouchEnd()" ontouchstart="handleTouchStart('MostrarPiratas')" ontouchend="handleTouchEnd()">
+                    <label class="switch"><input type="checkbox" onclick="togglePiratasText()" id="MostrarPiratas"><span class="slider"></span> Invasión pirata</label>
+                </li>
+                <li onmousedown="handleTouchStart('MostrarAccesos')" onmouseup="handleTouchEnd()" onmouseleave="handleTouchEnd()" ontouchstart="handleTouchStart('MostrarAccesos')" ontouchend="handleTouchEnd()">
+                    <label class="switch"><input type="checkbox" onclick="toggleAccesosText()" id="MostrarAccesos"><span class="slider"></span> Tarjetas de acceso</label>
+                </li>
+            </ul>
+        </div>
+        
+    </div>
+        <!-- <ul style="list-style: none; padding: 0;">
             <li style="color: gray; font-weight: bold;">Configuración</li>
-            <li style="color: gray;" id="selectBasicRoles" onclick="selectBasicRoles()">Marcar roles básicos</li>
-            <li style="color: gray;" id="disableAllRoles" onclick="disableAllRoles()">Limpiar</li>
+            <li style="color: gray;">
+                <label class="switch">
+                    <input type="checkbox" id="selectBasicRoles" onchange="selectBasicRoles()">
+                    <span class="slider"></span> Marcar roles básicos
+                </label>
+            </li>
+            <li style="color: gray;">
+                <label class="switch">
+                    <input type="checkbox" id="disableAllRoles" onchange="disableAllRoles()">
+                    <span class="slider"></span> Limpiar
+                </label>
+            </li>
+            
             <li></li>
             <li style="color: green; font-weight: bold;">Roles adicionales</li>
-            <li style="color: green;" id="rolesAvanzadosToggle" onclick="toggleRolesAvanzadosText()">Sin roles avanzados</li>
-            <li style="color: green;" id="rolesCaoticosToggle" onclick="toggleRolesCaoticosText()">Sin roles caóticos</li>
+            <li style="color: green;">
+                <label class="switch">
+                    <input type="checkbox" id="rolesAvanzadosToggle" onchange="toggleRolesAvanzadosText()">
+                    <span class="slider"></span> Roles avanzados
+                </label>
+            </li>
+            <li style="color: green;">
+                <label class="switch">
+                    <input type="checkbox" id="rolesCaoticosToggle" onchange="toggleRolesCaoticosText()">
+                    <span class="slider"></span> Roles caóticos
+                </label>
+            </li>
+            
             <li></li>
             <li style="color: blue; font-weight: bold;">Expansiones</li>
-            <li style="color: blue; "id="eventosToggle" onclick="toggleEventosText()">Eventos deshabilitados</li>
-            <li style="color: blue; "id="tarjetasAccesoToggle" onclick="toggleTarjetasAccesoText()">Tarjetas de Acceso deshabilitadas</li>
-            <li style="color: blue; "id="piratasToggle" onclick="togglePiratasText()">Invasión Pirata deshabilitada</li>
-        </ul>
-    </div>
+            <li style="color: blue;">
+                <label class="switch">
+                    <input type="checkbox" id="eventosToggle" onchange="toggleEventosText()">
+                    <span class="slider"></span> Eventos
+                </label>
+            </li>
+            <li style="color: blue;">
+                <label class="switch">
+                    <input type="checkbox" id="tarjetasAccesoToggle" onchange="toggleTarjetasAccesoText()">
+                    <span class="slider"></span> Tarjetas de Acceso
+                </label>
+            </li>
+            <li style="color: blue;">
+                <label class="switch">
+                    <input type="checkbox" id="piratasToggle" onchange="togglePiratasText()">
+                    <span class="slider"></span> Invasión Pirata
+                </label>
+            </li>
+        </ul> -->
+    
     <div style="height: 60px;"></div>
     <div class="navbar">Outsiders</div>
     <div class="section">
@@ -310,38 +402,40 @@
                 <p> Si un alien es eliminado, entonces gana la tripulación. Si ningún alien es eliminado, entonces ganan los aliens.</p>
                 <p style="color: gray; font-style: italic">Eventualmente podría pasar que todas las cartas de alien queden en el centro. Si eso sucede, la forma de ganar lograr que nadie muera en la votación. Si alguien muere y ningún jugador tiene el rol de alien, la tripulación pierde.</p>
                 
-            
-                <p style="color: blue; font-weight: bold"><br>Recomendaciones</p>      
-                <p style="color: gray; font-weight: bold">No es necesario saber de memoria lo que hacen todos los roles, ni el orden en el que deben realizar sus acciones.</p>   
-                <p style="color: gray; font-weight: bold">En la sección "Selector de roles" de esta página podés ver lo que hace cada rol manteniendo presionado su nombre, y en la sección "Jugar", podés ver qué hace cada rol seleccionado y en qué orden.</p>
-                <p style="color: gray; font-weight: bold">Para jugar, se seleccionan los roles con los que se va a jugar la partida, y el director puede leer en voz alta el orden y las acciones de los roles.</p>
             </div>
+            <h3 class="sub-title" onclick="toggleSubSection(this)">Recomendaciones <span class="arrow">▼</span></h3> 
+            <div class="sub-content">
+            <p>No es necesario saber de memoria lo que hacen todos los roles, ni el orden en el que deben realizar sus acciones.</p>   
+            <p>En la sección "Selector de roles" de esta página podés ver lo que hace cada rol manteniendo presionado su nombre, y en la sección "Jugar", podés ver qué hace cada rol seleccionado y en qué orden.</p>
+            <p>Para jugar, se seleccionan los roles con los que se va a jugar la partida, y el director puede leer en voz alta el orden y las acciones de los roles.</p>
+            </div>  
         </div>
     </div>
 
     <div class="section" style = "display: none;">
-        <div class="title" onclick="toggleSection(this)">Expansión: ¡Piratas!<span class="arrow">▼</span>
+        <div class="title" onclick="toggleSection(this)">Expansión: Invasión pirata<span class="arrow">▼</span>
         </div>
         <div class="content">
-            <p style="color: orange; font-weight: bold;">¡Piratas espaciales intentan toamr la nave!</p>
-            <p>En esta ocasión, la tripulación deberá lidiar con dos amenazas simultáneas; aliens mrotales y engañosos piratas.</p>
+            <p style="color: orange; font-weight: bold;">¡Piratas espaciales intentan tomar la nave!</p>
+            <p>En esta ocasión, la tripulación deberá lidiar con dos amenazas simultáneas; aliens mortales y engañosos piratas.</p>
             <p>Las reglas del juego son las mismas, pero durante la fase de votación, en lugar de votar a un jugador para eliminarlo, se votará a un jugador para elegirlo como comandante.</p>
             <p>Luego, el comandante elige a un jugador y lo elimina.</p>
-            <p>Si un pirata es elegido como comandante, los piratas ganan. (La tripulación y los aliens pierden).</p>
+            <p><br>Cuando un jugador es elegido como comandante, el director mira su carta. Si es un pirata, los piratas ganan (La tripulación y los aliens pierden) y la partida termina.</p>
+            <p>Si no es un pirata, entonces elige a quién eliminar. Si el jugador eliminado es un alien, gana la tripulación. Si es un tripulante, ganan los aliens.</p>
             <p style="color: orange; font-weight: bold;">Esta expansión incluye los roles de Pirata, Corsaria y Capitán.</p>
         </div>
     </div>
 </div>
 
 <div class="section" style = "display: none;">
-    <div class="title" onclick="toggleSection(this)">Expansión: ¡Tarjetas de acceso!<span class="arrow">▼</span>
+    <div class="title" onclick="toggleSection(this)">Expansión: Tarjetas de acceso<span class="arrow">▼</span>
     </div>
     <div class="content">
-        <p>Al repartir las cartas, se colocan todas las cartas de Tarjetas de Acceso en una pila, y se las coloca junto a las cartas del centro.</p>
+        <p>Al repartir las cartas, se colocan todas las cartas de Tarjetas de Acceso en una pila, y se las coloca junto a las cartas del centro, boca abajo.</p>
         <p>Las Tarjetas de Acceso pueden ser obtenidas por los jugadores durante el criosueño.</p>
         <p>Cuando un jugador tiene una Tarjeta de Acceso, puede usarla durante la discusión para tener acceso a diversos artefactos que le otorgan información adicional.</p>
-        <p>Para usar una tarjeta de acceso, simplemente dices en voz alta que usarás una Tarjeta de Acceso, pero no la muestras. Si nadie duda de tus palabras, entonces, independientemente de qué tarjeta de acceso tengas, podés usar la habilidad de la que dijiste tener.</p>
-        <p>Si alguien duda de tus palabras y decide desafiarte, entonces tu tarjeta se coloca boca arriba. Si tenías la tarjeta que dijiste tener, entonces el jugador que te desafió es eliminado. Si no, vos sos eliminado</p>
+        <p>Para usar una tarjeta de acceso, simplemente decís en voz alta que vas a usar una Tarjeta de Acceso, pero no la mostrás. Si nadie duda de tus palabras, entonces, independientemente de qué tarjeta de acceso tengas, podés usar la habilidad de la que dijiste tener.</p>
+        <p>Si alguien duda de tus palabras y decide desafiarte, entonces tu tarjeta se coloca boca arriba. Si tenías la tarjeta que dijiste tener, entonces el jugador que te desafió es eliminado. Si no, vos sos eliminado.</p>
         <p>Si un jugador tiene una Tarjeta de Acceso sin usar, entonces pierde su Tarjeta de Acceso en lugar de ser eliminado.</p>
         <p style="color: blue; font-weight: bold;">Esta expansión incluye los roles de Portero, Conserje, Mecánico y Recolector.</p>
             </div>
@@ -1022,7 +1116,7 @@
                     message = "<p style='color: green; font-weight: bold;'>Hacker</p><p style='color: green;'>El director le da a elegir al hacker entre 3 cartas que no estaban en el mazo original de juego, y que no tengan acciones durante el criosueño. El hacker intercambia su carta por una de ellas.</p><p style='color: gray; font-style: italic;'>Nunca vio un archivo .pas.</p>";
                 break;
                 case "Holograma":
-                    message = "<p style='color: green; font-weight: bold;'>Holograma</p><p style='color: green;'>Ve una de las tres cartas del centro. Sin intercambiar su carta, asume ese rol, e imita su acción y su condición de victoria.</p><p style='color: gray; font-style: italic;'>Nadie sabe a ciencia cierta si tiene la mente de un humano, o si es completamente artificial.</p>";
+                    message = "<p style='color: green; font-weight: bold;'>Holograma</p><p style='color: green;'>Ve una de las cartas del centro. Sin intercambiar su carta, asume ese rol, e imita su acción y su condición de victoria.</p><p style='color: gray; font-style: italic;'>Nadie sabe a ciencia cierta si tiene la mente de un humano, o si es completamente artificial.</p>";
                 break;
                 case "Huevo":
                     message = "<p style='color: red; font-weight: bold;'>Huevo</p><p style='color: red;'>Si alguien que no es un alien vota por el huevo, el voto de los aliens vale doble. Si el huevo muere, los aliens pierden.</p><p style='color: gray; font-style: italic;'>Escuché que tiene cientos de años. ¡Incluso una vez escuché que tiene siglos!</p>";
@@ -1141,6 +1235,10 @@
                     message = "<p style='color: #f5a67b; font-weight: bold;'>Venus</p><p style='color: #f5a67b;'>Hay cinco cartas en el centro, en lugar de tres.</p>";
                 break;
                 
+
+                case "LimpiarTodo":
+                    message = "<p style='color: black;'>Se limpió la selección de roles y eventos.</p>";
+                break;
             }
             
             infoBox.innerHTML = message;
@@ -1178,70 +1276,46 @@
         }
     
         function toggleRolesAvanzadosText() {
-            let rolesAvanzadosToggle = document.getElementById("rolesAvanzadosToggle");
+            let rolesAvanzadosToggle = document.getElementById("MostrarRolesAvanzados");
             let advancedRoles = document.querySelectorAll(".rol-avanzado");
-            if (rolesAvanzadosToggle.innerText === "Con roles avanzados") {
-                rolesAvanzadosToggle.innerText = "Sin roles avanzados";
-                advancedRoles.forEach(role => role.style.display = "none");
-                let checkboxes = document.querySelectorAll(".rol-avanzado input[type='checkbox']");
-                checkboxes.forEach(checkbox => checkbox.checked = false);
-                updateRoles();
-            } else {
-                rolesAvanzadosToggle.innerText = "Con roles avanzados";
-                advancedRoles.forEach(role => role.style.display = "block");
-            }
+
+            advancedRoles.forEach(role => role.style.display = rolesAvanzadosToggle.checked ? "block" : "none"); 
+
+            updateRoles();
         }
         function toggleRolesCaoticosText() {
-            let rolesCaoticosToggle = document.getElementById("rolesCaoticosToggle");
-            let rolesCaoticos = document.querySelectorAll(".rol-caotico");
-            if (rolesCaoticosToggle.innerText === "Con roles caóticos") {
-                rolesCaoticosToggle.innerText = "Sin roles caóticos";
-                rolesCaoticos.forEach(role => role.style.display = "none");
-                let checkboxes = document.querySelectorAll(".rol-avanzado input[type='checkbox']");
-                checkboxes.forEach(checkbox => checkbox.checked = false);
-                updateRoles();
-            } else {
-                rolesCaoticosToggle.innerText = "Con roles caóticos";
-                rolesCaoticos.forEach(role => role.style.display = "block");
-            }
+            let rolesCaoticosToggle = document.getElementById("MostrarRolesCaoticos");
+            let caoticRoles = document.querySelectorAll(".rol-caotico");
+
+            caoticRoles.forEach(role => role.style.display = rolesCaoticosToggle.checked ? "block" : "none"); 
+
+            updateRoles();
         }
        
 
-        function toggleTarjetasAccesoText() {
-            let accesosSection = Array.from(document.querySelectorAll('.section')).find(section => section.querySelector('.title')?.textContent.includes('Expansión: ¡Tarjetas de acceso!'));
-            let tarjetasAccesoToggle = document.getElementById("tarjetasAccesoToggle");
-            let rolesTarjeta = document.querySelectorAll(".rol-tarjeta-acceso");
-            if (tarjetasAccesoToggle.innerText === "Tarjetas de Acceso habilitadas") {
-                tarjetasAccesoToggle.innerText = "Tarjetas de Acceso deshabilitadas";
-                rolesTarjeta.forEach(role => role.style.display = "none");
-                accesosSection.style.display = "none";
-                let checkboxes = document.querySelectorAll(".rol-tarjeta-acceso input[type='checkbox']");
-                checkboxes.forEach(checkbox => checkbox.checked = false);
-                updateRoles();
-            } else {
-                tarjetasAccesoToggle.innerText = "Tarjetas de Acceso habilitadas";
-                rolesTarjeta.forEach(role => role.style.display = "block");
-                accesosSection.style.display = "block";
-            }
-        }
+      
 
-        function togglePiratasText() {
-            let piratasToggle = document.getElementById("piratasToggle");
-            let piratasSection = Array.from(document.querySelectorAll('.section')).find(section => section.querySelector('.title')?.textContent.includes('Expansión: ¡Piratas!'));
+        function toggleAccesosText() {
+            let accesosToggle = document.getElementById("MostrarAccesos");
+            let accesosRoles = document.querySelectorAll(".rol-tarjeta-acceso");
+            let accesosSection = Array.from(document.querySelectorAll('.section')).find(section => section.querySelector('.title')?.textContent.includes('Expansión: Tarjetas de acceso'));
           
-            let rolesPirata = document.querySelectorAll(".rol-pirata");
-            if (piratasToggle.innerText === "Invasión Pirata habilitada") {
-                piratasToggle.innerText = "Invasión Pirata deshabilitada";
-                rolesPirata.forEach(role => role.style.display = "none");
-                piratasSection.style.display = "none";
-                let checkboxes = document.querySelectorAll(".rol-pirata input[type='checkbox']");
-                checkboxes.forEach(checkbox => checkbox.checked = false);
-                updateRoles();
-            } else {
-                piratasSection.style.display = "block";
-                piratasToggle.innerText = "Invasión Pirata habilitada";
-                rolesPirata.forEach(role => role.style.display = "block");
-            }
+            accesosSection.style.display = accesosToggle.checked ? "block" : "none";
+
+            accesosRoles.forEach(role => role.style.display = accesosToggle.checked ? "block" : "none"); 
+
+            updateRoles();
+        }
+        function togglePiratasText() {
+            let piratasToggle = document.getElementById("MostrarPiratas");
+            let piratasRoles = document.querySelectorAll(".rol-pirata");
+            let piratasSection = Array.from(document.querySelectorAll('.section')).find(section => section.querySelector('.title')?.textContent.includes('Expansión: Invasión pirata'));
+          
+            piratasSection.style.display = piratasToggle.checked ? "block" : "none";
+
+            piratasRoles.forEach(role => role.style.display = piratasToggle.checked ? "block" : "none"); 
+
+            updateRoles();
         }
 
         function disableAllRoles() {
