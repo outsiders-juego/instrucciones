@@ -386,29 +386,23 @@
             <h3 class="sub-title" onclick="toggleSubSection(this)">Desarrollo del juego <span class="arrow">▼</span></h3>
             <div class="sub-content">
                 <p>El juego consta de tres etapas; el criosueño, la discusión y la votación.</p>
-                <p style="color: blue; font-weight: bold"><br>Etapa 1: Criosueño</p>
+                <p style="color: cyan; font-weight: bold"><br>Etapa 1: Criosueño</p>
                 <p>Durante el criosueño todos los jugadores cierran sus ojos. El director indicará a cada rol cuándo debe abrir los ojos, y qué acción deberá hacer.</p>
                 <p style="color: gray; font-style: italic">Ejemplo: Todos cierran sus ojos. El director dice en voz alta "El ladrón abra los ojos, y señale a otro jugador para robar su carta". El jugador que tiene el rol del ladrón abre los ojos, señala a un jugador a su elección, y roba su carta. Luego el ladrón cierra sus ojos y el director dice "El químico, abra sus ojos" ... etc</p>
                 <p>Si no estás seguro qué hace tu carta, simplemente escucha al director, que dirá en voz alta las instrucciones para cada rol cuando llegue su momento de actuar.</p>
                 <p>No todos los roles tienen una acción durante el criosueño.</p>
                 <p>Cuando todos los roles hicieron su acción, el criosueño termina y todos los jugadores abren sus ojos.</p>
-                <p style="color: blue; font-weight: bold"><br>Etapa 2: Discusión</p>
+                <p style="color: cyan; font-weight: bold"><br>Etapa 2: Discusión</p>
                 <p> Cuando todos abren sus ojos, los tripulantes tienen un tiempo para intentar descubrir quiénes son los aliens. Disponen de tantos minutos como cartas de roles haya sobre la mesa (repartidas y en el centro).</p>
                 <p> Durante la discusión, no hay límite acerca de lo que se puede decir. Está permitido mentir, o decir la verdad, revelar tu rol, o mentir acerca de él.</p>
-                <p style="color: blue; font-weight: bold"></pstyle><br>Etapa 3: Votación</p>
+                <p style="color: cyan; font-weight: bold"></pstyle><br>Etapa 3: Votación</p>
                 <p> Cuando el tiempo haya terminado, o cuando la mayoría de los jugadores desee votar, el tiempo de discusión termina y los jugadores votan.</p>
                 <p> El director cuenta hasta tres, y cada jugador señala al jugador al que desea eliminar. El jugador con más votos (es decir, con más dedos apuntándolo) es eliminado.</p>
                 <p> Un jugador no puede votar por sí mismo. Un jugador puede votar hacia el centro. Si el centro tiene más votos que cualquier jugador, o si hay un empate en los votos, ningún jugador es eliminado.</p>
                 <p> Si un alien es eliminado, entonces gana la tripulación. Si ningún alien es eliminado, entonces ganan los aliens.</p>
                 <p style="color: gray; font-style: italic">Eventualmente podría pasar que todas las cartas de alien queden en el centro. Si eso sucede, la forma de ganar lograr que nadie muera en la votación. Si alguien muere y ningún jugador tiene el rol de alien, la tripulación pierde.</p>
                 
-            </div>
-            <h3 class="sub-title" onclick="toggleSubSection(this)">Recomendaciones <span class="arrow">▼</span></h3> 
-            <div class="sub-content">
-            <p>No es necesario saber de memoria lo que hacen todos los roles, ni el orden en el que deben realizar sus acciones.</p>   
-            <p>En la sección "Selector de roles" de esta página podés ver lo que hace cada rol manteniendo presionado su nombre, y en la sección "Jugar", podés ver qué hace cada rol seleccionado y en qué orden.</p>
-            <p>Para jugar, se seleccionan los roles con los que se va a jugar la partida, y el director puede leer en voz alta el orden y las acciones de los roles.</p>
-            </div>  
+            </div> 
         </div>
     </div>
 
@@ -420,7 +414,7 @@
             <p>En esta ocasión, la tripulación deberá lidiar con dos amenazas simultáneas; aliens mortales y engañosos piratas.</p>
             <p>Las reglas del juego son las mismas, pero durante la fase de votación, en lugar de votar a un jugador para eliminarlo, se votará a un jugador para elegirlo como comandante.</p>
             <p>Luego, el comandante elige a un jugador y lo elimina.</p>
-            <p><br>Cuando un jugador es elegido como comandante, el director mira su carta. Si es un pirata, los piratas ganan (La tripulación y los aliens pierden) y la partida termina.</p>
+            <p><br>Si el jugador elegido como comandante es un pirata, los piratas ganan (La tripulación y los aliens pierden, independientemente de quién muera).</p>
             <p>Si no es un pirata, entonces elige a quién eliminar. Si el jugador eliminado es un alien, gana la tripulación. Si es un tripulante, ganan los aliens.</p>
             <p style="color: orange; font-weight: bold;">Esta expansión incluye los roles de Pirata, Corsaria y Capitán.</p>
         </div>
@@ -446,6 +440,7 @@
         <div class="title" onclick="toggleSection(this)">Selección de roles <span class="arrow">▼</span>
         </div>
         <div class="content">
+            <p style="text-align: left; color: gray;">Acá podés seleccionar los roles que van a participar de la partida</p>
             <ul id="roles-list" style="list-style: none; padding: 0; margin: 0;">
                 <li onmousedown="handleTouchStart('Agentes')" onmouseup="handleTouchEnd()" onmouseleave="handleTouchEnd()" ontouchstart="handleTouchStart('Agentes')" ontouchend="handleTouchEnd()">
                     <label class="switch"><input type="checkbox" onclick="updateRoles()" id="Agentes"><span class="slider"></span> Agentes</label>
@@ -537,7 +532,7 @@
                 <li class="rol-avanzado" style="display: none;" onmousedown="handleTouchStart('Nina')" onmouseup="handleTouchEnd()" onmouseleave="handleTouchEnd()" ontouchstart="handleTouchStart('Nina')" ontouchend="handleTouchEnd()">
                     <label class="switch"><input type="checkbox" onclick="updateRoles()" id="Nina"><span class="slider"></span> Niña</label>
                 </li>
-                <li class="rol-avanzado" style="display: none;" onmousedown="handleTouchStart('Noxis')" onmouseup="handleTouchEnd()" onmouseleave="handleTouchEnd()" ontouchstart="handleTouchStart('Noxis')" ontouchend="handleTouchEnd()">
+                <li class="rol-caotico" style="display: none;" onmousedown="handleTouchStart('Noxis')" onmouseup="handleTouchEnd()" onmouseleave="handleTouchEnd()" ontouchstart="handleTouchStart('Noxis')" ontouchend="handleTouchEnd()">
                     <label class="switch"><input type="checkbox" onclick="updateRoles()" id="Noxis"><span class="slider"></span> N.O.X.I.S.</label>
                 </li>
                 <li class="rol-pirata" style="display: none;" onmousedown="handleTouchStart('Pirata')" onmouseup="handleTouchEnd()" onmouseleave="handleTouchEnd()" ontouchstart="handleTouchStart('Pirata')" ontouchend="handleTouchEnd()">
@@ -637,6 +632,7 @@
         <div class="title" onclick="toggleSection(this)">Jugar<span class="arrow">▼</span>
         </div>
         <div class="content">
+            <p style="text-align: left; color: gray;">Acá podés ver las acciones de los roles seleccionados</p>
             <div id="active-roles"></div>
 
             <div id="Mercurio-message" style="display: none; border: 2px solid #4d4d4d; border-radius: 10px; padding: 20px; margin-bottom: 15px; background-color: #222;">
@@ -836,19 +832,18 @@
                 <p>El recolector ve la carta de acceso de cualquier jugador. Si el jugador está inmediatamente a su izquierda o derecha en la ronda, el recolector se queda con su tarjeta de acceso.</p>
                 <p>El recolector cierra los ojos.</p>
             </div>
-
-            <div id="Capitan-message" style="display: none; border: 2px solid orange; border-radius: 10px; padding: 20px; margin-bottom: 15px; background-color: #222;">
-                <p>El capitán abre los ojos.</p>
-                <p>El capitán señala a un jugador para convertirlo en pirata.</p>
-                <p>El capitán cierra los ojos.</p>
-            </div>
             <div id="Pirata-message" style="display: none; border: 2px solid orange; border-radius: 10px; padding: 20px; margin-bottom: 15px; background-color: #222;">
                 <p>Los piratas abren los ojos.</p>
-                <p id="Capitan-message2" style="display: none; margin-top: 5px; color: orange;">(El capitán también).</p>
+                <p id="Capitan-message3" style="display: none; margin-top: 5px; color: orange;">(El capitán también).</p>
                 <p id="Corsaria-message2" style="display: none; margin-top: 5px; color: orange;">(La corsaria también).</p>
                 <p>Los piratas cierran los ojos.</p>
             </div>
-
+            <div id="Capitan-message" style="display: none; border: 2px solid orange; border-radius: 10px; padding: 20px; margin-bottom: 15px; background-color: #222;">
+                <p>El capitán abre los ojos.</p>
+                <p>El capitán señala a un jugador para convertirlo en pirata. El director intercambia la carta de ese jugador por la carta de pirata del centro</p>
+                <p>(El director le toca la cabeza al jugador convertido en pirata).</p>
+                <p>El capitán cierra los ojos.</p>
+            </div>
             <div id="Revelador-message" style="display: none; border: 2px solid blue; border-radius: 10px; padding: 20px; margin-bottom: 15px; background-color: #222;">
                 <p>El revelador abre los ojos.</p>
                 <p>El revelador señala la carta de un jugador, y la coloca boca arriba. Si la carta no es azul, vuelve a colocarla boca abajo.</p>
@@ -916,6 +911,9 @@
                 <p>Si algún alien señaló a Miagi, muere.</p>
             </div>
 
+            <div id="Corsaria-message" style="display: none; border: 2px solid orange; border-radius: 10px; padding: 20px; margin-bottom: 15px; background-color: #222;">
+                <p>Si el jugador a la izquierda o derecha de la corsaria es elegido como comandante, ganan los piratas.</p>
+            </div>
             <div id="Noxis-message" style="display: none; border: 2px solid red; border-radius: 10px; padding: 20px; margin-bottom: 15px; background-color: #222;">
                 <p>El jugador por quien N.O.X.I.S. haya votado no puede morir. En su lugar muere el siguiente jugador con más votos.</p>
             </div>
@@ -1083,7 +1081,7 @@
                     message = "<p style='color: green; font-weight: bold;'>Asesino</p><p style='color: green;'>Elige una víctima, y ve su carta. Gana si el jugador que tiene esa carta muere.</p><p style='color: gray; font-style: italic;'>Es un bombón (asesino).</p>";
                 break;
                 case "Capitan":
-                    message = "<p style='color: orange; font-weight: bold;'>Capitán</p><p style='color: orange;'>Al inicio se coloca una carta de pirata adicional en el centro. El capitán intercambia la carta de cualquier jugador por esa carta antes de que los piratas abran los ojos.</p><p style='color: gray; font-style: italic;'>Hace años poseía una enorme tripulación de unos 100 piratas espaciales. Hoy en día son 3. Se ve que no es tan buen capitán.</p>";
+                    message = "<p style='color: orange; font-weight: bold;'>Capitán</p><p style='color: orange;'>Al inicio se coloca una carta de pirata adicional en el centro. El capitán intercambia la carta de cualquier jugador por esa carta antes de que los todos abran los ojos.</p><p style='color: gray; font-style: italic;'>Hace años poseía una enorme tripulación de unos 100 piratas espaciales. Hoy en día son 3. Se ve que no es tan buen capitán.</p>";
                 break;
                 case "Cautivo":
                     message = "<p style='color: green; font-weight: bold;'>Cautivo</p><p style='color: green;'>El cautivo siempre pierde. Luego de la votación todos ponen sus cartas boca arriba. El cautivo puede intercambiar su carta por la carta de cualquier jugador que lo haya votado.</p><p style='color: gray; font-style: italic;'>Fue capturado por la tripulación luego de entrar ilegalmente al sistema de archivos de la nave y reemplazar los planos de navegación por gifs de gatitos.</p>";
@@ -1101,7 +1099,7 @@
                     message = "<p style='color: blue; font-weight: bold;'>Conserje</p><p style='color: blue;'>En su turno, toma una carta de acceso. Si otro rol ve la carta del conserje durante la noche, toma una carta de acceso.</p><p style='color: gray; font-style: italic;'>Sabe la contraseña de todas las máquinas expendedoras. ¡Retruco!</p>";
                 break;
                 case "Corsaria":
-                    message = "<p style='color: orange; font-weight: bold;'>Corsaria</p><p style='color: orange;'>Si alguno de los jugadores a su izquierda o derecha es elegido como comandante, la corsaria la toma .</p><p style='color: gray; font-style: italic;'>Muchos han intentado acercase acerca de forma romántica. Ninguno ha sobrevivido</p>";
+                    message = "<p style='color: orange; font-weight: bold;'>Corsaria</p><p style='color: orange;'>Si alguno de los jugadores a su izquierda o derecha es elegido como comandante, los piratas ganan.</p><p style='color: gray; font-style: italic;'>Muchos han intentado acercase acerca de forma romántica. Ninguno ha sobrevivido.</p>";
                 break;
                 case "Crononauta":
                     message = "<p style='color: blue; font-weight: bold;'>Crononauta</p><p style='color: blue;'>Al inicio del criosueño intercambia las cartas de otros dos jugadores. Al final, vuelve a intercambiarlas.</p><p style='color: gray; font-style: italic;'>Viene del futuro. Siempre cuenta el final de los chistes.</p>";
@@ -1238,6 +1236,21 @@
 
                 case "LimpiarTodo":
                     message = "<p style='color: black;'>Se limpió la selección de roles y eventos.</p>";
+                break;
+                case "PartidaBasica":
+                    message = "<p style='color: black;'>Se seleccionaron las cartas predeterminadas para una partida básica.</p>";
+                break;
+                case "MostrarRolesAvanzados":
+                    message = "<p style='color: green;'>Expansión que agrega 11 roles nuevos, que introducen mecánicas interesantes y avanzadas. Ideal si el grupo está familiarizado con las mecánicas básicas.</p>";
+                break;
+                case "MostrarRolesCaoticos":
+                    message = "<p style='color: magenta;'>Expansión que agrega 12 roles nuevos, que añaden caos e incertidumbre a la partida. Solo para valientes.</p>";
+                break;
+                case "MostrarPiratas":
+                    message = "<p style='color: orange;'>Expansión que agrega un nuevo equipo: ¡Los piratas!.</p>";
+                break;
+                case "MostrarAccesos":
+                    message = "<p style='color: blue;'>Expansión que agrega nuevos roles y habilidades activas durante la fase de discusión.</p>";
                 break;
             }
             
