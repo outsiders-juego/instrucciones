@@ -157,7 +157,7 @@
         input#MostrarRolesAvanzados:checked + .slider { background-color: lime; }
         input#MostrarRolesCaoticos:checked + .slider { background-color: magenta; }
         input#MostrarPiratas:checked + .slider { background-color: orange; }
-        input#MostrarAccesos:checked + .slider { background-color: blue; }
+        input#MostrarAccesos:checked + .slider { background-color: cyan; }
 
         input:checked + .slider:before {
             transform: translateX(26px);
@@ -451,14 +451,80 @@
                 <li onmousedown="handleTouchStart('AlienCiego')" onmouseup="handleTouchEnd()" onmouseleave="handleTouchEnd()" ontouchstart="handleTouchStart('AlienCiego')" ontouchend="handleTouchEnd()">
                     <label class="switch"><input type="checkbox" onclick="updateRoles()" id="AlienCiego"><span class="slider"></span> Alien ciego</label>
                 </li>
-                <li class="rol-avanzado" style="display: none;" onmousedown="handleTouchStart('AlienMadre')" onmouseup="handleTouchEnd()" onmouseleave="handleTouchEnd()" ontouchstart="handleTouchStart('AlienMadre')" ontouchend="handleTouchEnd()">
-                    <label class="switch"><input type="checkbox" onclick="updateRoles()" id="AlienMadre"><span class="slider"></span> Alien madre</label>
-                </li>
+                
                 <li onmousedown="handleTouchStart('AlienSuicida')" onmouseup="handleTouchEnd()" onmouseleave="handleTouchEnd()" ontouchstart="handleTouchStart('AlienSuicida')" ontouchend="handleTouchEnd()">
                     <label class="switch"><input type="checkbox" onclick="updateRoles()" id="AlienSuicida"><span class="slider"></span> Alien suicida</label>
                 </li>
                 <li onmousedown="handleTouchStart('AlienVisor')" onmouseup="handleTouchEnd()" onmouseleave="handleTouchEnd()" ontouchstart="handleTouchStart('AlienVisor')" ontouchend="handleTouchEnd()">
                     <label class="switch"><input type="checkbox" onclick="updateRoles()" id="AlienVisor"><span class="slider"></span> Alien visor</label>
+                </li>
+                
+                
+                
+                <li onmousedown="handleTouchStart('Cazador')" onmouseup="handleTouchEnd()" onmouseleave="handleTouchEnd()" ontouchstart="handleTouchStart('Cazador')" ontouchend="handleTouchEnd()">
+                    <label class="switch"><input type="checkbox" onclick="updateRoles()" id="Cazador"><span class="slider"></span> Cazador</label>
+                </li>
+               
+               
+                
+               
+                <li onmousedown="handleTouchStart('Director')" onmouseup="handleTouchEnd()" onmouseleave="handleTouchEnd()" ontouchstart="handleTouchStart('Director')" ontouchend="handleTouchEnd()">
+                    <label class="switch"><input type="checkbox" onclick="updateRoles()" id="Director"><span class="slider"></span> Director</label>
+                </li>
+                
+                
+                <li onmousedown="handleTouchStart('Investigador')" onmouseup="handleTouchEnd()" onmouseleave="handleTouchEnd()" ontouchstart="handleTouchStart('Investigador')" ontouchend="handleTouchEnd()">
+                    <label class="switch"><input type="checkbox" onclick="updateRoles()" id="Investigador"><span class="slider"></span> Investigador</label>
+                </li>
+                <li onmousedown="handleTouchStart('Ladron')" onmouseup="handleTouchEnd()" onmouseleave="handleTouchEnd()" ontouchstart="handleTouchStart('Ladron')" ontouchend="handleTouchEnd()">
+                    <label class="switch"><input type="checkbox" onclick="updateRoles()" id="Ladron"><span class="slider"></span> Ladrón</label>
+                </li>
+                <li onmousedown="handleTouchStart('Larva')" onmouseup="handleTouchEnd()" onmouseleave="handleTouchEnd()" ontouchstart="handleTouchStart('Larva')" ontouchend="handleTouchEnd()">
+                    <label class="switch"><input type="checkbox" onclick="updateRoles()" id="Larva"><span class="slider"></span> Larva</label>
+                </li>
+                <li onmousedown="handleTouchStart('Mango')" onmouseup="handleTouchEnd()" onmouseleave="handleTouchEnd()" ontouchstart="handleTouchStart('Mango')" ontouchend="handleTouchEnd()">
+                    <label class="switch"><input type="checkbox" onclick="updateRoles()" id="Mango"><span class="slider"></span> Mango</label>
+                </li>
+                
+                <li onmousedown="handleTouchStart('Miyagi')" onmouseup="handleTouchEnd()" onmouseleave="handleTouchEnd()" ontouchstart="handleTouchStart('Miyagi')" ontouchend="handleTouchEnd()">
+                    <label class="switch"><input type="checkbox" onclick="updateRoles()" id="Miyagi"><span class="slider"></span> Miyagi</label>
+                </li>
+               
+                
+                
+                
+                <li onmousedown="handleTouchStart('Quimico')" onmouseup="handleTouchEnd()" onmouseleave="handleTouchEnd()" ontouchstart="handleTouchStart('Quimico')" ontouchend="handleTouchEnd()">
+                    <label class="switch"><input type="checkbox" onclick="updateRoles()" id="Quimico"><span class="slider"></span> Químico</label>
+                </li>
+                <li onmousedown="handleTouchStart('Radiactivo')" onmouseup="handleTouchEnd()" onmouseleave="handleTouchEnd()" ontouchstart="handleTouchStart('Radiactivo')" ontouchend="handleTouchEnd()">
+                    <label class="switch"><input type="checkbox" onclick="updateRoles()" id="Radiactivo"><span class="slider"></span> Radiactivo</label>
+                </li>
+                
+                <li onmousedown="handleTouchStart('Revelador')" onmouseup="handleTouchEnd()" onmouseleave="handleTouchEnd()" ontouchstart="handleTouchStart('Revelador')" ontouchend="handleTouchEnd()">
+                    <label class="switch"><input type="checkbox" onclick="updateRoles()" id="Revelador"><span class="slider"></span> Revelador</label>
+                </li>
+                
+                <li onmousedown="handleTouchStart('Suicida')" onmouseup="handleTouchEnd()" onmouseleave="handleTouchEnd()" ontouchstart="handleTouchStart('Suicida')" ontouchend="handleTouchEnd()">
+                    <label class="switch"><input type="checkbox" onclick="updateRoles()" id="Suicida"><span class="slider"></span> Suicida</label>
+                </li>
+                <li onmousedown="handleTouchStart('Travieso')" onmouseup="handleTouchEnd()" onmouseleave="handleTouchEnd()" ontouchstart="handleTouchStart('Travieso')" ontouchend="handleTouchEnd()">
+                    <label class="switch"><input type="checkbox" onclick="updateRoles()" id="Travieso"><span class="slider"></span> Travieso</label>
+                </li>
+                <li onmousedown="handleTouchStart('Tripulante')" onmouseup="handleTouchEnd()" onmouseleave="handleTouchEnd()" ontouchstart="handleTouchStart('Tripulante')" ontouchend="handleTouchEnd()">
+                    <label class="switch"><input type="checkbox" onclick="updateRoles()" id="Tripulante"><span class="slider"></span> Tripulante</label>
+                </li>
+                
+                <li onmousedown="handleTouchStart('Viejo')" onmouseup="handleTouchEnd()" onmouseleave="handleTouchEnd()" ontouchstart="handleTouchStart('Viejo')" ontouchend="handleTouchEnd()">
+                    <label class="switch"><input type="checkbox" onclick="updateRoles()" id="Viejo"><span class="slider"></span> Viejo</label>
+                </li>
+                <li onmousedown="handleTouchStart('Vigia')" onmouseup="handleTouchEnd()" onmouseleave="handleTouchEnd()" ontouchstart="handleTouchStart('Vigia')" ontouchend="handleTouchEnd()">
+                    <label class="switch"><input type="checkbox" onclick="updateRoles()" id="Vigia"><span class="slider"></span> Vigía</label>
+                </li>
+
+                <p class="rol-avanzado" style="display: none; text-align: left; color: lime;">Roles avanzados</p>
+
+                <li class="rol-avanzado" style="display: none;" onmousedown="handleTouchStart('AlienMadre')" onmouseup="handleTouchEnd()" onmouseleave="handleTouchEnd()" ontouchstart="handleTouchStart('AlienMadre')" ontouchend="handleTouchEnd()">
+                    <label class="switch"><input type="checkbox" onclick="updateRoles()" id="AlienMadre"><span class="slider"></span> Alien madre</label>
                 </li>
                 <li class="rol-avanzado" style="display: none;" onmousedown="handleTouchStart('Analista')" onmouseup="handleTouchEnd()" onmouseleave="handleTouchEnd()" ontouchstart="handleTouchStart('Analista')" ontouchend="handleTouchEnd()">
                     <label class="switch"><input type="checkbox" onclick="updateRoles()" id="Analista"><span class="slider"></span> Analista</label>
@@ -466,35 +532,11 @@
                 <li class="rol-avanzado" style="display: none;" onmousedown="handleTouchStart('Asesino')" onmouseup="handleTouchEnd()" onmouseleave="handleTouchEnd()" ontouchstart="handleTouchStart('Asesino')" ontouchend="handleTouchEnd()">
                     <label class="switch"><input type="checkbox" onclick="updateRoles()" id="Asesino"><span class="slider"></span> Asesino</label>
                 </li>
-                <li class="rol-pirata" style="display: none;" onmousedown="handleTouchStart('Capitan')" onmouseup="handleTouchEnd()" onmouseleave="handleTouchEnd()" ontouchstart="handleTouchStart('Capitan')" ontouchend="handleTouchEnd()">
-                    <label class="switch"><input type="checkbox" onclick="updateRoles()" id="Capitan"><span class="slider"></span> Capitán</label>
-                </li>
-                <li class="rol-caotico" style="display: none;" onmousedown="handleTouchStart('Cautivo')" onmouseup="handleTouchEnd()" onmouseleave="handleTouchEnd()" ontouchstart="handleTouchStart('Cautivo')" ontouchend="handleTouchEnd()">
-                    <label class="switch"><input type="checkbox" onclick="updateRoles()" id="Cautivo"><span class="slider"></span> Cautivo</label>
-                </li>
-                <li onmousedown="handleTouchStart('Cazador')" onmouseup="handleTouchEnd()" onmouseleave="handleTouchEnd()" ontouchstart="handleTouchStart('Cazador')" ontouchend="handleTouchEnd()">
-                    <label class="switch"><input type="checkbox" onclick="updateRoles()" id="Cazador"><span class="slider"></span> Cazador</label>
-                </li>
                 <li class="rol-avanzado" style="display: none;" onmousedown="handleTouchStart('Cientifica')" onmouseup="handleTouchEnd()" onmouseleave="handleTouchEnd()" ontouchstart="handleTouchStart('Cientifica')" ontouchend="handleTouchEnd()">
                     <label class="switch"><input type="checkbox" onclick="updateRoles()" id="Cientifica"><span class="slider"></span> Científica</label>
                 </li>
                 <li class="rol-avanzado" style="display: none;" onmousedown="handleTouchStart('Clon')" onmouseup="handleTouchEnd()" onmouseleave="handleTouchEnd()" ontouchstart="handleTouchStart('Clon')" ontouchend="handleTouchEnd()">
                     <label class="switch"><input type="checkbox" onclick="updateRoles()" id="Clon"><span class="slider"></span> Clon</label>
-                </li>
-                <li class="rol-tarjeta-acceso" style="display: none;" onmousedown="handleTouchStart('Conserje')" onmouseup="handleTouchEnd()" onmouseleave="handleTouchEnd()" ontouchstart="handleTouchStart('Conserje')" ontouchend="handleTouchEnd()">
-                    <label class="switch"><input type="checkbox" onclick="updateRoles()" id="Conserje"><span class="slider"></span> Conserje</label>
-                </li>
-                <li  class="rol-pirata" style="display: none;" onmousedown="handleTouchStart('Corsaria')" onmouseup="handleTouchEnd()" onmouseleave="handleTouchEnd()" ontouchstart="handleTouchStart('Corsaria')" ontouchend="handleTouchEnd()">
-                    <label class="switch"><input type="checkbox" onclick="updateRoles()" id="Corsaria"><span class="slider"></span> Corsaria</label>
-                </li>
-                <li class="rol-caotico" style="display: none;" onmousedown="handleTouchStart('Crononauta')" onmouseup="handleTouchEnd()" onmouseleave="handleTouchEnd()" ontouchstart="handleTouchStart('Crononauta')" ontouchend="handleTouchEnd()">
-                    <label class="switch"><input type="checkbox" onclick="updateRoles()" id="Crononauta"><span class="slider"></span> Crononauta</label>
-                </li>
-                <li onmousedown="handleTouchStart('Director')" onmouseup="handleTouchEnd()" onmouseleave="handleTouchEnd()" ontouchstart="handleTouchStart('Director')" ontouchend="handleTouchEnd()">
-                    <label class="switch"><input type="checkbox" onclick="updateRoles()" id="Director"><span class="slider"></span> Director</label>
-                </li>
-                <li class="rol-caotico" style="display: none;" onmousedown="handleTouchStart('Enlazador')" onmouseup="handleTouchEnd()" onmouseleave="handleTouchEnd()" ontouchstart="handleTouchStart('Enlazador')" ontouchend="handleTouchEnd()">
-                    <label class="switch"><input type="checkbox" onclick="updateRoles()" id="Enlazador"><span class="slider"></span> Enlazador</label>
                 </li>
                 <li class="rol-avanzado" style="display: none;" onmousedown="handleTouchStart('Hacker')" onmouseup="handleTouchEnd()" onmouseleave="handleTouchEnd()" ontouchstart="handleTouchStart('Hacker')" ontouchend="handleTouchEnd()">
                     <label class="switch"><input type="checkbox" onclick="updateRoles()" id="Hacker"><span class="slider"></span> Hacker</label>
@@ -511,70 +553,52 @@
                 <li class="rol-avanzado" style="display: none;" onmousedown="handleTouchStart('Iluminada')" onmouseup="handleTouchEnd()" onmouseleave="handleTouchEnd()" ontouchstart="handleTouchStart('Iluminada')" ontouchend="handleTouchEnd()">
                     <label class="switch"><input type="checkbox" onclick="updateRoles()" id="Iluminada"><span class="slider"></span> Iluminada</label>
                 </li>
-                <li onmousedown="handleTouchStart('Investigador')" onmouseup="handleTouchEnd()" onmouseleave="handleTouchEnd()" ontouchstart="handleTouchStart('Investigador')" ontouchend="handleTouchEnd()">
-                    <label class="switch"><input type="checkbox" onclick="updateRoles()" id="Investigador"><span class="slider"></span> Investigador</label>
-                </li>
-                <li onmousedown="handleTouchStart('Ladron')" onmouseup="handleTouchEnd()" onmouseleave="handleTouchEnd()" ontouchstart="handleTouchStart('Ladron')" ontouchend="handleTouchEnd()">
-                    <label class="switch"><input type="checkbox" onclick="updateRoles()" id="Ladron"><span class="slider"></span> Ladrón</label>
-                </li>
-                <li onmousedown="handleTouchStart('Larva')" onmouseup="handleTouchEnd()" onmouseleave="handleTouchEnd()" ontouchstart="handleTouchStart('Larva')" ontouchend="handleTouchEnd()">
-                    <label class="switch"><input type="checkbox" onclick="updateRoles()" id="Larva"><span class="slider"></span> Larva</label>
-                </li>
-                <li onmousedown="handleTouchStart('Mango')" onmouseup="handleTouchEnd()" onmouseleave="handleTouchEnd()" ontouchstart="handleTouchStart('Mango')" ontouchend="handleTouchEnd()">
-                    <label class="switch"><input type="checkbox" onclick="updateRoles()" id="Mango"><span class="slider"></span> Mango</label>
-                </li>
-                <li class="rol-tarjeta-acceso" style="display: none;" onmousedown="handleTouchStart('Mecanico')" onmouseup="handleTouchEnd()" onmouseleave="handleTouchEnd()" ontouchstart="handleTouchStart('Mecanico')" ontouchend="handleTouchEnd()">
-                    <label class="switch"><input type="checkbox" onclick="updateRoles()" id="Mecanico"><span class="slider"></span> Mecánico</label>
-                </li>
-                <li onmousedown="handleTouchStart('Miyagi')" onmouseup="handleTouchEnd()" onmouseleave="handleTouchEnd()" ontouchstart="handleTouchStart('Miyagi')" ontouchend="handleTouchEnd()">
-                    <label class="switch"><input type="checkbox" onclick="updateRoles()" id="Miyagi"><span class="slider"></span> Miyagi</label>
-                </li>
                 <li class="rol-avanzado" style="display: none;" onmousedown="handleTouchStart('Nina')" onmouseup="handleTouchEnd()" onmouseleave="handleTouchEnd()" ontouchstart="handleTouchStart('Nina')" ontouchend="handleTouchEnd()">
                     <label class="switch"><input type="checkbox" onclick="updateRoles()" id="Nina"><span class="slider"></span> Niña</label>
+                </li>
+                <p class="rol-caotico" style="display: none; text-align: left; color: magenta;">Roles caóticos</p>
+
+                <li class="rol-caotico" style="display: none;" onmousedown="handleTouchStart('Cautivo')" onmouseup="handleTouchEnd()" onmouseleave="handleTouchEnd()" ontouchstart="handleTouchStart('Cautivo')" ontouchend="handleTouchEnd()">
+                    <label class="switch"><input type="checkbox" onclick="updateRoles()" id="Cautivo"><span class="slider"></span> Cautivo</label>
+                </li>
+                <li class="rol-caotico" style="display: none;" onmousedown="handleTouchStart('Crononauta')" onmouseup="handleTouchEnd()" onmouseleave="handleTouchEnd()" ontouchstart="handleTouchStart('Crononauta')" ontouchend="handleTouchEnd()">
+                    <label class="switch"><input type="checkbox" onclick="updateRoles()" id="Crononauta"><span class="slider"></span> Crononauta</label>
+                </li>
+                <li class="rol-caotico" style="display: none;" onmousedown="handleTouchStart('Enlazador')" onmouseup="handleTouchEnd()" onmouseleave="handleTouchEnd()" ontouchstart="handleTouchStart('Enlazador')" ontouchend="handleTouchEnd()">
+                    <label class="switch"><input type="checkbox" onclick="updateRoles()" id="Enlazador"><span class="slider"></span> Enlazador</label>
                 </li>
                 <li class="rol-caotico" style="display: none;" onmousedown="handleTouchStart('Noxis')" onmouseup="handleTouchEnd()" onmouseleave="handleTouchEnd()" ontouchstart="handleTouchStart('Noxis')" ontouchend="handleTouchEnd()">
                     <label class="switch"><input type="checkbox" onclick="updateRoles()" id="Noxis"><span class="slider"></span> N.O.X.I.S.</label>
                 </li>
-                <li class="rol-pirata" style="display: none;" onmousedown="handleTouchStart('Pirata')" onmouseup="handleTouchEnd()" onmouseleave="handleTouchEnd()" ontouchstart="handleTouchStart('Pirata')" ontouchend="handleTouchEnd()">
-                    <label class="switch"><input type="checkbox" onclick="updateRoles()" id="Pirata"><span class="slider"></span> Pirata</label>
-                </li>
-                <li class="rol-tarjeta-acceso" style="display: none;" onmousedown="handleTouchStart('Portero')" onmouseup="handleTouchEnd()" onmouseleave="handleTouchEnd()" ontouchstart="handleTouchStart('Portero')" ontouchend="handleTouchEnd()">
-                    <label class="switch"><input type="checkbox" onclick="updateRoles()" id="Portero"><span class="slider"></span> Portero</label>
-                </li>
-                <li onmousedown="handleTouchStart('Quimico')" onmouseup="handleTouchEnd()" onmouseleave="handleTouchEnd()" ontouchstart="handleTouchStart('Quimico')" ontouchend="handleTouchEnd()">
-                    <label class="switch"><input type="checkbox" onclick="updateRoles()" id="Quimico"><span class="slider"></span> Químico</label>
-                </li>
-                <li onmousedown="handleTouchStart('Radiactivo')" onmouseup="handleTouchEnd()" onmouseleave="handleTouchEnd()" ontouchstart="handleTouchStart('Radiactivo')" ontouchend="handleTouchEnd()">
-                    <label class="switch"><input type="checkbox" onclick="updateRoles()" id="Radiactivo"><span class="slider"></span> Radiactivo</label>
-                </li>
-                <li class="rol-tarjeta-acceso" style="display: none;" onmousedown="handleTouchStart('Recolector')" onmouseup="handleTouchEnd()" onmouseleave="handleTouchEnd()" ontouchstart="handleTouchStart('Recolector')" ontouchend="handleTouchEnd()">
-                    <label class="switch"><input type="checkbox" onclick="updateRoles()" id="Recolector"><span class="slider"></span> Recolector</label>
-                </li>
-                <li onmousedown="handleTouchStart('Revelador')" onmouseup="handleTouchEnd()" onmouseleave="handleTouchEnd()" ontouchstart="handleTouchStart('Revelador')" ontouchend="handleTouchEnd()">
-                    <label class="switch"><input type="checkbox" onclick="updateRoles()" id="Revelador"><span class="slider"></span> Revelador</label>
-                </li>
                 <li class="rol-caotico" style="display: none;" onmousedown="handleTouchStart('Sirius')" onmouseup="handleTouchEnd()" onmouseleave="handleTouchEnd()" ontouchstart="handleTouchStart('Sirius')" ontouchend="handleTouchEnd()">
                     <label class="switch"><input type="checkbox" onclick="updateRoles()" id="Sirius"><span class="slider"></span> S.I.R.I.U.S.</label>
-                </li>
-                <li onmousedown="handleTouchStart('Suicida')" onmouseup="handleTouchEnd()" onmouseleave="handleTouchEnd()" ontouchstart="handleTouchStart('Suicida')" ontouchend="handleTouchEnd()">
-                    <label class="switch"><input type="checkbox" onclick="updateRoles()" id="Suicida"><span class="slider"></span> Suicida</label>
-                </li>
-                <li onmousedown="handleTouchStart('Travieso')" onmouseup="handleTouchEnd()" onmouseleave="handleTouchEnd()" ontouchstart="handleTouchStart('Travieso')" ontouchend="handleTouchEnd()">
-                    <label class="switch"><input type="checkbox" onclick="updateRoles()" id="Travieso"><span class="slider"></span> Travieso</label>
-                </li>
-                <li onmousedown="handleTouchStart('Tripulante')" onmouseup="handleTouchEnd()" onmouseleave="handleTouchEnd()" ontouchstart="handleTouchStart('Tripulante')" ontouchend="handleTouchEnd()">
-                    <label class="switch"><input type="checkbox" onclick="updateRoles()" id="Tripulante"><span class="slider"></span> Tripulante</label>
                 </li>
                 <li class="rol-caotico" style="display: none;" onmousedown="handleTouchStart('Viajero')" onmouseup="handleTouchEnd()" onmouseleave="handleTouchEnd()" ontouchstart="handleTouchStart('Viajero')" ontouchend="handleTouchEnd()">
                     <label class="switch"><input type="checkbox" onclick="updateRoles()" id="Viajero"><span class="slider"></span> Viajero</label>
                 </li>
-                <li onmousedown="handleTouchStart('Viejo')" onmouseup="handleTouchEnd()" onmouseleave="handleTouchEnd()" ontouchstart="handleTouchStart('Viejo')" ontouchend="handleTouchEnd()">
-                    <label class="switch"><input type="checkbox" onclick="updateRoles()" id="Viejo"><span class="slider"></span> Viejo</label>
+                <p class="rol-pirata" style="display: none; text-align: left; color: orange;">Roles pirata</p>
+                <li class="rol-pirata" style="display: none;" onmousedown="handleTouchStart('Capitan')" onmouseup="handleTouchEnd()" onmouseleave="handleTouchEnd()" ontouchstart="handleTouchStart('Capitan')" ontouchend="handleTouchEnd()">
+                    <label class="switch"><input type="checkbox" onclick="updateRoles()" id="Capitan"><span class="slider"></span> Capitán</label>
                 </li>
-                <li onmousedown="handleTouchStart('Vigia')" onmouseup="handleTouchEnd()" onmouseleave="handleTouchEnd()" ontouchstart="handleTouchStart('Vigia')" ontouchend="handleTouchEnd()">
-                    <label class="switch"><input type="checkbox" onclick="updateRoles()" id="Vigia"><span class="slider"></span> Vigía</label>
+                <li  class="rol-pirata" style="display: none;" onmousedown="handleTouchStart('Corsaria')" onmouseup="handleTouchEnd()" onmouseleave="handleTouchEnd()" ontouchstart="handleTouchStart('Corsaria')" ontouchend="handleTouchEnd()">
+                    <label class="switch"><input type="checkbox" onclick="updateRoles()" id="Corsaria"><span class="slider"></span> Corsaria</label>
                 </li>
-
+                <li class="rol-pirata" style="display: none;" onmousedown="handleTouchStart('Pirata')" onmouseup="handleTouchEnd()" onmouseleave="handleTouchEnd()" ontouchstart="handleTouchStart('Pirata')" ontouchend="handleTouchEnd()">
+                    <label class="switch"><input type="checkbox" onclick="updateRoles()" id="Pirata"><span class="slider"></span> Pirata</label>
+                </li>
+                <p class="rol-tarjeta-acceso" style="display: none; text-align: left; color: cyan;">Roles de tarjeta de acceso</p>
+                <li class="rol-tarjeta-acceso" style="display: none;" onmousedown="handleTouchStart('Conserje')" onmouseup="handleTouchEnd()" onmouseleave="handleTouchEnd()" ontouchstart="handleTouchStart('Conserje')" ontouchend="handleTouchEnd()">
+                    <label class="switch"><input type="checkbox" onclick="updateRoles()" id="Conserje"><span class="slider"></span> Conserje</label>
+                </li>
+                <li class="rol-tarjeta-acceso" style="display: none;" onmousedown="handleTouchStart('Mecanico')" onmouseup="handleTouchEnd()" onmouseleave="handleTouchEnd()" ontouchstart="handleTouchStart('Mecanico')" ontouchend="handleTouchEnd()">
+                    <label class="switch"><input type="checkbox" onclick="updateRoles()" id="Mecanico"><span class="slider"></span> Mecánico</label>
+                </li>
+                <li class="rol-tarjeta-acceso" style="display: none;" onmousedown="handleTouchStart('Portero')" onmouseup="handleTouchEnd()" onmouseleave="handleTouchEnd()" ontouchstart="handleTouchStart('Portero')" ontouchend="handleTouchEnd()">
+                    <label class="switch"><input type="checkbox" onclick="updateRoles()" id="Portero"><span class="slider"></span> Portero</label>
+                </li>
+                <li class="rol-tarjeta-acceso" style="display: none;" onmousedown="handleTouchStart('Recolector')" onmouseup="handleTouchEnd()" onmouseleave="handleTouchEnd()" ontouchstart="handleTouchStart('Recolector')" ontouchend="handleTouchEnd()">
+                    <label class="switch"><input type="checkbox" onclick="updateRoles()" id="Recolector"><span class="slider"></span> Recolector</label>
+                </li>
             </ul>
         </div>
         </div>
@@ -829,7 +853,8 @@
             </div>
             <div id="Recolector-message" style="display: none; border: 2px solid blue; border-radius: 10px; padding: 20px; margin-bottom: 15px; background-color: #222;">
                 <p>El recolector abre los ojos.</p>
-                <p>El recolector ve la carta de acceso de cualquier jugador. Si el jugador está inmediatamente a su izquierda o derecha en la ronda, el recolector se queda con su tarjeta de acceso.</p>
+                <p>El recolector ve la carta de acceso de cualquier jugador.</p>
+                <p>El recolector indica izquierda o derecha, y el director mueve la tarjeta de acceso en esa dirección.</p>
                 <p>El recolector cierra los ojos.</p>
             </div>
             <div id="Pirata-message" style="display: none; border: 2px solid orange; border-radius: 10px; padding: 20px; margin-bottom: 15px; background-color: #222;">
@@ -1153,7 +1178,7 @@
                     message = "<p style='color: orange; font-weight: bold;'>Pirata</p><p style='color: orange;'>Los piratas ganan si son elegidos como comandantes.</p><p style='color: gray; font-style: italic;'>Sus ojos están sanos, pero igual usa un parche porque 'se ve cool'. No sabe que su casco es vidrio oscuro.</p>";
                 break;
                 case "Portero":
-                    message = "<p style='color: blue; font-weight: bold;'>Portero</p><p style='color: blue;'>El portero le da a otro jugador una tarjeta de acceso.</p><p style='color: gray; font-style: italic;'>A veces se aburre de estar todo el día sentado. Después de todo, en centro del espacio no suelen venir muchos invitados.</p>";
+                    message = "<p style='color: blue; font-weight: bold;'>Portero</p><p style='color: blue;'>El portero le da a otro jugador una tarjeta de acceso.</p><p style='color: gray; font-style: italic;'>A veces se aburre de estar todo el día sentado. Después de todo, en medio del espacio no suelen venir muchos invitados.</p>";
                 break;
                 case "Quimico":
                     message = "<p style='color: blue; font-weight: bold;'>Químico</p><p style='color: blue;'>Intercambia su carta por una de las cartas del centro sin verla.</p><p style='color: gray; font-style: italic;'>Lo echaron de su anterior empleo por vender agua hexagonal.</p>";
@@ -1162,7 +1187,7 @@
                     message = "<p style='color: blue; font-weight: bold;'>Radiactivo</p><p style='color: blue;'>Le muestra su carta a otro jugador.</p><p style='color: gray; font-style: italic;'>Consumió 300 gr de plutonio. Su expectativa de vida es de 2 días, pero brilla en la oscuridad. Valió la pena.</p>";
                 break;
                 case "Recolector":
-                    message = "<p style='color: blue; font-weight: bold;'>Recolector</p><p style='color: blue;'>El recolector ve la carta de acceso de cualquier jugador. Si el jugador está inmediatamente a su izquierda o derecha en la ronda, el recolector se queda con su tarjeta de acceso.</p><p style='color: gray; font-style: italic;'>El mecánico lo alimenta con aceite y chatarra espacial.</p>";
+                    message = "<p style='color: blue; font-weight: bold;'>Recolector</p><p style='color: blue;'>El recolector ve la carta de acceso de cualquier jugador, y la mueve una posición hacia la izquierda, o derecha, a elección.</p><p style='color: gray; font-style: italic;'>El mecánico lo alimenta con aceite y chatarra espacial.</p>";
                 break;
                 case "Revelador":
                     message = "<p style='color: blue; font-weight: bold;'>Revelador</p><p style='color: blue;'>El revelador señala la carta de un jugador, y la coloca boca arriba. Si la carta no es azul, vuelve a colocarla boca abajo.</p><p style='color: gray; font-style: italic;'>Ha visto cosas que te dejarían helado; litros y litros de agua en estado sólido.</p>";
